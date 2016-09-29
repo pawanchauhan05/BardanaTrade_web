@@ -1,0 +1,338 @@
+/***********   header.php ************/
+
+.top-right {
+	margin-top: 7px;
+	text-align: right;
+	font-size: 16px;
+	color: #ffffff;
+}
+
+.top-left {
+	margin-top: 7px;
+	font-size: 16px;
+	color: #ffffff;
+}
+
+.top-header {
+	background-color: #5A0A01;
+}
+
+.head-post-sell-button {
+	font-size: 14px;
+	margin-top: 30px;
+}
+
+.head-post-buy-button {
+	font-size: 14px;
+	margin-right: 10px;
+	margin-top: 30px;
+}
+
+.head-button {
+	text-align: right;
+}
+
+.top-head-title {
+	margin-right: 10px;
+	color: #ffffff;
+}
+
+/******* navbar.php ***********/
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+
+/* CSS used here will be applied after bootstrap.css */
+
+/* Create a medium height at 40px */
+.navbar-md {min-height:40px}
+.navbar-md .navbar-brand,
+.navbar-md .navbar-nav>li>a {padding-top:10px; padding-bottom:10px}
+.navbar-md .navbar-brand {height: 40px}  
+.navbar-md .navbar-toggle {margin: 6px 12px 6px 0px; padding: 6px 7px 6px 7px;}
+.navbar-md .navbar-toggle .icon-bar {width: 19px;}
+
+
+/* Create a small height at 30px */
+.navbar-sm {min-height:30px}
+.navbar-sm .navbar-brand,
+.navbar-sm .navbar-nav>li>a {padding-top:5px; padding-bottom:5px}
+.navbar-sm .navbar-brand {height: 30px}
+.navbar-sm .navbar-toggle {margin: 3px 9px 3px 0px; padding: 4px 4px 4px 4px;}
+.navbar-sm .navbar-toggle .icon-bar {width: 16px;}
+
+.main-top-buyer-head {
+	font-size: 16px;
+	background-color: #e7e7e7;
+	padding: 5px;
+}
+
+.main-top-seller-head {
+	font-size: 16px;
+	background-color: #e7e7e7;
+	padding: 5px;
+}
+
+.main-top-special-services-head {
+	font-size: 16px;
+	background-color: #e7e7e7;
+	padding: 5px;
+}
+
+/****************************** main.php *********************************/
+
+
+hr.horizontal-line {
+	border-top: 1px solid #eee;
+	margin-bottom: 4px;
+	margin-top: unset;
+}
+
+.product-title {
+	font-size: 16px;
+	background-color: #e7e7e7;
+	padding: 5px;
+	font-weight: bold;
+}
+
+.latest-product-title {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+/******************* footer.php ***********************/
+
+.footer {
+	text-align: center;
+	background-color: #5A0A01;
+}
+
+.footer-text {
+	color: #ffffff;
+	padding-top: 10px;
+}
+
+/*********** about-us.php *************************/
+
+.about-us-title {
+	font-size: 26px;
+}
+
+.about-us-text {
+	font-size: 18px;
+}
+
+/************ vision-mission.php *******************/
+
+.vission-title {
+	font-size: 26px;
+}
+
+.vision-text {
+	font-size: 18px;
+}
+
+/******************* contact-us.php **********************/
+
+.contact-us-title {
+	font-size: 26px;
+}
+
+/************************ login.php **********************/
+
+.login-title {
+	font-size: 24px;
+}
+
+.sign-up-title {
+	font-size: 24px;
+}
+
+/************************* profile.php ********************/
+
+.profile-title {
+	padding: 5px;
+	text-align: center;
+	font-size: 24px;
+}
+
+/****************************** quality.php **********************/
+
+.quality-title {
+	font-size: 24px;
+}
+
+.quality-text {
+	font-size: 18px;
+}
+
+.quality-point {
+	font-size: 18px;
+}
+
+/********************************* benefits ****************************/
+
+.benefits-title {
+	font-size: 24px;
+}
+
+.benefits-text {
+	font-size: 18px;
+}
+
+.benefits-point {
+	font-size: 18px;
+}
+
+/************************************* faq.php ***************************/
+
+.faq-title {
+	font-size: 24px;
+}
+
+.faq-text {
+	font-size: 16px;
+}
+
+/*************************** media query ********************/
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+
+	.top-left {
+		text-align: center;
+	}
+
+	.top-right {
+		text-align: center;
+	}
+
+	.head-post-sell-button, .head-post-buy-button {
+		margin-top: unset;
+	}
+
+	.head-button {
+		text-align: center;
+	}
+
+	.nav-bar {
+		margin-top: 10px;
+	}
+
+	.login-title {
+		margin-top: 10px;
+	}
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+
+	.top-left {
+		text-align: center;
+	}
+
+	.top-right {
+		text-align: center;
+	}
+
+	.head-button {
+		text-align: center;
+	}
+
+	.head-post-sell-button, .head-post-buy-button {
+		margin-top: unset;
+	}
+
+	.nav-bar {
+		margin-top: 10px;
+	}
+
+	.login-title {
+		margin-top: 10px;
+	}
+}
+
+@media only screen and (max-width : 320px) {
+	
+	.top-left {
+		text-align: center;
+	}
+
+	.top-right {
+		text-align: center;
+	}
+
+	.head-button {
+		text-align: center;
+	}
+
+	.head-post-sell-button, .head-post-buy-button {
+		margin-top: unset;
+	}
+
+	.nav-bar {
+		margin-top: 10px;
+	}
+
+	.login-title {
+		margin-top: 10px;
+	}
+
+}
