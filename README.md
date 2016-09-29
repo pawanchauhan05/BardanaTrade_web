@@ -1,0 +1,1 @@
+# BardanaTrade_web
