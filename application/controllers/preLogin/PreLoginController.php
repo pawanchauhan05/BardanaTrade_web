@@ -13,7 +13,13 @@ class PreLoginController extends CI_Controller {
         }*/
 
         $data = $this->PreLoginModel->loginUser("demo@gmail.com", "12345");
-        $this->HomeModel->startSession($data->name,  $data->email);
-        redirect('profile');
+        if($data->isComplete == 0) {
+            $this->HomeModel->startSession($data->name,  $data->email, FALSE);
+            redirect('check-profile'); 
+        } else {
+            $this->HomeModel->startSession($data->name,  $data->email, TRUE);
+            redirect('profile');
+        }
+        
     }
 }

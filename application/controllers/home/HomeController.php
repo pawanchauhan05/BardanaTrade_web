@@ -7,4 +7,13 @@ class HomeController extends CI_Controller {
 		$this->HomeModel->stopSession();
 		redirect('index');
 	}
+
+	public function userProfileComplete() {
+		$this->HomeModel->completeProfile();
+	}
+
+	public function updateUserProfileName() {
+		$fullName = $this->input->post('value');
+		$this->HomeModel->updateName($fullName);
+	}
 }

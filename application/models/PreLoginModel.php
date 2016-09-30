@@ -10,54 +10,87 @@ class PreLoginModel extends CI_Model {
      * to load view while user click on link
      */
     public function loadView() {
+        $sessionData = $this->HomeModel->readSessionData();
         $content = $this->uri->segment(1);
         if ($this->uri->segment(1) != null && !$this->uri->segment(1) == '') {
             switch ($this->uri->segment(1)) {
                 case 'about':
-                    $content = 'preLogin/about-us';
+                    if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
+                       $content = 'home/check-profile';
+                    } else { $content = 'preLogin/about-us'; }
                     break;
 
                 case 'benefits':
-                    $content = 'preLogin/benefits';
+                    if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
+                       $content = 'home/check-profile';
+                    } else { $content = 'preLogin/benefits'; }
                     break;
 
                 case 'contact':
-                    $content = 'preLogin/contact-us';
+                    if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
+                       $content = 'home/check-profile';
+                    } else { $content = 'preLogin/contact-us'; }
                     break;
 
                 case 'faq':
-                    $content = 'preLogin/faq';
+                    if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
+                       $content = 'home/check-profile';
+                    } else { $content = 'preLogin/faq'; }
                     break;
 
                 case 'login':
-                	$content = "preLogin/login";
+                    if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
+                       $content = 'home/check-profile';
+                    } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {
+                        $content = 'preLogin/main';
+                    } else { $content = "preLogin/login"; }
                 	break;
                 
                 case 'vision-mission':
-                    $content = 'preLogin/vision-mission';
+                    if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
+                       $content = 'home/check-profile';
+                    } else { $content = 'preLogin/vision-mission'; }
                     break;
 
                 case 'quality':
-                    $content = 'preLogin/quality';
+                    if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
+                       $content = 'home/check-profile';
+                    } else { $content = 'preLogin/quality'; }
                     break;
 
                 case 'profile':
-                    $sessionData = $this->HomeModel->readSessionData();
-                    if(isset($sessionData['sessionData'])) {
-                	   $content = 'home/profile';
+                    if(isset($sessionData['sessionData']) && $sessionData['sessionData']['isProfileComplete'] == FALSE) {
+                	   $content = 'home/check-profile';
+                    } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {
+                        $content = 'home/profile';
                     } else { redirect('login'); }
                 	break;
 
+                case 'check-profile':
+                    $sessionData = $this->HomeModel->readSessionData();
+                    if(isset($sessionData['sessionData']) && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
+                       $content = 'home/check-profile';
+                    } else { redirect('login'); }
+                    break;
+
                 case 'products':
-                	$content = 'home/products';
+                    if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
+                       $content = 'home/check-profile';
+                    } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {
+                        $content = 'home/products';
+                    } else { redirect('login'); }
                 	break;
 
                 default:
-                    $content = 'preLogin/main';
+                    if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
+                       $content = 'home/check-profile';
+                    } else { $content = 'preLogin/main'; }
                     break;
             }
         } else {
-        	$content = 'preLogin/main';
+            if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
+               $content = 'home/check-profile';
+            } else { $content = 'preLogin/main'; }
         }
         $this->load->view($content);
     }

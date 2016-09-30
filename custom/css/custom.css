@@ -201,6 +201,10 @@ hr.horizontal-line {
 	font-size: 24px;
 }
 
+.edit-profile-item-name {
+	margin-bottom: 10px;
+}
+
 /****************************** quality.php **********************/
 
 .quality-title {

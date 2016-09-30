@@ -13,8 +13,10 @@
     <link href="<?php echo base_url() ?>bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="<?php echo base_url() ?>bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Owal carousal ---->
+    <!-- Owal carousal -->
     <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/owl.carousel/dist/assets/owl.carousel.min.css" />
+    <!-- X-editable -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css" />
     
 
     <!-- Custom Theme Style -->
@@ -37,6 +39,8 @@
     <script src="<?php echo base_url() ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Owal carousal ---->
     <script src="<?php echo base_url() ?>bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+    <!-- X-editable -->
+    <script src="<?php echo base_url() ?>bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
     
     <!-- Custom Theme Scripts 
@@ -59,6 +63,18 @@
         $('.stop').on('click',function(){
             owl.trigger('autoplay.stop.owl')
         })
+
+        $('#profile-item-name').editable({
+                           type:  'text',
+                           pk:    1,
+                           name:  'fullName',
+                           url:   'update-user-profile-name',  
+                           title: 'Enter full name',
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
     });
     </script>
 

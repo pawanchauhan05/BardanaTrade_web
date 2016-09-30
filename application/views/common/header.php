@@ -8,7 +8,7 @@
 					<?php
 						$sessionData = $this->HomeModel->readSessionData();
         				if(isset($sessionData['sessionData'])) { ?>
-        					<a href='' class='top-head-title'><?php echo $sessionData['sessionData']['name'] ?></a>
+        					<a href="<?php echo base_url() ?>index.php/profile" class='top-head-title'><?php echo $sessionData['sessionData']['name'] ?></a>
         			<?php
         				} else { ?>
         					<a href="" class='top-head-title'>My BardanaTrade</a>
@@ -24,9 +24,9 @@
 					<?php
 						$sessionData = $this->HomeModel->readSessionData();
         				if(isset($sessionData['sessionData'])) { ?>
-						<a href='' class='top-head-title'><?php echo "Logout" ?></a>
+						<a href="<?php echo base_url() ?>index.php/user-logout" class='top-head-title'><?php echo "Logout" ?></a>
         				<?php } else { ?>
-        					<a href="<?php echo base_url() ?>index.php/login" class="top-head-title">Create Account</a> 
+        					<a href="<?php echo base_url() ?>index.php/login ?>" class="top-head-title">Create Account</a> 
 					<span class="top-head-title">|</span> 
 					<a href="<?php echo base_url() ?>index.php/login" class="top-head-title">Login</a>
         				<?php } ?>

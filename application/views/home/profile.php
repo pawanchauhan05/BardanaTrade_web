@@ -12,6 +12,16 @@
 		            <div class="col-sm-3"></div>
 		            <div class="col-sm-6">
 		            	<p class="profile-title">Personal Information</p>
+			            	<a href="#" id="profile-item-name">Pawan Singh Chauhan</a>
+			            	<p>Email : demo@gmail.com</p>
+			            	<p>Mobile : 9772217799</p>
+			            	<p>Company Name : Fitterfox</p>
+			            	<p>Designation : Developer</p>
+			            	<p>Location : E-702</p>
+			            	<p>City : Kota</p>
+			            	<p>State : Rajasthan</p>
+			            	<p>Country : India</p>
+			            	<p>Pincode : 324008 </p>
 		            </div>
 		            <div class="col-sm-3"></div>
 		        </div>

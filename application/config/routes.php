@@ -60,10 +60,14 @@ $route['vision-mission'] = 'welcome';
 $route['quality'] = 'welcome';
 $route['profile'] = 'welcome';
 $route['products'] = 'welcome';
+$route['check-profile'] = 'welcome';
+
 
 // action
 $route['user-login'] = 'preLogin/PreLoginController/loginUser';
 $route['user-logout'] = 'home/HomeController/logoutUser';
+$route['user-profile-complete'] = 'home/HomeController/userProfileComplete';
+$route['update-user-profile-name'] = 'home/HomeController/updateUserProfileName';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
