@@ -12,16 +12,86 @@
 		            <div class="col-sm-3"></div>
 		            <div class="col-sm-6">
 		            	<p class="profile-title">Personal Information</p>
-			            	<a href="#" id="profile-item-name">Pawan Singh Chauhan</a>
-			            	<p>Email : demo@gmail.com</p>
-			            	<p>Mobile : 9772217799</p>
-			            	<p>Company Name : Fitterfox</p>
-			            	<p>Designation : Developer</p>
-			            	<p>Location : E-702</p>
-			            	<p>City : Kota</p>
-			            	<p>State : Rajasthan</p>
-			            	<p>Country : India</p>
-			            	<p>Pincode : 324008 </p>
+
+		            		<div class="row">
+		            			<div class="col-xs-4 col-sm-5">Email</div>
+		            			<div class="col-xs-2 col-sm-2">:</div>
+		            			<div class="col-xs-6 col-sm-5">
+		            				demo@gmail.com
+		            			</div>
+		            		</div>
+
+		            		<div class="row">
+		            			<div class="col-xs-4 col-sm-5">Name</div>
+		            			<div class="col-xs-2 col-sm-2">:</div>
+		            			<div class="col-xs-6 col-sm-5">
+		            				<a href="#" id="profile-item-name">Pawan Singh Chauhan</a>
+		            			</div>
+		            		</div>
+
+			            	<div class="row">
+		            			<div class="col-xs-4 col-sm-5">Mobile</div>
+		            			<div class="col-xs-2 col-sm-2">:</div>
+		            			<div class="col-xs-6 col-sm-5">
+		            				<a href="#" id="profile-item-mobile">9772217799</a>
+		            			</div>
+		            		</div>
+
+		            		<div class="row">
+		            			<div class="col-xs-4 col-sm-5">Organisation</div>
+		            			<div class="col-xs-2 col-sm-2">:</div>
+		            			<div class="col-xs-6 col-sm-5">
+		            				<a href="#" id="profile-item-organisation">Fitterfox</a>
+		            			</div>
+		            		</div>
+
+		            		<div class="row">
+		            			<div class="col-xs-4 col-sm-5">Designation</div>
+		            			<div class="col-xs-2 col-sm-2">:</div>
+		            			<div class="col-xs-6 col-sm-5">
+		            				<a href="#" id="profile-item-designation">Developer</a>
+		            			</div>
+		            		</div>
+
+		            		<div class="row">
+		            			<div class="col-xs-4 col-sm-5">Location</div>
+		            			<div class="col-xs-2 col-sm-2">:</div>
+		            			<div class="col-xs-6 col-sm-5">
+		            				<a href="#" id="profile-item-location">E-702</a>
+		            			</div>
+		            		</div>
+
+		            		<div class="row">
+		            			<div class="col-xs-4 col-sm-5">City</div>
+		            			<div class="col-xs-2 col-sm-2">:</div>
+		            			<div class="col-xs-6 col-sm-5">
+		            				<a href="#" id="profile-item-city">Kota</a>
+		            			</div>
+		            		</div>
+
+		            		<div class="row">
+		            			<div class="col-xs-4 col-sm-5">State</div>
+		            			<div class="col-xs-2 col-sm-2">:</div>
+		            			<div class="col-xs-6 col-sm-5">
+		            				<a href="#" id="profile-item-state">Rajasthan</a>
+		            			</div>
+		            		</div>
+
+		            		<div class="row">
+		            			<div class="col-xs-4 col-sm-5">Country</div>
+		            			<div class="col-xs-2 col-sm-2">:</div>
+		            			<div class="col-xs-6 col-sm-5">
+		            				<a href="#" id="profile-item-country">India</a>
+		            			</div>
+		            		</div>
+
+		            		<div class="row">
+		            			<div class="col-xs-4 col-sm-5">PinCode</div>
+		            			<div class="col-xs-2 col-sm-2">:</div>
+		            			<div class="col-xs-6 col-sm-5">
+		            				<a href="#" id="profile-item-pincode">324008</a>
+		            			</div>
+		            		</div>
 		            </div>
 		            <div class="col-sm-3"></div>
 		        </div>

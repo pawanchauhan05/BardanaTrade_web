@@ -75,6 +75,104 @@
                                 return 'This field is required';
                             }
                         });
+
+        $('#profile-item-mobile').editable({
+                           type:  'text',
+                           pk:    1,
+                           name:  'fullName',
+                           url:   'update-user-profile-name',  
+                           title: 'Enter full name',
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
+
+        $('#profile-item-organisation').editable({
+                           type:  'text',
+                           pk:    1,
+                           name:  'fullName',
+                           url:   'update-user-profile-name',  
+                           title: 'Enter full name',
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
+
+
+        $('#profile-item-designation').editable({
+                           type:  'text',
+                           pk:    1,
+                           name:  'fullName',
+                           url:   'update-user-profile-name',  
+                           title: 'Enter full name',
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
+
+        $('#profile-item-location').editable({
+                           type:  'text',
+                           pk:    1,
+                           name:  'fullName',
+                           url:   'update-user-profile-name',  
+                           title: 'Enter full name',
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
+
+        $('#profile-item-city').editable({
+                           type:  'text',
+                           pk:    1,
+                           name:  'fullName',
+                           url:   'update-user-profile-name',  
+                           title: 'Enter full name',
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
+
+        $('#profile-item-state').editable({
+                           type:  'text',
+                           pk:    1,
+                           name:  'fullName',
+                           url:   'update-user-profile-name',  
+                           title: 'Enter full name',
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
+
+        $('#profile-item-country').editable({
+                           type:  'text',
+                           pk:    1,
+                           name:  'fullName',
+                           url:   'update-user-profile-name',  
+                           title: 'Enter full name',
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
+
+        $('#profile-item-pincode').editable({
+                           type:  'text',
+                           pk:    1,
+                           name:  'fullName',
+                           url:   'update-user-profile-name',  
+                           title: 'Enter full name',
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
+
     });
     </script>
 
