@@ -18,8 +18,8 @@
                         <li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services Form</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Buy Request Form</a></li>
-                                <li><a href="#">Sell Request Form</a></li>
+                                <li><a href="<?php echo base_url() ?>index.php/product-buy-form">Buy Request Form</a></li>
+                                <li><a href="<?php echo base_url() ?>index.php/product-sell-form">Sell Request Form</a></li>
                                 <li><a href="#">Tender Request Form</a></li>
                             </ul>
                         </li>
@@ -34,9 +34,9 @@
                         <li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Bags</a></li>
-                                <li><a href="#">Twine & Yarn</a></li>
-                                <li><a href="#">Machines</a></li>
+                                <li><a href="<?php echo base_url() ?>index.php/products/Bags">Bags</a></li>
+                                <li><a href="<?php echo base_url() ?>index.php/products/Twine-and-Yarn">Twine & Yarn</a></li>
+                                <li><a href="<?php echo base_url() ?>index.php/products/Machines">Machines</a></li>
                             </ul>
                         </li>
                     </ul>

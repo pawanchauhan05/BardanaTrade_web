@@ -44,8 +44,8 @@
 			</div>
 			<div class="col-sm-6">
 				<div class="head-button">
-					<a href="#" class="btn btn-success head-post-sell-button">Post Sell Request</a>
-					<a href="#" class="btn btn-warning head-post-buy-button">Post Buy Request</a>
+					<a href="<?php echo base_url() ?>index.php/product-sell-form" class="btn btn-success head-post-sell-button">Post Sell Request</a>
+					<a href="<?php echo base_url() ?>index.php/product-buy-form" class="btn btn-warning head-post-buy-button">Post Buy Request</a>
 				</div>
 			</div>
 		</div>

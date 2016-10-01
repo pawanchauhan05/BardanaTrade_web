@@ -12,6 +12,7 @@
 		            <div class="col-sm-3"></div>
 		            <div class="col-sm-6">
 		            	<p class="profile-title">Personal Information</p>
+		            	<div class="profile-items">
 
 		            		<div class="row">
 		            			<div class="col-xs-4 col-sm-5">Email</div>
@@ -92,6 +93,8 @@
 		            				<a href="#" id="profile-item-pincode">324008</a>
 		            			</div>
 		            		</div>
+
+		            	</div>
 		            </div>
 		            <div class="col-sm-3"></div>
 		        </div>

@@ -10,6 +10,9 @@ class PreLoginModel extends CI_Model {
      * to load view while user click on link
      */
     public function loadView() {
+        $data = array(
+                'category' => ''
+            );
         $sessionData = $this->HomeModel->readSessionData();
         $content = $this->uri->segment(1);
         if ($this->uri->segment(1) != null && !$this->uri->segment(1) == '') {
@@ -77,9 +80,35 @@ class PreLoginModel extends CI_Model {
                     if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
                        $content = 'home/check-profile';
                     } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {
+                        if ($this->uri->segment(2) != null && !$this->uri->segment(2) == '') {
+                            $data = array(
+                                    'category' => $this->uri->segment(2)
+                                );
+                        }
+
+
+
                         $content = 'home/products';
                     } else { redirect('login'); }
                 	break;
+
+                case 'product-sell-form':
+                    $data = array('forWhich' => 'Sell');
+                    if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
+                       $content = 'home/check-profile';
+                    } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {
+                        $content = 'home/product-form';
+                    } else { redirect('login'); }
+                    break;
+
+                case 'product-buy-form':
+                    $data = array('forWhich' => 'Buy');
+                    if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
+                       $content = 'home/check-profile';
+                    } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {
+                        $content = 'home/product-form';
+                    } else { redirect('login'); }
+                    break;
 
                 default:
                     if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
@@ -92,7 +121,7 @@ class PreLoginModel extends CI_Model {
                $content = 'home/check-profile';
             } else { $content = 'preLogin/main'; }
         }
-        $this->load->view($content);
+        $this->load->view($content, $data);
     }
 
 

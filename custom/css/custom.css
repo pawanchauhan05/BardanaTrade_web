@@ -205,6 +205,14 @@ hr.horizontal-line {
 	margin-bottom: 10px;
 }
 
+.profile-items {
+	font-weight: bold;
+	font-size: 16px;
+	background-color: #eaeae1;
+	padding: 10px;
+	border-radius: 4px;
+}
+
 /****************************** quality.php **********************/
 
 .quality-title {
@@ -241,6 +249,13 @@ hr.horizontal-line {
 
 .faq-text {
 	font-size: 16px;
+}
+
+/************************************ product-form.php ************************/
+
+.product-form-title {
+	font-size: 24px;
+	font-weight: bold;
 }
 
 /*************************** media query ********************/

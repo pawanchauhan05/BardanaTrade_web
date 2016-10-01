@@ -61,6 +61,12 @@ $route['quality'] = 'welcome';
 $route['profile'] = 'welcome';
 $route['products'] = 'welcome';
 $route['check-profile'] = 'welcome';
+$route['product-sell-form'] = 'welcome';
+$route['product-buy-form'] = 'welcome';
+$route['products/Bags'] = 'welcome';
+$route['products/Machines'] = 'welcome';
+$route['products/Twine-and-Yarn'] = 'welcome';
+$route['products/Others'] = 'welcome';
 
 
 // action
@@ -68,6 +74,14 @@ $route['user-login'] = 'preLogin/PreLoginController/loginUser';
 $route['user-logout'] = 'home/HomeController/logoutUser';
 $route['user-profile-complete'] = 'home/HomeController/userProfileComplete';
 $route['update-user-profile-name'] = 'home/HomeController/updateUserProfileName';
+$route['update-user-profile-mobile'] = 'home/HomeController/updateUserProfileMobile';
+$route['update-user-profile-organisation'] = 'home/HomeController/updateUserProfileOrganisation';
+$route['update-user-profile-designation'] = 'home/HomeController/updateUserProfileDesignation';
+$route['update-user-profile-address'] = 'home/HomeController/updateUserProfileAddress';
+$route['update-user-profile-city'] = 'home/HomeController/updateUserProfileCity';
+$route['update-user-profile-state'] = 'home/HomeController/updateUserProfileState';
+$route['update-user-profile-country'] = 'home/HomeController/updateUserProfileCountry';
+$route['update-user-profile-pincode'] = 'home/HomeController/updateUserProfilePincode';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
