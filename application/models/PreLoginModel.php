@@ -85,9 +85,6 @@ class PreLoginModel extends CI_Model {
                                     'category' => $this->uri->segment(2)
                                 );
                         }
-
-
-
                         $content = 'home/products';
                     } else { redirect('login'); }
                 	break;
@@ -107,6 +104,14 @@ class PreLoginModel extends CI_Model {
                        $content = 'home/check-profile';
                     } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {
                         $content = 'home/product-form';
+                    } else { redirect('login'); }
+                    break;
+
+                case 'product-details':
+                    if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
+                       $content = 'home/check-profile';
+                    } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {
+                        $content = 'home/product-details';
                     } else { redirect('login'); }
                     break;
 

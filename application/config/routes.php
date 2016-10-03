@@ -62,6 +62,7 @@ $route['profile'] = 'welcome';
 $route['check-profile'] = 'welcome';
 $route['product-sell-form'] = 'welcome';
 $route['product-buy-form'] = 'welcome';
+$route['product-details'] = 'welcome';
 $route['products'] = 'welcome';
 $route['products/:num'] = 'welcome';
 $route['products/Bags'] = 'welcome';

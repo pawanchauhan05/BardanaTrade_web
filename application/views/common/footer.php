@@ -20,7 +20,7 @@
 		</div>
 		<div class="col-xs-6 col-sm-3">
 			<h3>Contact Us</h3><hr class="horizontal-line">
-			<a href="#">info@bardanatrade.com</a>
+			<a href="#"></a>
 		</div>
 	</div>
 </div>
