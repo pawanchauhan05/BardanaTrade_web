@@ -115,6 +115,14 @@ class PreLoginModel extends CI_Model {
                     } else { redirect('login'); }
                     break;
 
+                case 'update-product':
+                    if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
+                       $content = 'home/check-profile';
+                    } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {
+                        $content = 'home/update-product';
+                    } else { redirect('login'); }
+                    break;
+
                 default:
                     if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
                        $content = 'home/check-profile';

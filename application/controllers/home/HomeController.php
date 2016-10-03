@@ -58,4 +58,9 @@ class HomeController extends CI_Controller {
 		$pincode = $this->input->post('value');
 		$this->HomeModel->updatePincode($pincode);
 	}
+
+	public function filterProductsBySubCategory() {
+		$category = $this->input->post('category');
+		$this->HomeModel->showProductsBySubCategory($category);
+	}
 }

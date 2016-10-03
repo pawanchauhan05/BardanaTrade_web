@@ -59,10 +59,12 @@ $route['login'] = 'welcome';
 $route['vision-mission'] = 'welcome';
 $route['quality'] = 'welcome';
 $route['profile'] = 'welcome';
+$route['profile/:num'] = 'welcome';
 $route['check-profile'] = 'welcome';
+$route['update-product/:any'] = 'welcome';
 $route['product-sell-form'] = 'welcome';
 $route['product-buy-form'] = 'welcome';
-$route['product-details'] = 'welcome';
+$route['product-details/:any'] = 'welcome';
 $route['products'] = 'welcome';
 $route['products/:num'] = 'welcome';
 $route['products/Bags'] = 'welcome';
@@ -73,6 +75,7 @@ $route['products/Twine-and-Yarn'] = 'welcome';
 $route['products/Twine-and-Yarn/:num'] = 'welcome';
 $route['products/Others'] = 'welcome';
 $route['products/Others/:num'] = 'welcome';
+$route['filter'] = 'home/HomeController/filterProductsBySubCategory';
 
 
 // action

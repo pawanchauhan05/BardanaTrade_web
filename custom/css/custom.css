@@ -258,6 +258,19 @@ hr.horizontal-line {
 	font-weight: bold;
 }
 
+/**************************************** product-details.php *******************/
+
+.product-details {
+	font-size: 16px;
+	margin-top: 5px;
+	font-weight: bold;
+}
+
+.product-details-contact {
+	font-size: 18px;
+	font-weight: bold;
+}
+
 /*************************** media query ********************/
 
 /* Large desktops and laptops */

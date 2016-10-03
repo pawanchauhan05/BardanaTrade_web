@@ -5,6 +5,7 @@
 		        <li class="active"><a data-toggle="tab" href="#sectionA">Profile</a></li>
 		        <li><a data-toggle="tab" href="#sectionB">Buy Product</a></li>
 		        <li><a data-toggle="tab" href="#sectionC">Sell Product</a></li>
+		        <li><a data-toggle="tab" href="#sectionD">Change Password</a></li>
 		        
 		    </ul>
 		    <div class="tab-content">
@@ -99,14 +100,96 @@
 		            <div class="col-sm-3"></div>
 		        </div>
 		        <div id="sectionB" class="tab-pane fade">
-		            <h3>Section B</h3>
-		            <p></p>
+		        <br>
+		        <?php 
+		        	$configUrl = base_url()."index.php/profile";
+	        		$data = $this->HomeModel->showProducts("Sell", $configUrl);
+	        		$rows = $data->rows;
+	        		$count = $data->count;
+
+	        		if($count != 0) {
+		        	echo "<div class='row'>";
+		        	foreach ($rows as $row) { ?>
+		
+		            	<div class="col-xs-6 col-sm-4 col-md-3">
+			            	<div class="panel panel-default">
+							    <div class="panel-body">
+							    	<a href='<?php echo base_url()."index.php/product-details/".$this->HomeModel->encode($row->id); ?>'>
+							    		<img src="<?php echo base_url() ."images/".$row->productPic ?>" class="img-responsive">
+							    	</a>
+							    	<h3 class="text-center"><?php echo $row->productName ?></h3>
+							    	<p><?php echo $row->productDescription ?></p>
+							    	<div class="">
+							    		<p class="pull-left"><?php echo $row->price ." INR" ?></p>
+							    		<p class="pull-right">Posted <?php echo date("d F", $row->postedOn) ?></p>
+							    	</div>
+							    	<div class="text-center">
+							    		<a href="#" class="btn btn-primary pull-left">Update</a>
+							    		<a href="#" class="btn btn-danger pull-right">Delete</a>
+							    	</div>
+							    </div>
+							</div>
+			            </div>
+		            <?php } echo "</div>"; } else { ?> 
+       
+
+			        Add Error Msg for products
+
+			        <?php } 
+
+			        	
+			        ?>
+		        	<div class="row">
+		        		<div class="col-sm-12"><?php echo $this->pagination->create_links(); ?></div>
+		        	</div> 
 		        </div>
 		        <div id="sectionC" class="tab-pane fade">
-		            <h3>Section C</h3>
-		            <p></p>
+		        <br>
+		        <?php 
+		        	$configUrl = base_url()."index.php/profile";
+	        		$data = $this->HomeModel->showProducts("Buy", $configUrl);
+	        		$rows = $data->rows;
+	        		$count = $data->count;
+
+	        		if($count != 0) {
+		        	echo "<div class='row'>";
+		        	foreach ($rows as $row) { ?>
+		
+		            	<div class="col-xs-6 col-sm-4 col-md-3">
+			            	<div class="panel panel-default">
+							    <div class="panel-body">
+							    	<a href='<?php echo base_url()."index.php/product-details/".$this->HomeModel->encode($row->id); ?>'>
+							    		<img src="<?php echo base_url() ."images/".$row->productPic ?>" class="img-responsive">
+							    	</a>
+							    	<h3 class="text-center"><?php echo $row->productName ?></h3>
+							    	<p><?php echo $row->productDescription ?></p>
+							    	<div class="">
+							    		<p class="pull-left"><?php echo $row->price ." INR" ?></p>
+							    		<p class="pull-right">Posted <?php echo date("d F", $row->postedOn) ?></p>
+							    	</div>
+							    	<div class="text-center">
+							    		<a href='<?php echo base_url()."index.php/update-product/".$this->HomeModel->encode($row->id); ?>' class="btn btn-primary pull-left">Update</a>
+							    		<a href="#" class="btn btn-danger pull-right">Delete</a>
+							    	</div>
+							    </div>
+							</div>
+			            </div>
+		            <?php } echo "</div>"; } else { ?> 
+       
+
+			        Add Error Msg for products
+
+			        <?php } 
+
+			        	
+			        ?>
+		        	<div class="row">
+		        		<div class="col-sm-12"><?php echo $this->pagination->create_links(); ?></div>
+		        	</div> 
 		        </div>
-		        
+		        <div id="sectionD" class="tab-pane fade">
+		        	<p>Change Password</p>
+		        </div>
 		    </div>
 		</div>
 	</div>

@@ -154,13 +154,26 @@ class HomeModel extends CI_Model {
         }
     }
 
+    public function getContactDetails($email) {
+        $condition = array("email" => $email);
+        $this->db->select('*');
+        $this->db->from('Users');
+        $this->db->where($condition);
+        $query = $this->db->get();
+        $row = $query->row();
+        if (isset($row)) {
+            return $query->row();
+        }
+    }
+
     /***************************** for products ************************************/
 
-    public function showProducts($forWhich, $configUrl) {
+    public function showProducts($forWhich, $configUrl, $filter) {
         $condition = "isVisible =" . "'" . "1" . "' AND " . "forWhich =" . "'" . $forWhich . "'";
         $this->db->select('*');
         $this->db->from('Products');
         $this->db->where($condition);
+        //$this->db->where_in('productName',$filter);
         $count = $this->db->get();
         $query = $this->db->get_where('Products', $condition, '5', $this->uri->segment(2));
         if (isset($query)) {
@@ -224,6 +237,14 @@ class HomeModel extends CI_Model {
         }
     }
 
+    public function showProductsBySubCategory($subCategory) {
+        if(!empty($subCategory)) {
+            foreach($subCategory as $check) {
+                    echo $check;
+            }
+        }
+    }
+
     public function getProductCategory() {
         $this->db->select('*');
         $this->db->from('Categories');
@@ -244,7 +265,61 @@ class HomeModel extends CI_Model {
         } 
     }
 
+    public function getProductDetails($id) {
+        $condition = array("id" => $id);
+        $this->db->select('*');
+        $this->db->from('Products');
+        $this->db->where($condition);
+        $query = $this->db->get();
+        $row = $query->row();
+        if (isset($row)) {
+            return $query->row();
+        }
+    }
 
+
+    /**************************** For Encryption only ******************************************* */
+
+    var $skey = "SuPerEncRKey2016";
+
+    public function safe_b64encode($string) {
+        $data = base64_encode($string);
+        $data = str_replace(array('+', '/', '='), array('-', '_', ''), $data);
+        return $data;
+    }
+
+    public function safe_b64decode($string) {
+        $data = str_replace(array('-', '_'), array('+', '/'), $string);
+        $mod4 = strlen($data) % 4;
+        if ($mod4) {
+            $data .= substr('====', $mod4);
+        }
+        return base64_decode($data);
+    }
+
+    public function encode($value) {
+
+        if (!$value) {
+            return false;
+        }
+        $text = $value;
+        $iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
+        $iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+        $crypttext = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $this->skey, $text, MCRYPT_MODE_ECB, $iv);
+        return trim($this->safe_b64encode($crypttext));
+    }
+
+    public function decode($value) {
+
+        if (!$value) {
+            return false;
+        }
+        $crypttext = $this->safe_b64decode($value);
+        $iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
+        $iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+        $decrypttext = mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $this->skey, $crypttext, MCRYPT_MODE_ECB, $iv);
+        return trim($decrypttext);
+    }
 
 
 }

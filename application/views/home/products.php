@@ -22,11 +22,18 @@
 			    	} else {
 			    		$categories = $this->HomeModel->getProductCategory();
 			    	}
+			    	echo form_open('products');
 			    	foreach ($categories as $row) { ?>
 			    		<div class="checkbox">
-						  <label><input type="checkbox" value=""><?php echo $row->subCategory ?></label>
+						  <label>
+						  	<input type="checkbox" name="subCategory[]" value='<?php echo $row->subCategory ?>'>
+						  	<?php echo $row->subCategory ?>
+						  </label>
 						</div>
 			    <?php } ?>
+			    <input type="submit" name="submit">
+			    <?php echo form_close(); ?>
+
 			    </div>
 			</div>
 		</div>
@@ -49,7 +56,15 @@
 		        		$count = $data->count;
 		        	} else {
 		        		$configUrl = base_url()."index.php/products";
-		        		$data = $this->HomeModel->showProducts("Sell", $configUrl);
+		        		if(isset($_POST['subCategory'])) {
+		        			$filter = $this->input->post('subCategory');
+		        			$data = $this->HomeModel->showProducts("Sell", $configUrl, $filter);
+		        		} else {
+		        			$filter = array();
+		        			$data = $this->HomeModel->showProducts("Sell", $configUrl, $filter);	
+		        		}
+		        		
+		        		//$data = $this->HomeModel->showProducts("Sell", $configUrl);
 		        		$rows = $data->rows;
 		        		$count = $data->count;
 		        	}
@@ -64,7 +79,9 @@
 			        	<div class="col-sm-4">
 			            	<div class="panel panel-default">
 							    <div class="panel-body">
-							    	<img src="<?php echo base_url() ."images/".$row->productPic ?>" class="img-responsive">
+							    	<a href='<?php echo base_url()."index.php/product-details/".$this->HomeModel->encode($row->id); ?>'>
+							    		<img src="<?php echo base_url() ."images/".$row->productPic ?>" class="img-responsive">
+							    	</a>
 							    	<h3 class="text-center"><?php echo $row->productName ?></h3>
 							    	<p><?php echo $row->productDescription ?></p>
 							    	<div class="">
@@ -74,7 +91,7 @@
 							    	<div class="text-center">
 							    		<a href="#" class="btn btn-primary">Contact</a>
 							    	</div>
-							    </div>
+							    </div>	
 							</div>
 			            </div>
 
@@ -108,7 +125,13 @@
 			        		$count = $data->count;
 			        	} else {
 			        		$configUrl = base_url()."index.php/products";
-			        		$data = $this->HomeModel->showProducts("Buy", $configUrl);
+			        		if(isset($_POST['subCategory'])) {
+			        			$filter = $this->input->post('subCategory');
+			        			$data = $this->HomeModel->showProducts("Sell", $configUrl, $filter);
+			        		} else {
+			        			$filter = array();
+			        			$data = $this->HomeModel->showProducts("Sell", $configUrl, $filter);	
+			        		}
 			        		$rows = $data->rows;
 			        		$count = $data->count;
 			        	}
