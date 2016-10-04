@@ -26,7 +26,8 @@
 			    	foreach ($categories as $row) { ?>
 			    		<div class="checkbox">
 						  <label>
-						  	<input type="checkbox" name="subCategory[]" value='<?php echo $row->subCategory ?>'>
+						  	<input type="checkbox" name="subCategory[]" value='<?php echo $row->subCategory ?>' 
+						  	<?php // 	echo in_array($row->subCategory, $people) ? "checked" : ""; ?> >
 						  	<?php echo $row->subCategory ?>
 						  </label>
 						</div>
@@ -38,43 +39,69 @@
 			</div>
 		</div>
 		<div class="col-sm-9">
-			<ul class="nav nav-tabs">
-		        <li ><a data-toggle="tab" href="#sectionA">SUPLLIER DETAILS </a></li>
-		        <li class="active"><a data-toggle="tab" href="#sectionB">BUYER DETAILS</a></li>
-		    </ul>
+			<?php
+				if($this->uri->segment(2) != null && $this->uri->segment(2) != '' && !is_numeric($this->uri->segment(2))) {
+					$actionRoute = $this->uri->segment(1)."/".$this->uri->segment(2);
+				} else {
+					$actionRoute = $this->uri->segment(1);
+				}
+			?>
+			<div class="row">
+				<div class="col-xs-6 col-sm-2">
+					<?php echo form_open($actionRoute) ?>
+				    <input type="hidden" name="forWhich" value="Sell">
+				    <button type="submit" class="btn btn-primary ">Suppliers Details</button>
+				    <?php echo form_close() ?>
+				</div>
 
+				<div class="col-xs-6 col-sm-2">
+					<?php echo form_open($actionRoute) ?>
+				    <input type="hidden" name="forWhich" value="Buy">
+				    <button type="submit" class="btn btn-info ">Buyers Details</button>
+				    <?php echo form_close() ?>
+				</div>
+				<div class="col-sm-8">
+				
+				</div>
+			</div>
+			
+					    
+			<?php
 
-		    <div class="tab-content">
-		        
-		        <div id="sectionA" class="tab-pane fade in active">
-		        <br>
-		        <?php
+					if(isset($_POST['forWhich'])) {
+						$this->session->set_userdata('forWhich', $this->input->post('forWhich'));
+						$forWhich = $_SESSION['forWhich'];
+					} else {
+						if(isset($_SESSION['forWhich'])) {
+							$forWhich = $_SESSION['forWhich'];
+						} else {
+							$forWhich = "Sell";	
+						}
+					}
+
 		        	if($category != null && !$category == '' && !is_numeric($category)) {
 		        		$configUrl = base_url()."index.php/products/".$category;
-		        		$data = $this->HomeModel->showProductsByCategory($category, "Sell", $configUrl);
-		        		$rows = $data->rows;
-		        		$count = $data->count;
+		        		$sellData = $this->HomeModel->showProductsByCategory($category, $forWhich, $configUrl);
+		        		$sellRows = $sellData->rows;
+		        		$sellCount = $sellData->count;
 		        	} else {
 		        		$configUrl = base_url()."index.php/products";
 		        		if(isset($_POST['subCategory'])) {
 		        			$filter = $this->input->post('subCategory');
-		        			$data = $this->HomeModel->showProducts("Sell", $configUrl, $filter);
+		        			$sellData = $this->HomeModel->showProducts($forWhich, $configUrl, $filter);
 		        		} else {
 		        			$filter = array();
-		        			$data = $this->HomeModel->showProducts("Sell", $configUrl, $filter);	
+		        			$sellData = $this->HomeModel->showProducts($forWhich, $configUrl, $filter);	
 		        		}
-		        		
-		        		//$data = $this->HomeModel->showProducts("Sell", $configUrl);
-		        		$rows = $data->rows;
-		        		$count = $data->count;
+		        		$sellRows = $sellData->rows;
+		        		$sellCount = $sellData->count;
 		        	}
 
-		        	$rows = $data->rows;
-		        	$count = $data->count;
 		        	
-		        	if($count != 0) {
-		        	echo "<div class='row'>";
-		        	foreach ($rows as $row) { ?>
+		        	
+		        	if($sellCount != 0) {
+		        	echo "<div class='row'><br>";
+		        	foreach ($sellRows as $row) { ?>
 		        	
 			        	<div class="col-sm-4">
 			            	<div class="panel panel-default">
@@ -104,73 +131,9 @@
 
 		        	
 		        ?>
-		        	<div class="row">
-		        		<div class="col-sm-12"><?php echo $this->pagination->create_links(); ?></div>
-		        	</div>    
-		        </div>
 
+		    <?php echo $this->pagination->create_links(); ?>
 
-
-
-
-
-		        <div id="sectionB" class="tab-pane fade">
-		            <br>
-			        <?php
-
-			        	if($category != null && !$category == '' && !is_numeric($category)) {
-			        		$configUrl = base_url()."index.php/products/".$category;
-			        		$data = $this->HomeModel->showProductsByCategory($category, "Buy", $configUrl);
-			        		$rows = $data->rows;
-			        		$count = $data->count;
-			        	} else {
-			        		$configUrl = base_url()."index.php/products";
-			        		if(isset($_POST['subCategory'])) {
-			        			$filter = $this->input->post('subCategory');
-			        			$data = $this->HomeModel->showProducts("Sell", $configUrl, $filter);
-			        		} else {
-			        			$filter = array();
-			        			$data = $this->HomeModel->showProducts("Sell", $configUrl, $filter);	
-			        		}
-			        		$rows = $data->rows;
-			        		$count = $data->count;
-			        	}
-
-			        	$rows = $data->rows;
-			        	$count = $data->count;
-			        	
-			        	if($count != 0) {
-			        	echo "<div class='row'>";
-			        	foreach ($rows as $row) { ?>
-
-			        	<div class="col-sm-4">
-			            	<div class="panel panel-default">
-							    <div class="panel-body">
-							    	<img src="<?php echo base_url() ."images/".$row->productPic ?>" class="img-responsive">
-							    	<h3 class="text-center"><?php echo $row->productName ?></h3>
-							    	<p><?php echo $row->productDescription ?></p>
-							    	<div class="">
-							    		<p class="pull-left"><?php echo $row->price ." INR" ?></p>
-							    		<p class="pull-right">Posted <?php echo date("d F", $row->postedOn) ?></p>
-							    	</div>
-							    	<div class="text-center">
-							    		<a href="#" class="btn btn-primary">Contact</a>
-							    	</div>
-							    </div>
-							</div>
-			            </div>
-
-			        <?php } echo "</div>"; } else { ?> 
-	       
-
-			        Add Error Msg for products
-
-			        <?php } ?>
-			        <div class="row">
-		        		<div class="col-sm-12"><?php echo $this->pagination->create_links(); ?></div>
-		        	</div>
-		        </div>        
-		    </div>
 		</div>
 	</div>
 </div>

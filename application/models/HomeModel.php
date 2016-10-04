@@ -168,6 +168,41 @@ class HomeModel extends CI_Model {
 
     /***************************** for products ************************************/
 
+    public function showOwnProducts($email, $configUrl) {
+        $condition = "email =" . "'" . $email . "'";
+        $this->db->select('*');
+        $this->db->from('Products');
+        $this->db->where($condition);
+        //$this->db->where_in('productName',$filter);
+        $count = $this->db->get();
+        $query = $this->db->get_where('Products', $condition, '5', $this->uri->segment(2));
+        if (isset($query)) {
+            $data = array(
+                    'rows' => $query->result(),
+                    'count' => $count->num_rows()
+                );
+            $config['base_url'] = $configUrl;
+            $config['total_rows'] = $count->num_rows();
+            $config['per_page'] = 5;
+            $config['full_tag_open'] = '<ul class="pagination">';
+            $config['full_tag_close'] = '</ul>';
+            $config['first_tag_open'] = '<li>';
+            $config['last_tag_open'] = '<li>';
+            $config['next_tag_open'] = '<li>';
+            $config['prev_tag_open'] = '<li>';
+            $config['num_tag_open'] = '<li>';
+            $config['num_tag_close'] = '</li>';
+            $config['first_tag_close'] = '</li>';
+            $config['last_tag_close'] = '</li>';
+            $config['next_tag_close'] = '</li>';
+            $config['prev_tag_close'] = '</li>';
+            $config['cur_tag_open'] = "<li class=\"active\"><span><b>";
+            $config['cur_tag_close'] = "</b><span></li>";
+            $this->pagination->initialize($config);
+            return (object)$data;
+        }
+    }
+
     public function showProducts($forWhich, $configUrl, $filter) {
         $condition = "isVisible =" . "'" . "1" . "' AND " . "forWhich =" . "'" . $forWhich . "'";
         $this->db->select('*');
