@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-sm-3">
 			<div class="panel panel-default">
-			    <div class="panel-heading">All</div>
+			    <div class="panel-heading"><a href="<?php echo base_url() ?>index.php/products">All</a></div>
 			    <div class="panel-body">
 			    	<a href="<?php echo base_url() ?>index.php/products/Bags">Bags</a><br>
 			    	<a href="<?php echo base_url() ?>index.php/products/Twine-and-Yarn">Twine & Yarn</a><br>

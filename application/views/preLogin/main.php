@@ -63,11 +63,12 @@
 	<div class="row">
 		<div class="col-sm-3">
 			<div class="panel panel-default">
-			    <div class="panel-heading">Categories</div>
+			    <div class="panel-heading"><a href="<?php echo base_url() ?>index.php/products">Categories</a></div>
 			    <div class="panel-body">
-			    	<p>BAGS</p>
-			    	<p>TWINE & YARN</p>
-			    	<p>MACHINES</p>
+			    	<a href="<?php echo base_url() ?>index.php/products/Bags">Bags</a><br>
+			    	<a href="<?php echo base_url() ?>index.php/products/Twine-and-Yarn">Twine & Yarn</a><br>
+			    	<a href="<?php echo base_url() ?>index.php/products/Machines">Machines</a><br>
+			    	<a href="<?php echo base_url() ?>index.php/products/Others">Others</a>
 			    </div>
 			</div>
 			<div class="panel panel-default">

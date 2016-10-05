@@ -28,7 +28,7 @@
         				<?php } else { ?>
         					<a href="<?php echo base_url() ?>index.php/login ?>" class="top-head-title">Create Account</a> 
 					<span class="top-head-title">|</span> 
-					<a href="<?php echo base_url() ?>index.php/login" class="top-head-title">Login</a>
+					<a href="<?php echo base_url() ?>index.php/user-login" class="top-head-title">Login</a>
         				<?php } ?>
 				</p>
 			</div>
