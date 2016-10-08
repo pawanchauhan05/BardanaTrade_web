@@ -34,7 +34,9 @@
 			        <input type="date" name="signup-dob" class="form-control" id="inputPassword" placeholder="Mobile">
 			    </div>
 			    <div class="checkbox">
-			        <label><input type="checkbox"> I Agree To Bardanatrade.com Terms Of Service</label>
+			        <label>
+			        	<input type="checkbox" name="signup-tnc" required=""> I Agree To Bardanatrade.com Terms Of Service
+			        </label>
 			    </div>
 			    <button type="submit" class="btn btn-primary">Sign Up</button>
 			<?php echo form_close() ?>

@@ -95,7 +95,7 @@ class PreLoginModel extends CI_Model {
                 	break;
 
                 case 'product-sell-form':
-                    $data = array('forWhich' => 'Sell');
+                    $data = array('forWhich' => 'Sell', 'error' => '');
                     if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
                        $content = 'home/check-profile';
                     } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {
@@ -104,7 +104,7 @@ class PreLoginModel extends CI_Model {
                     break;
 
                 case 'product-buy-form':
-                    $data = array('forWhich' => 'Buy');
+                    $data = array('forWhich' => 'Buy', 'error' => '');
                     if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
                        $content = 'home/check-profile';
                     } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {
