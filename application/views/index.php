@@ -29,7 +29,7 @@
 
     <?php $this->load->view('common/navbar') ?>
 
-    <?php $this->PreLoginModel->loadView() ?>
+    <?php $this->PreLoginModel->loadView($redirectUrl) ?>
 
     <?php $this->load->view('common/footer') ?>
 
@@ -201,6 +201,7 @@
             $('[href="' + lastTab + '"]').tab('show');
         }
       });
+
     </script>
 
   </body>

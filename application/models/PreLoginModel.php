@@ -9,13 +9,18 @@ class PreLoginModel extends CI_Model {
     /**
      * to load view while user click on link
      */
-    public function loadView() {
+    public function loadView($redirectUrl) {
         $data = array(
                 'category' => ''
             );
         $sessionData = $this->HomeModel->readSessionData();
-        $content = $this->uri->segment(1);
-        if ($this->uri->segment(1) != null && !$this->uri->segment(1) == '') {
+        if($redirectUrl != null && $redirectUrl != '') {
+            $content = $redirectUrl;
+        } else {
+            $content = $this->uri->segment(1);
+        }
+
+        if ($this->uri->segment(1) != null && !$this->uri->segment(1) == '' && $redirectUrl == '') {
             switch ($this->uri->segment(1)) {
                 case 'about':
                     if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
@@ -132,7 +137,9 @@ class PreLoginModel extends CI_Model {
         } else {
             if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
                $content = 'home/check-profile';
-            } else { $content = 'preLogin/main'; }
+            } else { 
+                $content = ($redirectUrl == '') ? 'preLogin/main' : $redirectUrl; 
+            }
         }
         $this->load->view($content, $data);
     }

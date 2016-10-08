@@ -80,6 +80,7 @@ $route['filter'] = 'home/HomeController/filterProductsBySubCategory';
 
 // action
 $route['user-login'] = 'preLogin/PreLoginController/loginUser';
+$route['user-signUp'] = 'preLogin/PreLoginController/registerUser';
 $route['user-logout'] = 'home/HomeController/logoutUser';
 $route['user-profile-complete'] = 'home/HomeController/userProfileComplete';
 $route['update-user-profile-name'] = 'home/HomeController/updateUserProfileName';

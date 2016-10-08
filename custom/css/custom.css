@@ -193,6 +193,10 @@ hr.horizontal-line {
 	font-size: 24px;
 }
 
+.login-email, .login-password, .signup-fullName, .signup-mobile, .signup-password, .signup-dob, .signup-email {
+	color: red;
+}
+
 /************************* profile.php ********************/
 
 .profile-title {

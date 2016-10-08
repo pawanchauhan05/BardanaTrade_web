@@ -6,6 +6,10 @@ class HomeModel extends CI_Model {
         parent::__construct();
     }
 
+    public function registerUser() {
+        
+    }
+
     public function startSession($name, $email, $flag) {
         $sessionArray = array(
             'name' => $name,

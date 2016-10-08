@@ -20,7 +20,8 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('index');
+		$data = array('redirectUrl' => '' );
+		$this->load->view('index',$data);
 	}
 
 }
