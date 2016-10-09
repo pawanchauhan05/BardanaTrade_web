@@ -121,6 +121,7 @@ class PreLoginModel extends CI_Model {
                     break;
 
                 case 'update-product':
+                    $data = array('productId' => '', 'error' => '');
                     if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
                        $content = 'home/check-profile';
                     } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {

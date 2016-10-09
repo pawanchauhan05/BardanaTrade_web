@@ -95,5 +95,8 @@ $route['update-user-profile-pincode'] = 'home/HomeController/updateUserProfilePi
 $route['sell-product'] = 'home/HomeController/sellProduct';
 $route['buy-product'] = 'home/HomeController/sellProduct';
 
+$route['product-update'] = 'home/HomeController/updateProduct';
+$route['change-password'] = 'home/HomeController/changePassword';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -105,7 +105,8 @@ class HomeController extends CI_Controller {
 		if($this->form_validation->run() == FALSE) {
             $viewData = array(
             	'redirectUrl' => 'home/product-form',
-            	'forWhich' => $forWhich
+            	'forWhich' => $forWhich,
+            	'error' => ''
             	);
             $this->load->view('index',$viewData);
         } else {
@@ -140,5 +141,77 @@ class HomeController extends CI_Controller {
         		$this->load->view('index',$viewData);
         	}
         }
+	}
+
+	public function updateProduct() {
+		$productId = $this->input->post('update-product-productId');
+		$name = $this->input->post('update-product-name');
+		$other = $this->input->post('update-product-other');
+		$price = $this->input->post('update-product-price');
+		$brand = $this->input->post('update-product-brand');
+		$description = $this->input->post('update-product-description');
+		if($name != null && $name == "Others") {
+			$this->form_validation->set_rules('update-product', 'Product', 'trim|required|max_length[40]');
+			$name = $other;
+		}
+		$this->form_validation->set_rules('update-product-name', 'Product', 'trim|required|max_length[40]');
+		$this->form_validation->set_rules('update-product-price', 'Price', 'trim|required|numeric');
+		$this->form_validation->set_rules('update-product-brand', 'Brand', 'trim|required|max_length[20]');
+		$this->form_validation->set_rules('update-product-description', 'Description', 'trim|required|max_length[120]');
+
+		if($this->form_validation->run() == FALSE) {
+            $viewData = array(
+            	'redirectUrl' => 'home/update-product',
+            	'productId' => $productId,
+            	'error' => ''
+            	);
+            $this->load->view('index',$viewData);
+        } else {
+        	$fileName = time().$_FILES["update-product-image"]['name'];
+        	$config = array(
+				'upload_path' => "./images/",
+				'allowed_types' => "gif|jpg|png|jpeg|pdf",
+				'overwrite' => TRUE,
+				'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
+				'max_height' => "768",
+				'max_width' => "1024",
+				'file_name' => $fileName
+				);
+        	$this->upload->initialize($config);
+        	if($this->upload->do_upload('update-product-image')) {
+        		// success
+        		$data = array(
+        			'name' => $name,
+        			'price' => $price,
+        			'brand' => $brand,
+        			'description' => $description,
+        			'forWhich' => $forWhich,
+        			'fileName' => $fileName
+        		 ); 
+        	} else {
+        		$viewData = array(
+		            	'redirectUrl' => 'home/update-product',
+            			'productId' => $productId,
+		            	'error' => $this->upload->display_errors()
+	            	);
+        		$this->load->view('index',$viewData);
+        	}
+        }
+
+	}
+
+	public function changePassword() {
+		$oldPassword = $this->input->post('change-password-old');
+		$newPassword = $this->input->post('change-password-new');
+		$comfirmPassword = $this->input->post('change-password-confirm');
+
+		$this->form_validation->set_rules('change-password-old', 'Old Password', 'trim|required');
+		$this->form_validation->set_rules('change-password-new', 'New Password', 'trim|required|min_length[8]|xss_clean');
+		$this->form_validation->set_rules('change-password-confirm', 'Confirm Password', 'trim|required|min_length[8]|xss_clean|matches[change-password-new]');
+
+		if($this->form_validation->run() == FALSE) {
+			$viewData = array('redirectUrl' => 'home/profile' );
+			$this->load->view('index',$viewData);
+		} else {}
 	}
 }
