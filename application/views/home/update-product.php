@@ -43,13 +43,13 @@
 			        <label class="<?php echo form_error('update-product-price') != '' ? "update-product-price" : "" ?>">
 			        	<?php echo form_error('update-product-price') != '' ? form_error('update-product-price') : "Price" ?>
 			        </label>
-			        <input type="text" class="form-control" name="update-product-price" id="inputPassword" placeholder="Price" value="<?php echo $row->price ?>">
+			        <input type="text" required=""> class="form-control" name="update-product-price" id="inputPassword" placeholder="Price" value="<?php echo $row->price ?>">
 			    </div>
 			    <div class="form-group">
 			        <label class="<?php echo form_error('update-product-brand') != '' ? "update-product-brand" : "" ?>">
 			        	<?php echo form_error('update-product-brand') != '' ? form_error('update-product-brand') : "Brand" ?>
 			        </label>
-			        <input type="text" class="form-control" name="update-product-brand" id="inputPassword" placeholder="Brand" value="<?php echo $row->brand ?>">
+			        <input type="text" required=""> class="form-control" name="update-product-brand" id="inputPassword" placeholder="Brand" value="<?php echo $row->brand ?>">
 			    </div>
 			    <div class="form-group">
 			    	<label class="<?php echo $error != '' ? "update-product-image" : "" ?>">
@@ -66,7 +66,7 @@
 			        <label class="<?php echo form_error('update-product-description') != '' ? "update-product-description" : "" ?>">
 			        	<?php echo form_error('update-product-description') != '' ? form_error('update-product-description') : "Description" ?>
 			        </label>
-			        <textarea type="text" class="form-control" name="update-product-description" rows="3" placeholder="Enter product discription"><?php echo $row->productDescription ?></textarea>
+			        <textarea type="text" required="" class="form-control" name="update-product-description" rows="3" placeholder="Enter product discription"><?php echo $row->productDescription ?></textarea>
 			    </div>
 			    <input type="hidden" name="update-product-productId" value="<?php echo $row->id ?>">
 			    <button type="submit" class="btn btn-primary">Update</button>

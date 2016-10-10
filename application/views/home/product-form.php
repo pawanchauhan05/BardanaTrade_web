@@ -30,13 +30,13 @@
 		        <label class="<?php echo form_error('product-form-price') != '' ? "product-form-price" : "" ?>">
 		        	<?php echo form_error('product-form-price') != '' ? form_error('product-form-price') : "Price" ?>
 		        </label>
-		        <input type="number" name="product-form-price" class="form-control" id="inputPassword" placeholder="Price">
+		        <input type="number" required="" name="product-form-price" class="form-control" id="inputPassword" placeholder="Price">
 		    </div>
 		    <div class="form-group">
 		        <label class="<?php echo form_error('product-form-brand') != '' ? "product-form-brand" : "" ?>">
 		        	<?php echo form_error('product-form-brand') != '' ? form_error('product-form-brand') : "Brand" ?>
 		        </label>
-		        <input type="text" name="product-form-brand" class="form-control" placeholder="Brand">
+		        <input type="text" required="" name="product-form-brand" class="form-control" placeholder="Brand">
 		    </div>
 		    <div class="form-group">
 		    	<label class="<?php echo form_error('product-form-image') != '' ? "product-form-image" : "" ?>">
@@ -53,7 +53,7 @@
 		        <label class="<?php echo form_error('product-form-description') != '' ? "product-form-description" : "" ?>">
 		        	<?php echo form_error('product-form-description') != '' ? form_error('product-form-description') : "Description" ?>
 		        </label>
-		        <textarea type="text" name="product-form-description" class="form-control" rows="3" placeholder="Enter product discription"></textarea>
+		        <textarea type="text" required="" name="product-form-description" class="form-control" rows="3" placeholder="Enter product discription"></textarea>
 		    </div>
 		    <input type="hidden" name="forWhich" value="<?=$forWhich?>">
 		    <button type="submit" class="btn btn-primary">Submit</button>
