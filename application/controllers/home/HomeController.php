@@ -234,4 +234,10 @@ class HomeController extends CI_Controller {
 			$this->load->view('index',$viewData);
 		} else {}
 	}
+
+	public function contactToUser() {
+		$id = $this->input->post('id');
+		$email = $this->input->post('email');
+		$this->HomeModel->updateOrganisation($id);
+	}
 }

@@ -190,11 +190,19 @@
         }
       }
 
-      function showSweetAlert() {
+      function showSweetAlert(productId) {
         <?php 
         $sessionData = $this->HomeModel->readSessionData();
         if(isset($sessionData['sessionData'])) { ?>
-        swal("Thank you!", "Notification has been sent to user.", "success");
+          var productId = productId;
+          $.ajax({
+             type: "POST",
+             url: "contact-to-user",
+             data:"id=productId&email=nkb",
+             success: function(){
+               swal("Thank you!", "Notification has been sent to user.", "success");
+             }
+           });
         <?php } else { ?>
         swal({
             title: "Are you logged in?",
