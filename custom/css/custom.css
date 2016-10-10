@@ -217,6 +217,15 @@ hr.horizontal-line {
 	border-radius: 4px;
 }
 
+.change-password-title {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.change-password-confirm, .change-password-old, .change-password-new  {
+	color: red;
+}
+
 /****************************** quality.php **********************/
 
 .quality-title {
@@ -283,6 +292,12 @@ hr.horizontal-line {
 
 .check-profile-organisation, .check-profile-designation, .check-profile-country, 
 .check-profile-state, .check-profile-city, .check-profile-pincode, .check-profile-address {
+	color: red;
+}
+
+/**************************************** update-product.php ******************************/
+
+.update-product-name, .update-product-brand, .update-product-price, .update-product-image, .update-product-description {
 	color: red;
 }
 

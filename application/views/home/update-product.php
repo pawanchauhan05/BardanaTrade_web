@@ -16,7 +16,7 @@
 			<p class="product-form-title">Update Product </p>
 			<?php echo form_open_multipart('product-update') ?>
 			    <div class="form-group">
-			        <label>
+			        <label class="<?php echo form_error('update-product-name') != '' ? "update-product-name" : "" ?>">
 			        	<?php echo form_error('update-product-name') != '' ? form_error('update-product-name') : "Product" ?>
 			        </label>
 				    <select class="form-control" name="update-product-name" onchange="showInputFeild(this);">
@@ -40,19 +40,19 @@
 			    </div>
 
 			    <div class="form-group">
-			        <label>
+			        <label class="<?php echo form_error('update-product-price') != '' ? "update-product-price" : "" ?>">
 			        	<?php echo form_error('update-product-price') != '' ? form_error('update-product-price') : "Price" ?>
 			        </label>
 			        <input type="text" class="form-control" name="update-product-price" id="inputPassword" placeholder="Price" value="<?php echo $row->price ?>">
 			    </div>
 			    <div class="form-group">
-			        <label>
+			        <label class="<?php echo form_error('update-product-brand') != '' ? "update-product-brand" : "" ?>">
 			        	<?php echo form_error('update-product-brand') != '' ? form_error('update-product-brand') : "Brand" ?>
 			        </label>
 			        <input type="text" class="form-control" name="update-product-brand" id="inputPassword" placeholder="Brand" value="<?php echo $row->brand ?>">
 			    </div>
 			    <div class="form-group">
-			    	<label>
+			    	<label class="<?php echo $error != '' ? "update-product-image" : "" ?>">
 			    		<?php echo $error != '' ? $error : "Select Product" ?>
 			    	</label>
 				    <div class="input-group">
@@ -63,7 +63,7 @@
 		            </div>
 		        </div>
 			    <div class="form-group">
-			        <label>
+			        <label class="<?php echo form_error('update-product-description') != '' ? "update-product-description" : "" ?>">
 			        	<?php echo form_error('update-product-description') != '' ? form_error('update-product-description') : "Description" ?>
 			        </label>
 			        <textarea type="text" class="form-control" name="update-product-description" rows="3" placeholder="Enter product discription"><?php echo $row->productDescription ?></textarea>

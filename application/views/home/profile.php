@@ -146,22 +146,22 @@
 		        <br>
 
 		        <div class="col-sm-6">
-		        <p>Change Password</p>
+		        <p class="change-password-title">Change Password</p><hr>
 		        	<?php echo form_open('change-password') ?>
 		        	<div class="form-group">
-				        <label>
+				        <label class="<?php echo form_error('change-password-old') != '' ? "change-password-old" : "" ?>">
 				        	<?php echo form_error('change-password-old') != '' ? form_error('change-password-old') : "Old Password" ?>
 				        </label>
 				        <input type="text" class="form-control" name="change-password-old" id="inputPassword" placeholder="Old Password" value="">
 			    	</div>
 			    	<div class="form-group">
-				        <label>
+				        <label class="<?php echo form_error('change-password-new') != '' ? "change-password-new" : "" ?>">
 				        	<?php echo form_error('change-password-new') != '' ? form_error('change-password-new') : "New Password" ?>
 				        </label>
 				        <input type="text" class="form-control" name="change-password-new" id="inputPassword" placeholder="New Password" value="">
 			    	</div>
 			    	<div class="form-group">
-				        <label>
+				        <label class="<?php echo form_error('change-password-confirm') != '' ? "change-password-confirm" : "" ?>">
 				        	<?php echo form_error('change-password-confirm') != '' ? form_error('change-password-confirm') : "Confirm Password" ?>
 				        </label>
 				        <input type="text" class="form-control" name="change-password-confirm" id="inputPassword" placeholder="Confirm Password" value="">
