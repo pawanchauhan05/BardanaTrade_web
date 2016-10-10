@@ -193,9 +193,10 @@ hr.horizontal-line {
 	font-size: 24px;
 }
 
-.login-email, .login-password, .signup-fullName, .signup-mobile, .signup-password, .signup-dob, .signup-email {
+.login-email, .login-password, .signup-fullName, .signup-mobile, .signup-password, .signup-dob, .signup-email, .login-status {
 	color: red;
 }
+
 
 /************************* profile.php ********************/
 
@@ -271,7 +272,7 @@ hr.horizontal-line {
 	font-weight: bold;
 }
 
-.product-form-name, .product-form-price, .product-form-brand, .product-form-description, .product-form-image {
+.product-form-name, .product-form-price, .product-form-brand, .product-form-description, .product-form-image, .product-form-status {
 	color: red;
 }
 
@@ -297,7 +298,7 @@ hr.horizontal-line {
 
 /**************************************** update-product.php ******************************/
 
-.update-product-name, .update-product-brand, .update-product-price, .update-product-image, .update-product-description {
+.update-product-name, .update-product-brand, .update-product-price, .update-product-image, .update-product-description, .update-product-status {
 	color: red;
 }
 

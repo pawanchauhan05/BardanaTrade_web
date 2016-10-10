@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-6">
-			<p class="sign-up-title">New User? Create An Account</p><hr>
+			<p class="sign-up-title">New User? Create An Account</p><?php echo $signUpStatus ?><hr>
 			<?php echo form_open('user-signUp') ?>
 			    <div class="form-group">
 			        <label class="<?php echo form_error('signup-fullName') != '' ? "signup-fullName" : "" ?>">
@@ -42,7 +42,7 @@
 			<?php echo form_close() ?>
 		</div>
 		<div class="col-sm-6">
-			<p class="login-title">Existing User Sign In</p><hr>
+			<p class="login-title">Existing User Sign In</p><?php echo $status  ?><hr>
 			<?php echo form_open('user-login') ?>
 			    <div class="form-group">
 			        <label for="inputEmail" class="<?php echo form_error('login-email') != '' ? "login-email" : "" ?>">

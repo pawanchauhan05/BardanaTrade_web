@@ -13,16 +13,21 @@ class PreLoginController extends CI_Controller {
             $viewData = array('redirectUrl' => 'preLogin/login');
             $this->load->view('index',$viewData);
         } else {
-            $count = $this->PreLoginModel->isUserExist($userEmail);
-            if($count != 0) {
-                $data = $this->PreLoginModel->loginUser($userEmail, $userPassword);
-                if($data->isComplete == 0) {
-                    $this->HomeModel->startSession($data->name,  $data->email, FALSE);
+            $dataArray = $this->PreLoginModel->loginUser($userEmail, $userPassword);
+            if($dataArray['count'] != 0) {
+                if($dataArray['data']->isComplete == 0) {
+                    $this->HomeModel->startSession($dataArray['data']->name,  $dataArray['data']->email, FALSE);
                     redirect('check-profile'); 
                 } else {
-                    $this->HomeModel->startSession($data->name,  $data->email, TRUE);
+                    $this->HomeModel->startSession($dataArray['data']->name,  $dataArray['data']->email, TRUE);
                     redirect('profile');
                 }
+            } else {
+                $viewData = array('redirectUrl' => 'preLogin/login',
+                        'status' => '<p class="login-status">Invalid credentials</p>',
+                        'signUpStatus' => ''
+                    );
+                $this->load->view('index',$viewData);  
             }
         }        
     }
@@ -44,7 +49,14 @@ class PreLoginController extends CI_Controller {
             $viewData = array('redirectUrl' => 'preLogin/login');
             $this->load->view('index',$viewData);
         } else {
-
+            (object)$data = array(
+                'fullName' => $fullName,
+                'email' => $email,
+                'password' => md5($password),
+                'mobile' => $mobile,
+                'dob' => strtotime($dob)
+                );
+            $this->HomeModel->registerUser($data);
         }
     }
 }

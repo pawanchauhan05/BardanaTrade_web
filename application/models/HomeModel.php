@@ -6,7 +6,32 @@ class HomeModel extends CI_Model {
         parent::__construct();
     }
 
-    public function registerUser() {
+    public function registerUser($data) {
+        $data = array(
+            'name' => $data['fullName'],
+            'email' => $data['email'],
+            'password' => $data['password'],
+            'mobile' => $data['mobile'],
+            'dob' => $data['dob'],
+            'created_at' => time(),
+            'updated_at' => time(),
+            'isComplete' => 0
+            );
+        $count = $this->PreLoginModel->isUserExist($data['email']);
+        if($count != 0) {
+            $viewData = array('redirectUrl' => 'preLogin/login',
+             'signUpStatus' => '<p class="login-status">User already exists.</p>',
+             'status' => ''
+             );
+            $this->load->view('index',$viewData);
+        } else {
+            $query = $this->db->insert('Users', $data);
+            if(isset($query)) {
+                $this->HomeModel->startSession($data['name'],  $data['email'], FALSE);
+                redirect('check-profile');    
+            } 
+        }
+        
         
     }
 
@@ -28,20 +53,22 @@ class HomeModel extends CI_Model {
         return $sessionData = $this->session->all_userdata();
     }
 
-    public function completeProfile() {
+    public function completeProfile($data) {
         $data = array(
             'isComplete' => 1,
-            'organisation' => 'Fitterfox',
-            'designation' => 'Developer',
-            'country' => 'India',
-            'state' => 'Rajasthan',
-            'city' => 'Kota',
-            'address' => 'Kota Beraj'
+            'organisation' => $data['organisation'],
+            'designation' => $data['designation'],
+            'country' => $data['country'],
+            'state' => $data['state'],
+            'city' => $data['city'],
+            'address' => $data['address']
         );
+        $sessionData = $this->HomeModel->readSessionData();
+
         $this->db->set($data);
-        $this->db->where("email", 'demo@gmail.com');
+        $this->db->where("email", $sessionData['sessionData']['email'] );
         if($this->db->update("Users", $data)) {
-            $this->startSession('Pawan Singh', 'demo@gmail.com', TRUE);
+            $this->startSession($sessionData['sessionData']['name'] , $sessionData['sessionData']['email'] , TRUE);
             redirect('profile');
         } else {
 

@@ -13,7 +13,7 @@
 					
 
 			?>
-			<p class="product-form-title">Update Product </p>
+			<p class="product-form-title">Update Product</p><?php echo $status ?><hr>
 			<?php echo form_open_multipart('product-update') ?>
 			    <div class="form-group">
 			        <label class="<?php echo form_error('update-product-name') != '' ? "update-product-name" : "" ?>">

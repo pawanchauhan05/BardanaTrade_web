@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-6">
-		<p class="product-form-title"><?php echo $forWhich ?> Product  </p>
+		<p class="product-form-title"><?php echo $forWhich ?> Product  </p><?php echo $status ?><hr>
 		<?php echo form_open_multipart('sell-product') ?>
 		    <div class="form-group">
 		        <label class="<?php echo form_error('product-form-name') != '' ? "product-form-name" : "" ?>">

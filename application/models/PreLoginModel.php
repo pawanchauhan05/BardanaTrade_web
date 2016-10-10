@@ -161,14 +161,10 @@ class PreLoginModel extends CI_Model {
         $query = $this->db->get();
         $row = $query->row();
         if (isset($row)) {
-            return $query->row();
-        } else {
-            $this->output
-                    ->set_status_header(401)
-                    ->set_content_type('application/json', 'utf-8')
-                    ->set_output(" { " . '"status"' . " : " . '"invalid credentials"' . " } ")
-                    ->_display();
-            exit();
+            return $data = array(
+                'count' => $query->num_rows(),
+                'data' => $query->row()
+             );
         }
     }
 

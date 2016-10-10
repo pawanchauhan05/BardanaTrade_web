@@ -29,9 +29,17 @@ class HomeController extends CI_Controller {
             $viewData = array('redirectUrl' => 'home/check-profile');
             $this->load->view('index',$viewData);
         } else {
-
+        	$data = array(
+        			'organisation' => $organisation,
+        			'designation' => $designation,
+        			'country' => $country,
+        			'state' => $state,
+        			'city' => $city,
+        			'pincode' => $pincode,
+        			'address' => $address,
+        		);
+        	$this->HomeModel->completeProfile($data);
         }
-		//$this->HomeModel->completeProfile();
 	}
 
 	public function updateUserProfileName() {
@@ -131,7 +139,13 @@ class HomeController extends CI_Controller {
         			'description' => $description,
         			'forWhich' => $forWhich,
         			'fileName' => $fileName
-        		 ); 
+        		 );
+        		$viewData = array(
+		            	'redirectUrl' => 'home/product-form',
+		            	'forWhich' => $forWhich,
+		            	'status' => '<p class="product-form-status">Product has been added successfully.</p>'
+	            	);
+        		$this->load->view('index',$viewData);
         	} else {
         		$viewData = array(
 		            	'redirectUrl' => 'home/product-form',
@@ -188,6 +202,12 @@ class HomeController extends CI_Controller {
         			'forWhich' => $forWhich,
         			'fileName' => $fileName
         		 ); 
+
+        		$viewData = array(
+		            	'redirectUrl' => 'home/update-product',
+		            	'forWhich' => $forWhich,
+		            	'status' => '<p class="update-product">Product has been updated successfully.</p>'
+	            	);
         	} else {
         		$viewData = array(
 		            	'redirectUrl' => 'home/update-product',
