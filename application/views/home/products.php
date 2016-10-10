@@ -116,7 +116,8 @@
 							    		<p class="pull-right">Posted <?php echo date("d F", $row->postedOn) ?></p>
 							    	</div>
 							    	<div class="text-center">
-							    		<a href="#" class="btn btn-primary" onClick="showSweetAlert(<?php echo $row->id ?>)">Contact</a>
+							    		<a href="#" class="btn btn-primary" 
+										onClick='<?php echo "showSweetAlert(".$row->id.")" ?>'>Contact</a>
 							    	</div>
 							    </div>	
 							</div>

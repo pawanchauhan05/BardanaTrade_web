@@ -238,6 +238,6 @@ class HomeController extends CI_Controller {
 	public function contactToUser() {
 		$id = $this->input->post('id');
 		$email = $this->input->post('email');
-		$this->HomeModel->updateOrganisation($id);
+		// TODO send mail get email from id (to) from $email
 	}
 }

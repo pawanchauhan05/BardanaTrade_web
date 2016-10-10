@@ -194,11 +194,11 @@
         <?php 
         $sessionData = $this->HomeModel->readSessionData();
         if(isset($sessionData['sessionData'])) { ?>
-          var productId = productId;
+          var userEmail = "<?php echo $sessionData['sessionData']['email'] ?>";
           $.ajax({
              type: "POST",
              url: "contact-to-user",
-             data:"id=productId&email=nkb",
+             data:'id='+productId+'&email='+userEmail,
              success: function(){
                swal("Thank you!", "Notification has been sent to user.", "success");
              }
