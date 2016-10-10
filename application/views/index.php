@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/owl.carousel/dist/assets/owl.carousel.min.css" />
     <!-- X-editable -->
     <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css" />
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/bootstrap-sweetalert/dist/sweetalert.css" />
     
 
     <!-- Custom Theme Style -->
@@ -41,6 +43,8 @@
     <script src="<?php echo base_url() ?>bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
     <!-- X-editable -->
     <script src="<?php echo base_url() ?>bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+    <!-- Sweet Alert -->
+    <script src="<?php echo base_url() ?>bower_components/bootstrap-sweetalert/dist/sweetalert.js"></script>
 
     
     <!-- Custom Theme Scripts 
@@ -184,6 +188,24 @@
         } else {
             document.getElementById("product-form-others").style.display = "none";
         }
+      }
+
+      function showSweetAlert() {
+        <?php 
+        $sessionData = $this->HomeModel->readSessionData();
+        if(isset($sessionData['sessionData'])) { ?>
+        swal("Thank you!", "Notification has been sent to user.", "success");
+        <?php } else { ?>
+        swal({
+            title: "Are you logged in?",
+            text: "You will not be able to contact!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-warning",
+            confirmButtonText: "Warning",
+            closeOnConfirm: false
+          });
+        <?php } ?>
       }
     </script>
 

@@ -84,14 +84,10 @@ class PreLoginModel extends CI_Model {
                 case 'products':
                     if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
                        $content = 'home/check-profile';
-                    } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {
-                        if ($this->uri->segment(2) != null && !$this->uri->segment(2) == '') {
-                            $data = array(
-                                    'category' => $this->uri->segment(2)
-                                );
-                        }
+                    } else {
+                        $data = array('category' => $this->uri->segment(2));
                         $content = 'home/products';
-                    } else { redirect('login'); }
+                    }
                 	break;
 
                 case 'product-sell-form':

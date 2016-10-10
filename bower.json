@@ -54,7 +54,8 @@
     "jqvmap": "https://github.com/christianesperar/jqvmap.git#master",
     "angular": "1.5.9-build.5006+sha.e3a378e",
     "owl.carousel": "^2.1.6",
-    "x-editable" : "1.5.1"
+    "x-editable" : "1.5.1",
+    "bootstrap-sweetalert" : "1.0.1"
   },
   "resolutions": {
     "jquery": "^2.2.3",
