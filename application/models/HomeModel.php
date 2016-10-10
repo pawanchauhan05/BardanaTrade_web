@@ -6,6 +6,19 @@ class HomeModel extends CI_Model {
         parent::__construct();
     }
 
+    public function getUserInfo($email) {
+        $condition = array('email' => $email);
+        $this->db->select('*');
+        $this->db->from('Users');
+        $this->db->where($condition);
+        $this->db->limit(1);
+        $query = $this->db->get();
+        $row = $query->row();
+        if (isset($row)) {
+            return $query->row();
+        }
+    }
+
     public function registerUser($data) {
         $data = array(
             'name' => $data['fullName'],
@@ -61,7 +74,8 @@ class HomeModel extends CI_Model {
             'country' => $data['country'],
             'state' => $data['state'],
             'city' => $data['city'],
-            'address' => $data['address']
+            'address' => $data['address'],
+            'pincode' => $data['pincode']
         );
         $sessionData = $this->HomeModel->readSessionData();
 
