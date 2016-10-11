@@ -384,8 +384,9 @@ class HomeModel extends CI_Model {
         $body = $this->load->view('emails/reset-password.php',$data,TRUE);
         $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
         $this->email->set_header('Content-type', 'text/html');
-        $this->email->message($body);   
-        if(isset($this->email->send()) {
+        $this->email->message($body); 
+        $flag = $this->email->send();  
+        if(isset($flag) {
             echo "sent";
         } else {
             echo "not sent";
