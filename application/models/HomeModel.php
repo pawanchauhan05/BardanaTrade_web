@@ -386,7 +386,7 @@ class HomeModel extends CI_Model {
         $this->email->set_header('Content-type', 'text/html');
         $this->email->message($body); 
         $flag = $this->email->send();  
-        if(isset($flag) {
+        if(isset($flag)) {
             echo "sent";
         } else {
             echo "not sent";
