@@ -75,6 +75,7 @@ $route['products/Twine-and-Yarn'] = 'welcome';
 $route['products/Twine-and-Yarn/:num'] = 'welcome';
 $route['products/Others'] = 'welcome';
 $route['products/Others/:num'] = 'welcome';
+$route['feedback'] = 'welcome';
 $route['filter'] = 'home/HomeController/filterProductsBySubCategory';
 
 

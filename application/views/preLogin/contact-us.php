@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-6">
-			<p class="contact-us-title">Contact Us</p>
+			<p class="contact-us-title">Contact Us</p><hr>
 
 			<form>
 			    <div class="form-group">

@@ -610,11 +610,11 @@
                             <h2 class="null">Email regarding to inquiry</h2>
 
 <p><br>
-<strong>Name :</strong> Pawan Singh Chauhan<br>
-<strong>Email :</strong> pawansinghchouhan05@gmail.com<br>
-<strong>Mobile :</strong> 9772217799<br>
+<strong>Name :</strong> <?php echo $name ?><br>
+<strong>Email :</strong> <?php echo $email ?><br>
+<strong>Mobile :</strong> <?php echo $mobile ?><br>
 <strong>Message</strong><br>
-bla bla bla bla&nbsp;bla bla bla bla&nbsp;bla bla bla bla&nbsp;bla bla bla bla&nbsp;<br>
+<?php echo $message ?><br>
 <br>
 <strong>Thanks &amp; Warm Regards,<br>
 BardanaTrade Team</strong></p>

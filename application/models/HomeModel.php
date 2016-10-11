@@ -217,6 +217,45 @@ class HomeModel extends CI_Model {
         }
     }
 
+    public function contactUs() {
+        $name = $this->input->post('name');
+        $email = $this->input->post('email');
+        $mobile = $this->input->post('mobile');
+        $subject = $this->input->post('subject');
+        $message = $this->input->post('message');
+
+        // TODO add validation 
+        $data = array(
+                'name' => $name,
+                'email' => $email,
+                'mobile' => $mobile,
+                'subject' => $subject,
+                'message' => $message
+            );
+
+        $this->HomeModel->adminInquiryMail($data);
+        $this->HomeModel->contactUsMail($data);
+    }
+
+    public function sendfeedback() {
+        $name = $this->input->post('name');
+        $email = $this->input->post('email');
+        $mobile = $this->input->post('mobile');
+        $subject = $this->input->post('subject');
+        $message = $this->input->post('message');
+        // Add form validation
+        $data = array(
+                'name' => $name,
+                'email' => $email,
+                'mobile' => $mobile,
+                'subject' => $subject,
+                'message' => $message
+            );
+
+        $this->HomeModel->adminInquiryMail($data);
+        $this->HomeModel->feedbackMail($data);
+    }
+
     /***************************** for products ************************************/
 
     public function showOwnProducts($email, $configUrl) {
@@ -380,11 +419,11 @@ class HomeModel extends CI_Model {
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
     
-        $this->email->from('pawanetm@gmail.com', 'Pawan Singh Chauhan');
+        $this->email->from('pawanetm@gmail.com', 'Bardana Trade');
         $data = array(
              'name' => $data['name'],
              'email' => $data['email'],
-             'login' => base_url."index.php/login"
+             'login' => base_url()."index.php/login"
                  );
         $this->email->to($data['email']);  // replace it with receiver mail id
         $this->email->subject("Welcome to Bardana Trade"); // replace it with relevant subject 
@@ -396,7 +435,7 @@ class HomeModel extends CI_Model {
         $this->email->send();  
     }
 
-    public function htmlmail(){
+    public function contactUsMail($data){
         $config = Array(        
             'protocol' => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -411,24 +450,82 @@ class HomeModel extends CI_Model {
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
     
-        $this->email->from('pawanetm@gmail.com', 'Pawan Singh Chauhan');
-        $data = array(
-             'userName'=> 'Anil Kumar Panigrahi'
-                 );
-        $this->email->to("pawansinghchouhan05@gmail.com");  // replace it with receiver mail id
-        $this->email->subject("Reset Password"); // replace it with relevant subject 
+        $this->email->from('pawanetm@gmail.com', 'Bardana Trade');
+        $data = array('name'=> 'Pawan Singh Chauhan');
+        $this->email->to($data['email']);  // replace it with receiver mail id
+        $this->email->subject("Thank you for contacting us"); // replace it with relevant subject 
     
-        $body = $this->load->view('emails/reset-password.php',$data,TRUE);
+        $body = $this->load->view('emails/contact-us.php',$data,TRUE);
         $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
         $this->email->set_header('Content-type', 'text/html');
         $this->email->message($body); 
-        $flag = $this->email->send();  
-        if(isset($flag)) {
-            echo "sent";
-        } else {
-            echo "not sent";
-        }
+        $this->email->send();  
     }
+
+
+    public function adminInquiryMail($data){
+        $config = Array(        
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'pawanetm@gmail.com',
+            'smtp_pass' => 'ourlab.tk',
+            'smtp_timeout' => '4',
+            'mailtype'  => 'html', 
+            'charset'   => 'iso-8859-1'
+        );
+
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+    
+        $this->email->from($data['email'], $data['name']);
+        $viewData = array(
+            'name'=> $data['name'],
+            'email' => $data['email'],
+            'subject' => $data['subject'],
+            'mobile' => $data['mobile'],
+            'message' => $data['message']
+            );
+        $this->email->to('pawanetm@gmail.com');  // replace it with receiver mail id
+        $this->email->subject($data['subject']); // replace it with relevant subject 
+    
+        $body = $this->load->view('emails/admin-inquiry.php',$viewData,TRUE);
+        $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
+        $this->email->set_header('Content-type', 'text/html');
+        $this->email->message($body); 
+        $this->email->send();  
+    }
+
+    public function feedbackMail($data){
+        $config = Array(        
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'pawanetm@gmail.com',
+            'smtp_pass' => 'ourlab.tk',
+            'smtp_timeout' => '4',
+            'mailtype'  => 'html', 
+            'charset'   => 'iso-8859-1'
+        );
+
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+    
+        $this->email->from('pawanetm@gmail.com', 'Bardana Trade');
+        $data = array('name'=> 'Pawan Singh Chauhan');
+        $this->email->to($data['email']);  // replace it with receiver mail id
+        $this->email->subject("Thank you for valuable feedback"); // replace it with relevant subject 
+    
+        $body = $this->load->view('emails/feedback.php',$data,TRUE);
+        $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
+        $this->email->set_header('Content-type', 'text/html');
+        $this->email->message($body); 
+        $this->email->send();  
+    }
+
+
+
+
 
 
     /**************************** For Encryption only ******************************************* */
