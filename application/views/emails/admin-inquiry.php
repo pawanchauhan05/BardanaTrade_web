@@ -194,7 +194,7 @@
 	@tip Set the background color and borders for your email's preheader area.
 	*/
 		#templatePreheader{
-			/*@editable*/background-color:#fafafa;
+			/*@editable*/background-color:#FAFAFA;
 			/*@editable*/background-image:none;
 			/*@editable*/background-repeat:no-repeat;
 			/*@editable*/background-position:center;
@@ -232,7 +232,7 @@
 	@tip Set the background color and borders for your email's header area.
 	*/
 		#templateHeader{
-			/*@editable*/background-color:#ffffff;
+			/*@editable*/background-color:#FFFFFF;
 			/*@editable*/background-image:none;
 			/*@editable*/background-repeat:no-repeat;
 			/*@editable*/background-position:center;
@@ -571,7 +571,7 @@
                         
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
                         
-                            <h2 class="null">Reset Password</h2>
+                            <h1 class="null">Hello Admin,</h1>
 
                         </td>
                     </tr>
@@ -607,61 +607,18 @@
                         
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
                         
-                            <h1><span style="font-size:16px">Hello Jack.</span></h1>
+                            <h2 class="null">Email regarding to inquiry</h2>
 
-<p>We've received a request to reset your password. If you didn't make the request just ignore this email. Otherwise you can reset your password using this link:</p>
+<p><br>
+<strong>Name :</strong> Pawan Singh Chauhan<br>
+<strong>Email :</strong> pawansinghchouhan05@gmail.com<br>
+<strong>Mobile :</strong> 9772217799<br>
+<strong>Message</strong><br>
+bla bla bla bla&nbsp;bla bla bla bla&nbsp;bla bla bla bla&nbsp;bla bla bla bla&nbsp;<br>
+<br>
+<strong>Thanks &amp; Warm Regards,<br>
+BardanaTrade Team</strong></p>
 
-<p>&nbsp;</p>
-
-                        </td>
-                    </tr>
-                </tbody></table>
-				<!--[if mso]>
-				</td>
-				<![endif]-->
-                
-				<!--[if mso]>
-				</tr>
-				</table>
-				<![endif]-->
-            </td>
-        </tr>
-    </tbody>
-</table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonBlock" style="min-width:100%;">
-    <tbody class="mcnButtonBlockOuter">
-        <tr>
-            <td style="padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;" valign="top" align="center" class="mcnButtonBlockInner">
-                <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-radius: 3px;background-color: #228B22;">
-                    <tbody>
-                        <tr>
-                            <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial; font-size: 16px; padding: 15px;">
-                                <a class="mcnButton " title="Click here to reset your password " href="http://" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Click here to reset your password </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-    </tbody>
-</table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="min-width:100%;">
-    <tbody class="mcnTextBlockOuter">
-        <tr>
-            <td valign="top" class="mcnTextBlockInner" style="padding-top:9px;">
-              	<!--[if mso]>
-				<table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
-				<tr>
-				<![endif]-->
-			    
-				<!--[if mso]>
-				<td valign="top" width="600" style="width:600px;">
-				<![endif]-->
-                <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
-                    <tbody><tr>
-                        
-                        <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
-                        
-                            <strong>Regards,<br>
-Bardana Trade</strong>
                         </td>
                     </tr>
                 </tbody></table>
@@ -696,7 +653,7 @@ Bardana Trade</strong>
                         
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
                         
-                            <div style="text-align: center;"><strong><em>Copyright © 2016 |&nbsp;Bardana Trade | All rights reserved.</em></strong><br>
+                            <div style="text-align: center;"><em>Copyright © &nbsp;| 2016 | Bardana Trade | All rights reserved.</em><br>
 <strong>www.bardanatrade.com</strong></div>
 
                         </td>

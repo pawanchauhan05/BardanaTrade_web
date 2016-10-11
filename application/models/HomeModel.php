@@ -41,7 +41,13 @@ class HomeModel extends CI_Model {
             $query = $this->db->insert('Users', $data);
             if(isset($query)) {
                 $this->HomeModel->startSession($data['name'],  $data['email'], FALSE);
-                redirect('check-profile');    
+                $viewData = array(
+                    'name' => $data['name'], 
+                    'email' => $data['email']
+                    );
+                $this->HomeModel->welcomeMail($viewData);
+                redirect('check-profile');  
+
             } 
         }
         
@@ -358,6 +364,37 @@ class HomeModel extends CI_Model {
     }
 
     /********************************** send emails *********************************************/
+
+    public function welcomeMail($data){
+        $config = Array(        
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'pawanetm@gmail.com',
+            'smtp_pass' => 'ourlab.tk',
+            'smtp_timeout' => '4',
+            'mailtype'  => 'html', 
+            'charset'   => 'iso-8859-1'
+        );
+
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+    
+        $this->email->from('pawanetm@gmail.com', 'Pawan Singh Chauhan');
+        $data = array(
+             'name' => $data['name'],
+             'email' => $data['email'],
+             'login' => base_url."index.php/login"
+                 );
+        $this->email->to($data['email']);  // replace it with receiver mail id
+        $this->email->subject("Welcome to Bardana Trade"); // replace it with relevant subject 
+    
+        $body = $this->load->view('emails/welcome-to-bardana-trade.php',$data,TRUE);
+        $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
+        $this->email->set_header('Content-type', 'text/html');
+        $this->email->message($body); 
+        $this->email->send();  
+    }
 
     public function htmlmail(){
         $config = Array(        
