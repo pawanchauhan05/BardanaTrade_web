@@ -357,6 +357,34 @@ class HomeModel extends CI_Model {
         }
     }
 
+    /********************************** send emails *********************************************/
+
+    public function htmlmail(){
+        $config = Array(        
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'pawanetm@gmail.com',
+            'smtp_pass' => 'ourlab.tk',
+            'smtp_timeout' => '4',
+            'mailtype'  => 'html', 
+            'charset'   => 'iso-8859-1'
+        );
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+    
+        $this->email->from('pawanetm@gmail.com', 'Pawan Singh Chauhan');
+        $data = array(
+             'userName'=> 'Anil Kumar Panigrahi'
+                 );
+        $this->email->to("pawansinghchouhan05@gmail.com");  // replace it with receiver mail id
+        $this->email->subject("Reset Password"); // replace it with relevant subject 
+    
+        $body = $this->load->view('emails/reset-password.php',$data,TRUE);
+        $this->email->message($body);   
+        $this->email->send();
+    }
+
 
     /**************************** For Encryption only ******************************************* */
 

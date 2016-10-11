@@ -240,4 +240,8 @@ class HomeController extends CI_Controller {
 		$email = $this->input->post('email');
 		// TODO send mail get email from id (to) from $email
 	}
+
+	public function sendEmail() {
+		$this->HomeModel->htmlmail();
+	}
 }

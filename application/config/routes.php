@@ -99,5 +99,8 @@ $route['product-update'] = 'home/HomeController/updateProduct';
 $route['change-password'] = 'home/HomeController/changePassword';
 $route['contact-to-user'] = 'home/HomeController/contactToUser';
 
+$route['send-email'] = 'home/HomeController/sendEmail';
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
