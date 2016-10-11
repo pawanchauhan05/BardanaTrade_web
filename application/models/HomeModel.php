@@ -370,6 +370,7 @@ class HomeModel extends CI_Model {
             'mailtype'  => 'html', 
             'charset'   => 'iso-8859-1'
         );
+
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
     
@@ -381,8 +382,14 @@ class HomeModel extends CI_Model {
         $this->email->subject("Reset Password"); // replace it with relevant subject 
     
         $body = $this->load->view('emails/reset-password.php',$data,TRUE);
+        $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
+        $this->email->set_header('Content-type', 'text/html');
         $this->email->message($body);   
-        $this->email->send();
+        if(isset($this->email->send()) {
+            echo "sent";
+        } else {
+            echo "not sent";
+        }
     }
 
 
