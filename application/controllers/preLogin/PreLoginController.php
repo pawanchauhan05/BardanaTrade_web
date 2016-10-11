@@ -10,7 +10,11 @@ class PreLoginController extends CI_Controller {
         $this->form_validation->set_rules('login-password', 'Password', 'trim|required');
 
         if ($this->form_validation->run() == FALSE) {
-            $viewData = array('redirectUrl' => 'preLogin/login');
+            $viewData = array(
+                'redirectUrl' => 'preLogin/login',
+                'status' => '',
+                'signUpStatus' => ''
+                );
             $this->load->view('index',$viewData);
         } else {
             $dataArray = $this->PreLoginModel->loginUser($userEmail, $userPassword);
@@ -46,7 +50,11 @@ class PreLoginController extends CI_Controller {
         $this->form_validation->set_rules('signup-dob', 'DOB', 'trim|required|xss_clean');
 
         if($this->form_validation->run() == FALSE) {
-            $viewData = array('redirectUrl' => 'preLogin/login');
+            $viewData = array(
+                'redirectUrl' => 'preLogin/login',
+                'status' => '',
+                'signUpStatus' => ''
+                );
             $this->load->view('index',$viewData);
         } else {
             (object)$data = array(
