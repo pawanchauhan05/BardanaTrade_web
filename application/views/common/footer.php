@@ -11,7 +11,7 @@
 			<h3>Help</h3><hr class="horizontal-line">
 			<a href="<?php echo base_url() ?>index.php/faq">Frequently Asked Questions</a><br>
 			<a href="<?php echo base_url() ?>index.php/contact">Contact Us</a><br>
-			<a href="<?php echo base_url() ?>index.php/contact">Feedback</a>
+			<a href="<?php echo base_url() ?>index.php/login">Feedback</a>
 		</div>
 		<div class="col-xs-6 col-sm-3">
 			<h3>Account</h3><hr class="horizontal-line">

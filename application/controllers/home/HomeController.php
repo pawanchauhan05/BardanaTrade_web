@@ -241,7 +241,61 @@ class HomeController extends CI_Controller {
 		// TODO send mail get email from id (to) from $email
 	}
 
-	public function sendEmail() {
-		$this->HomeModel->htmlmail();
+	public function contactUs() {
+		$name = $this->input->post('contact-us-name');
+        $email = $this->input->post('contact-us-email');
+        $mobile = $this->input->post('contact-us-mobile');
+        $subject = $this->input->post('contact-us-subject');
+        $message = $this->input->post('contact-us-message');
+
+        $this->form_validation->set_rules('contact-us-name', 'Name', 'trim|required|min_length[5]|max_length[25]');
+        $this->form_validation->set_rules('contact-us-email', 'Email', 'trim|required|valid_email|xss_clean');
+        $this->form_validation->set_rules('contact-us-mobile', 'Mobile No.', 'trim|required|regex_match[/^[0-9]{10}$/]|xss_clean');
+        $this->form_validation->set_rules('contact-us-subject', 'Subject', 'trim|required|min_length[5]|max_length[25]');
+        $this->form_validation->set_rules('contact-us-message', 'Message', 'trim|required|min_length[12]|max_length[180]');
+
+        if($this->form_validation->run() == FALSE) {
+        	$viewData = array('redirectUrl' => 'preLogin/contact-us','status' => '');
+			$this->load->view('index',$viewData);
+        } else {
+        	$data = array(
+                'name' => $name,
+                'email' => $email,
+                'mobile' => $mobile,
+                'subject' => $subject,
+                'message' => $message
+            );
+            $this->HomeModel->contactUs($data);
+        	$viewData = array('redirectUrl' => 'preLogin/contact-us','status' => 'Congo');
+			$this->load->view('index',$viewData);
+        }
 	}
+
+	public function sendFeedback() {
+		$name = $this->input->post('feedback-name');
+        $email = $this->input->post('feedback-email');
+        $mobile = $this->input->post('feedback-mobile');
+        $subject = $this->input->post('feedback-subject');
+        $message = $this->input->post('feedback-message');
+
+        $this->form_validation->set_rules('feedback-subject', 'Subject', 'trim|required|min_length[5]|max_length[25]');
+        $this->form_validation->set_rules('feedback-message', 'Message', 'trim|required|min_length[12]|max_length[180]');
+
+        if($this->form_validation->run() == FALSE) {
+        	$viewData = array('redirectUrl' => 'home/feedback','status' => '');
+			$this->load->view('index',$viewData);
+        } else {
+        	$data = array(
+                'name' => $name,
+                'email' => $email,
+                'mobile' => $mobile,
+                'subject' => $subject,
+                'message' => $message
+            );
+        	$this->HomeModel->sendfeedback($data);
+        	$viewData = array('redirectUrl' => 'home/feedback','status' => 'Congo');
+			$this->load->view('index',$viewData);
+        }
+	}
+
 }

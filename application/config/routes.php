@@ -95,6 +95,8 @@ $route['update-user-profile-country'] = 'home/HomeController/updateUserProfileCo
 $route['update-user-profile-pincode'] = 'home/HomeController/updateUserProfilePincode';
 $route['sell-product'] = 'home/HomeController/sellProduct';
 $route['buy-product'] = 'home/HomeController/sellProduct';
+$route['contactUs'] = 'home/HomeController/contactUs';
+$route['sendFeedback'] = 'home/HomeController/sendFeedback';
 
 $route['product-update'] = 'home/HomeController/updateProduct';
 $route['change-password'] = 'home/HomeController/changePassword';

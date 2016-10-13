@@ -217,39 +217,27 @@ class HomeModel extends CI_Model {
         }
     }
 
-    public function contactUs() {
-        $name = $this->input->post('name');
-        $email = $this->input->post('email');
-        $mobile = $this->input->post('mobile');
-        $subject = $this->input->post('subject');
-        $message = $this->input->post('message');
-
-        // TODO add validation 
+    public function contactUs($data) {
+        
         $data = array(
-                'name' => $name,
-                'email' => $email,
-                'mobile' => $mobile,
-                'subject' => $subject,
-                'message' => $message
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'mobile' => $data['mobile'],
+                'subject' => $data['subject'],
+                'message' => $data['message']
             );
 
         $this->HomeModel->adminInquiryMail($data);
         $this->HomeModel->contactUsMail($data);
     }
 
-    public function sendfeedback() {
-        $name = $this->input->post('name');
-        $email = $this->input->post('email');
-        $mobile = $this->input->post('mobile');
-        $subject = $this->input->post('subject');
-        $message = $this->input->post('message');
-        // Add form validation
+    public function sendfeedback($data) {
         $data = array(
-                'name' => $name,
-                'email' => $email,
-                'mobile' => $mobile,
-                'subject' => $subject,
-                'message' => $message
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'mobile' => $data['mobile'],
+                'subject' => $data['subject'],
+                'message' => $data['message']
             );
 
         $this->HomeModel->adminInquiryMail($data);

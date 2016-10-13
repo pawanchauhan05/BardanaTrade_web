@@ -183,6 +183,20 @@ hr.horizontal-line {
 	font-size: 26px;
 }
 
+.contact-us-name, .contact-us-email, .contact-us-mobile, .contact-us-subject, .contact-us-message {
+	color: red;
+}
+
+/************************* feedback.php ********************/
+
+.feedback-title {
+	font-size: 26px;
+}
+
+.feedback-subject, .feedback-message {
+	color: red;
+}
+
 /************************ login.php **********************/
 
 .login-title {
