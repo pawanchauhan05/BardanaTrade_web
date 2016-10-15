@@ -219,16 +219,15 @@ class HomeModel extends CI_Model {
 
     public function contactUs($data) {
         
-        $data = array(
+        $contactData = array(
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'mobile' => $data['mobile'],
                 'subject' => $data['subject'],
                 'message' => $data['message']
             );
-
-        $this->HomeModel->adminInquiryMail($data);
-        $this->HomeModel->contactUsMail($data);
+        $this->HomeModel->adminInquiryMail($contactData);
+        $this->HomeModel->contactUsMail($contactData);
     }
 
     public function sendfeedback($data) {
@@ -431,7 +430,7 @@ class HomeModel extends CI_Model {
         $this->email->set_newline("\r\n");
     
         $this->email->from('pawanetm@gmail.com', 'Bardana Trade');
-        $data = array(
+        $viewData = array(
              'name' => $data['name'],
              'email' => $data['email'],
              'login' => base_url()."index.php/login"
@@ -439,7 +438,7 @@ class HomeModel extends CI_Model {
         $this->email->to($data['email']);  // replace it with receiver mail id
         $this->email->subject("Welcome to Bardana Trade"); // replace it with relevant subject 
     
-        $body = $this->load->view('emails/welcome-to-bardana-trade.php',$data,TRUE);
+        $body = $this->load->view('emails/welcome-to-bardana-trade.php',$viewData,TRUE);
         $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
         $this->email->set_header('Content-type', 'text/html');
         $this->email->message($body); 
@@ -462,11 +461,11 @@ class HomeModel extends CI_Model {
         $this->email->set_newline("\r\n");
     
         $this->email->from('pawanetm@gmail.com', 'Bardana Trade');
-        $data = array('name'=> 'Pawan Singh Chauhan');
+        $viewData = array('name'=> 'Pawan Singh Chauhan');
         $this->email->to($data['email']);  // replace it with receiver mail id
         $this->email->subject("Thank you for contacting us"); // replace it with relevant subject 
     
-        $body = $this->load->view('emails/contact-us.php',$data,TRUE);
+        $body = $this->load->view('emails/contact-us.php',$viewData,TRUE);
         $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
         $this->email->set_header('Content-type', 'text/html');
         $this->email->message($body); 
