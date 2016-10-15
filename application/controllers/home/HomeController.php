@@ -221,6 +221,7 @@ class HomeController extends CI_Controller {
 	}
 
 	public function changePassword() {
+		$email = $this->input->post('change-password-email');
 		$oldPassword = $this->input->post('change-password-old');
 		$newPassword = $this->input->post('change-password-new');
 		$comfirmPassword = $this->input->post('change-password-confirm');
@@ -230,9 +231,16 @@ class HomeController extends CI_Controller {
 		$this->form_validation->set_rules('change-password-confirm', 'Confirm Password', 'trim|required|min_length[8]|xss_clean|matches[change-password-new]');
 
 		if($this->form_validation->run() == FALSE) {
-			$viewData = array('redirectUrl' => 'home/profile' );
+			$viewData = array('redirectUrl' => 'home/profile', 'status' => '' );
 			$this->load->view('index',$viewData);
-		} else {}
+		} else {
+			$data = array(
+					'email' => $email,
+					'oldPassword' => md5($oldPassword),
+					'newPassword' => md5($newPassword)
+				);
+			$this->HomeModel->changePassword($data);
+		}
 	}
 
 	public function contactToUser() {
@@ -266,7 +274,8 @@ class HomeController extends CI_Controller {
                 'message' => $message
             );
             $this->HomeModel->contactUs($data);
-        	$viewData = array('redirectUrl' => 'preLogin/contact-us','status' => 'Congo');
+        	$viewData = array('redirectUrl' => 'preLogin/contact-us',
+        		'status' => '<p class="contact-us-status">Product has been added successfully.</p>');
 			$this->load->view('index',$viewData);
         }
 	}
@@ -282,7 +291,8 @@ class HomeController extends CI_Controller {
         $this->form_validation->set_rules('feedback-message', 'Message', 'trim|required|min_length[12]|max_length[180]');
 
         if($this->form_validation->run() == FALSE) {
-        	$viewData = array('redirectUrl' => 'home/feedback','status' => '');
+        	$viewData = array('redirectUrl' => 'home/feedback',
+        		'status' => '<p class="feedback-status">Product has been added successfully.</p>');
 			$this->load->view('index',$viewData);
         } else {
         	$data = array(

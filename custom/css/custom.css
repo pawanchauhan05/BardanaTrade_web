@@ -183,7 +183,7 @@ hr.horizontal-line {
 	font-size: 26px;
 }
 
-.contact-us-name, .contact-us-email, .contact-us-mobile, .contact-us-subject, .contact-us-message {
+.contact-us-status, .contact-us-name, .contact-us-email, .contact-us-mobile, .contact-us-subject, .contact-us-message {
 	color: red;
 }
 
@@ -193,7 +193,7 @@ hr.horizontal-line {
 	font-size: 26px;
 }
 
-.feedback-subject, .feedback-message {
+.feedback-subject, .feedback-message, .feedback-status {
 	color: red;
 }
 
@@ -237,7 +237,7 @@ hr.horizontal-line {
 	font-weight: bold;
 }
 
-.change-password-confirm, .change-password-old, .change-password-new  {
+.change-password-confirm, .change-password-old, .change-password-new, .change-password-status  {
 	color: red;
 }
 

@@ -244,6 +244,29 @@ class HomeModel extends CI_Model {
         $this->HomeModel->feedbackMail($data);
     }
 
+    public function changePassword($data) {
+        $condition = "email =" . "'" . $data['email'] . "' AND " . "password =" . "'" . $data['oldPassword'] . "'";
+        $this->db->select('*');
+        $this->db->from('Users');
+        $this->db->where($condition);
+        $this->db->limit(1);
+        $query = $this->db->get();
+        $count = $query->num_rows();
+        if($count != 0) {
+            $data = array(
+                'password' => $data['newPassword']
+            );
+            $this->db->set($data);
+            $this->db->where("email", $data['email']);
+            $this->db->update("Users", $data);
+            $viewData = array('redirectUrl' => 'home/profile', 'status' => '<p class="change-password-status">Password has been changed successfuly</p>' );
+        } else {
+            $viewData = array('redirectUrl' => 'home/profile', 'status' => '<p class="change-password-status">Old Password does not match.</p>' );
+            
+        }
+        $this->load->view('index',$viewData);
+    }
+
     /***************************** for products ************************************/
 
     public function showOwnProducts($email, $configUrl) {
@@ -500,11 +523,17 @@ class HomeModel extends CI_Model {
         $this->email->set_newline("\r\n");
     
         $this->email->from('pawanetm@gmail.com', 'Bardana Trade');
-        $data = array('name'=> 'Pawan Singh Chauhan');
+        $viewData = array(
+            'name'=> $data['name'],
+            'email' => $data['email'],
+            'subject' => $data['subject'],
+            'mobile' => $data['mobile'],
+            'message' => $data['message']
+            );
         $this->email->to($data['email']);  // replace it with receiver mail id
         $this->email->subject("Thank you for valuable feedback"); // replace it with relevant subject 
     
-        $body = $this->load->view('emails/feedback.php',$data,TRUE);
+        $body = $this->load->view('emails/feedback.php',$viewData,TRUE);
         $this->email->set_header('MIME-Version', '1.0; charset=utf-8');
         $this->email->set_header('Content-type', 'text/html');
         $this->email->message($body); 

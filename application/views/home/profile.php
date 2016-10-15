@@ -150,7 +150,7 @@
 		        <br>
 
 		        <div class="col-sm-6">
-		        <p class="change-password-title">Change Password</p><hr>
+		        <p class="change-password-title">Change Password</p><p><?php echo $status ?></p><hr>
 		        	<?php echo form_open('change-password') ?>
 		        	<div class="form-group">
 				        <label class="<?php echo form_error('change-password-old') != '' ? "change-password-old" : "" ?>">
