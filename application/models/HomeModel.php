@@ -304,7 +304,8 @@ class HomeModel extends CI_Model {
     }
 
     public function showProducts($forWhich, $configUrl, $filter) {
-        $condition = "isVisible =" . "'" . "1" . "' AND " . "forWhich =" . "'" . $forWhich . "'";
+        //$condition = "isVisible =" . "'" . "1" . "' AND " . "forWhich =" . "'" . $forWhich . "'";
+        $condition = array('isVisible' => 1, 'forWhich' => $forWhich);
         $this->db->select('*');
         $this->db->from('Products');
         $this->db->where($condition);
