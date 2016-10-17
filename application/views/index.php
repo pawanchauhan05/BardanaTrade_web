@@ -215,6 +215,7 @@
           });
         <?php } ?>
       }
+
     </script>
 
     <script type="text/javascript">

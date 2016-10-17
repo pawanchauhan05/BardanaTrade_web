@@ -96,7 +96,10 @@ class PreLoginModel extends CI_Model {
                        $content = 'home/check-profile';
                     } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {
                         $content = 'home/product-form';
-                    } else { redirect('login'); }
+                    } else {
+                        $this->session->set_userdata("REDIRECT_URL","product-sell-form"); 
+                        redirect('login'); 
+                    }
                     break;
 
                 case 'product-buy-form':
@@ -105,7 +108,10 @@ class PreLoginModel extends CI_Model {
                        $content = 'home/check-profile';
                     } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {
                         $content = 'home/product-form';
-                    } else { redirect('login'); }
+                    } else { 
+                        $this->session->set_userdata("REDIRECT_URL","product-buy-form");
+                        redirect('login'); 
+                    }
                     break;
 
                 case 'product-details':
@@ -131,7 +137,10 @@ class PreLoginModel extends CI_Model {
                        $content = 'home/check-profile';
                     } else if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == TRUE ) {
                         $content = 'home/feedback';
-                    } else { redirect('login'); }
+                    } else {
+                        $this->session->set_userdata("REDIRECT_URL","feedback"); 
+                        redirect('login'); 
+                    }
                     break;
 
                 default:

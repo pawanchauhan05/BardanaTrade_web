@@ -24,7 +24,13 @@ class PreLoginController extends CI_Controller {
                     redirect('check-profile'); 
                 } else {
                     $this->HomeModel->startSession($dataArray['data']->name,  $dataArray['data']->email, TRUE);
-                    redirect('profile');
+                    $redirectUrl = $this->session->userdata("REDIRECT_URL");
+                    if(isset($redirectUrl)) {
+                        redirect($redirectUrl);
+                    } else {
+                        redirect('profile');
+                    }
+                    
                 }
             } else {
                 $viewData = array('redirectUrl' => 'preLogin/login',
