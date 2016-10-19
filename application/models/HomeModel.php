@@ -588,5 +588,22 @@ class HomeModel extends CI_Model {
         return trim($decrypttext);
     }
 
+    public function totolGroup() {
+        if(isset($_SESSION['forWhich'])) {
+            $forWhich = $_SESSION['forWhich'];
+        } else {
+            $forWhich = "Sell"; 
+        }
+        $condition = array('isVisible' => 1, 'forWhich' => $forWhich);
+        $this->db->select('*');
+        $this->db->from('Products');
+        $this->db->where($condition);
+        $query = $this->db->get();
+        return $group = ceil($query->num_rows()/3);
+
+    }
+
+    
+
 
 }

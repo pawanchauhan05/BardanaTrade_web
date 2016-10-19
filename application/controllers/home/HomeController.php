@@ -308,4 +308,88 @@ class HomeController extends CI_Controller {
         }
 	}
 
+	public function loadMoreProducts() {
+		$count = $this->input->post('group_no');
+		$category = $this->input->post('category');
+		$start = $count*3;
+		if(isset($_SESSION['forWhich'])) {
+			$forWhich = $_SESSION['forWhich'];
+		} else {
+			$forWhich = "Sell";	
+		}
+		if(isset($category)) {
+			if($category != "") {
+				$condition = array('isVisible' => 1, 'forWhich' => $forWhich, 'productCategory' => $category);
+			} else { $condition = array('isVisible' => 1, 'forWhich' => $forWhich); }
+		} 
+        $this->db->select('*');
+        $this->db->from('Products');
+        $this->db->where($condition);
+        $this->db->limit(3, $start);
+        $query = $this->db->get();
+        $data = $query->result();
+		foreach ($data as $row) {
+		echo "<div class='col-sm-4'>";
+        echo 	"<div class='panel panel-default'>";
+		echo 	    "<div class='panel-body'>";
+		echo 			"<a href=". base_url() ."index.php/product-details/". $this->HomeModel->encode($row->id) ." class='img-responsive'>";
+		echo 	    	"<img src=' ". base_url() ."images/". $row->productPic ."' class='img-responsive' />";
+		echo  			"</a>";
+		echo 	    	"<h3 class='text-center'> " . $row->productName . " </h3>";
+		echo 	    	"<p>".$row->productDescription."</p>";
+		echo	    	"<div class=''>";
+		echo	    		"<p class='pull-left'>". $row->price ." INR</p>";
+		echo 	    		"<p class='pull-right'>Posted  ". date("d F", $row->postedOn) ."</p>";
+		echo 	    	"</div>";
+		echo 	    	"<div class='text-center'>";
+		echo	    		"<a href='#' class='btn btn-primary' onClick='showSweetAlert(id)'>Contact</a>";
+		echo	    	"</div>";
+		echo	    "</div>";	
+		echo	"</div>";
+        echo "</div>";
+    	}
+    }
+
+    public function loadProducts() {
+    	$count = $this->input->post('group_no');
+    	$category = $this->input->post('category');
+		if(isset($_SESSION['forWhich'])) {
+			$forWhich = $_SESSION['forWhich'];
+		} else {
+			$forWhich = "Sell";	
+		}
+		if(isset($category)) {
+			if($category != "") {
+				$condition = array('isVisible' => 1, 'forWhich' => $forWhich, 'productCategory' => $category);
+			} else { $condition = array('isVisible' => 1, 'forWhich' => $forWhich); }
+		} 
+        //$query = $this->db->get_where('Products', $condition, $start, $end);
+        $this->db->select('*');
+        $this->db->from('Products');
+        $this->db->where($condition);
+        $this->db->limit(3);
+        $query = $this->db->get();
+        $data = $query->result();
+        foreach ($data as $row) {
+		echo "<div class='col-sm-4'>";
+        echo 	"<div class='panel panel-default'>";
+		echo 	    "<div class='panel-body'>";
+		echo 			"<a href=". base_url() ."index.php/product-details/". $this->HomeModel->encode($row->id) ." class='img-responsive'>";
+		echo 	    	"<img src=' ". base_url() ."images/". $row->productPic ."' class='img-responsive' />";
+		echo  			"</a>";
+		echo 	    	"<h3 class='text-center'> " . $row->productName . " </h3>";
+		echo 	    	"<p>".$row->productDescription."</p>";
+		echo	    	"<div class=''>";
+		echo	    		"<p class='pull-left'>". $row->price ." INR</p>";
+		echo 	    		"<p class='pull-right'>Posted  ". date("d F", $row->postedOn) ."</p>";
+		echo 	    	"</div>";
+		echo 	    	"<div class='text-center'>";
+		echo	    		"<a href='#' class='btn btn-primary' onClick='showSweetAlert(id)'>Contact</a>";
+		echo	    	"</div>";
+		echo	    "</div>";	
+		echo	"</div>";
+        echo "</div>";
+    	}
+    }
+
 }

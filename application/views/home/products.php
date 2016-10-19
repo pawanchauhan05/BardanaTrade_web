@@ -61,79 +61,23 @@
 				    <?php echo form_close() ?>
 				</div>
 				<div class="col-sm-8">
-				
-				</div>
-			</div>
-			
-					    
-			<?php
-
-					if(isset($_POST['forWhich'])) {
-						$this->session->set_userdata('forWhich', $this->input->post('forWhich'));
-						$forWhich = $_SESSION['forWhich'];
-					} else {
-						if(isset($_SESSION['forWhich'])) {
+					<?php
+						if(isset($_POST['forWhich'])) {
+							$this->session->set_userdata('forWhich', $this->input->post('forWhich'));
 							$forWhich = $_SESSION['forWhich'];
 						} else {
-							$forWhich = "Sell";	
+							if(isset($_SESSION['forWhich'])) {
+								$forWhich = $_SESSION['forWhich'];
+							} else {
+								$forWhich = "Sell";	
+							}
 						}
-					}
+					?>
+				</div>
+			</div>
+			<br>
 
-		        	if($category != null && !$category == '' && !is_numeric($category)) {
-		        		$configUrl = base_url()."index.php/products/".$category;
-		        		$sellData = $this->HomeModel->showProductsByCategory($category, $forWhich, $configUrl);
-		        		$sellRows = $sellData->rows;
-		        		$sellCount = $sellData->count;
-		        	} else {
-		        		$configUrl = base_url()."index.php/products";
-		        		if(isset($_POST['subCategory'])) {
-		        			$filter = $this->input->post('subCategory');
-		        			$sellData = $this->HomeModel->showProducts($forWhich, $configUrl, $filter);
-		        		} else {
-		        			$filter = array();
-		        			$sellData = $this->HomeModel->showProducts($forWhich, $configUrl, $filter);	
-		        		}
-		        		$sellRows = $sellData->rows;
-		        		$sellCount = $sellData->count;
-		        	}
-
-		        	
-		        	
-		        	if($sellCount != 0) {
-		        	echo "<div class='row'><br>";
-		        	foreach ($sellRows as $row) { ?>
-		        	
-			        	<div class="col-sm-4">
-			            	<div class="panel panel-default">
-							    <div class="panel-body">
-							    	<a href='<?php echo base_url()."index.php/product-details/".$this->HomeModel->encode($row->id); ?>'>
-							    		<img src="<?php echo base_url() ."images/".$row->productPic ?>" class="img-responsive">
-							    	</a>
-							    	<h3 class="text-center"><?php echo $row->productName ?></h3>
-							    	<p><?php echo $row->productDescription ?></p>
-							    	<div class="">
-							    		<p class="pull-left"><?php echo $row->price ." INR" ?></p>
-							    		<p class="pull-right">Posted <?php echo date("d F", $row->postedOn) ?></p>
-							    	</div>
-							    	<div class="text-center">
-							    		<a href="#" class="btn btn-primary" 
-										onClick='<?php echo "showSweetAlert(".$row->id.")" ?>'>Contact</a>
-							    	</div>
-							    </div>	
-							</div>
-			            </div>
-
-		        <?php } echo "</div>"; } else { ?> 
-       
-
-		        Add Error Msg for products
-
-		        <?php } 
-
-		        	
-		        ?>
-
-		    <?php echo $this->pagination->create_links(); ?>
+		    <div class="row" id="results"></div>
 
 		</div>
 	</div>

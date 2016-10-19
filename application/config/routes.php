@@ -103,6 +103,9 @@ $route['change-password'] = 'home/HomeController/changePassword';
 $route['contact-to-user'] = 'home/HomeController/contactToUser';
 
 $route['send-email'] = 'home/HomeController/sendEmail';
+$route['load-products'] = 'home/HomeController/loadProducts';
+$route['load-more-products'] = 'home/HomeController/loadMoreProducts';
+
 
 
 $route['404_override'] = '';

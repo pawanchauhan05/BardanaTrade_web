@@ -235,5 +235,35 @@
 
     </script>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    <?php echo "var total_group = " . $this->HomeModel->totolGroup() . ""  ?>;
+    var total_record = 0;
+    console.log(total_group);  
+    $('#results').load("<?php echo base_url() ?>index.php/load-products",
+     {'group_no':total_record, 'category' : '<?php echo $this->uri->segment(2) ?>'}, 
+     function() {total_record++; console.log("load "+total_record);  });
+    
+
+    $(window).scroll(function() {       
+        if($(window).scrollTop() + $(window).height() == $(document).height())  
+        {
+          if(total_record <= total_group) {
+            
+            $.post('<?php echo base_url() ?>index.php/load-more-products',{'group_no': total_record, 'category' : '<?php echo $this->uri->segment(2) ?>'},
+              function(data){ 
+                  if (data != "") {                               
+                      $("#results").append(data);                 
+                      //$('.loader_image').hide();                  
+                      total_record++;
+                      console.log("scroll "+total_record);
+                  }
+              });
+          }     
+        }
+    });
+  });
+</script>
+
   </body>
 </html>
