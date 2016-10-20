@@ -85,7 +85,7 @@ class PreLoginModel extends CI_Model {
                     if(isset($sessionData['sessionData'])  && $sessionData['sessionData']['isProfileComplete'] == FALSE ) {
                        $content = 'home/check-profile';
                     } else {
-                        $data = array('category' => $this->uri->segment(2));
+                        $data = array('category' => $this->uri->segment(2), 'selectedProducts' => array());
                         $content = 'home/products';
                     }
                 	break;

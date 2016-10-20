@@ -26,13 +26,12 @@
 			    	foreach ($categories as $row) { ?>
 			    		<div class="checkbox">
 						  <label>
-						  	<input type="checkbox" name="subCategory[]" value='<?php echo $row->subCategory ?>' 
+						  	<input type="checkbox" name="subCategory[]" onclick="check()" value='<?php echo $row->subCategory ?>' 
 						  	<?php // 	echo in_array($row->subCategory, $people) ? "checked" : ""; ?> >
 						  	<?php echo $row->subCategory ?>
 						  </label>
 						</div>
 			    <?php } ?>
-			    <input type="submit" name="submit">
 			    <?php echo form_close(); ?>
 
 			    </div>

@@ -309,6 +309,7 @@ class HomeController extends CI_Controller {
 	}
 
 	public function loadMoreProducts() {
+		$selectedProducts = $this->input->post('selectedProducts');
 		$count = $this->input->post('group_no');
 		$category = $this->input->post('category');
 		$start = $count*3;
@@ -324,6 +325,7 @@ class HomeController extends CI_Controller {
 		} 
         $this->db->select('*');
         $this->db->from('Products');
+        $this->db->where_in("productName",$selectedProducts);
         $this->db->where($condition);
         $this->db->limit(3, $start);
         $query = $this->db->get();
@@ -351,7 +353,7 @@ class HomeController extends CI_Controller {
     }
 
     public function loadProducts() {
-    	$count = $this->input->post('group_no');
+    	$selectedProducts = $this->input->post('selectedProducts');
     	$category = $this->input->post('category');
 		if(isset($_SESSION['forWhich'])) {
 			$forWhich = $_SESSION['forWhich'];
@@ -366,6 +368,7 @@ class HomeController extends CI_Controller {
         //$query = $this->db->get_where('Products', $condition, $start, $end);
         $this->db->select('*');
         $this->db->from('Products');
+        $this->db->where_in("productName",$selectedProducts);
         $this->db->where($condition);
         $this->db->limit(3);
         $query = $this->db->get();
