@@ -22,7 +22,7 @@
     
 
     <!-- Custom Theme Style -->
-    <link href="<?php echo base_url() ?>custom/css/custom.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>custom/css/custom-bardanatrade.css" rel="stylesheet">
   </head>
 
   <body>
@@ -39,7 +39,7 @@
     <script src="<?php echo base_url() ?>bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="<?php echo base_url() ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Owal carousal ---->
+    <!-- Owal carousal -->
     <script src="<?php echo base_url() ?>bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
     <!-- X-editable -->
     <script src="<?php echo base_url() ?>bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
@@ -258,7 +258,7 @@
                       $("#results").append(data);                 
                       //$('.loader_image').hide();                  
                       total_record++;
-                      console.log("scroll "+total_record);
+                      console.log("scroll "+selectedProducts);
                   }
               });
           }     

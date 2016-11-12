@@ -106,6 +106,14 @@ $route['send-email'] = 'home/HomeController/sendEmail';
 $route['load-products'] = 'home/HomeController/loadProducts';
 $route['load-more-products'] = 'home/HomeController/loadMoreProducts';
 
+//Admin
+$route['admin/login'] = 'admin/AdminController/isAdminExist';
+$route['admin/logout'] = 'admin/AdminController/logout';
+$route['admin'] = 'admin/AdminController';
+$route['admin/users'] = 'admin/AdminController';
+$route['admin/sell-products'] = 'admin/AdminController';
+$route['admin/Tokens'] = 'admin/AdminController';
+$route['admin/sendNotification/:any'] = 'admin/AdminController';
 
 
 $route['404_override'] = '';
