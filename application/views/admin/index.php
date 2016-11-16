@@ -28,6 +28,8 @@
     <link href="<?php echo base_url() ?>bower_components/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>bower_components/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>bower_components/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- X-editable -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css" />
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url() ?>custom/css/custom.min.css" rel="stylesheet">
@@ -103,7 +105,8 @@
     <script src="<?php echo base_url() ?>bower_components/jszip/dist/jszip.min.js"></script>
     <script src="<?php echo base_url() ?>bower_components/pdfmake/build/pdfmake.min.js"></script>
     <script src="<?php echo base_url() ?>bower_components/pdfmake/build/vfs_fonts.js"></script>
-
+    <!-- X-editable -->
+    <script src="<?php echo base_url() ?>bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
     <!-- bootstrap-daterangepicker -->
     <script src="<?php echo base_url() ?>prod/moment/moment.min.js"></script>
@@ -233,7 +236,7 @@
 
     <!-- Doughnut Chart -->
     <script>
-      $(document).ready(function(){
+      /*$(document).ready(function(){
         var options = {
           legend: false,
           responsive: false
@@ -270,7 +273,7 @@
           },
           options: options
         });
-      });
+      });*/
     </script>
     <!-- /Doughnut Chart -->
     
@@ -456,5 +459,71 @@
   });
 </script>
 <!-- /Datatables -->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#profile-item-name').editable({
+                       validate: function(value) {
+                          if($.trim(value) == '') 
+                            return 'This field is required';
+                        }
+                    });
+
+    $('#profile-item-mobile').editable({
+                       validate: function(value) {
+                          if($.trim(value) == '') 
+                            return 'This field is required';
+                        }
+                    });
+
+    $('#profile-item-organisation').editable({
+                       validate: function(value) {
+                          if($.trim(value) == '') 
+                            return 'This field is required';
+                        }
+                    });
+
+    $('#profile-item-designation').editable({
+                       validate: function(value) {
+                          if($.trim(value) == '') 
+                            return 'This field is required';
+                        }
+                    });
+
+    $('#profile-item-location').editable({
+                       validate: function(value) {
+                          if($.trim(value) == '') 
+                            return 'This field is required';
+                        }
+                    });
+
+    $('#profile-item-city').editable({
+                       validate: function(value) {
+                          if($.trim(value) == '') 
+                            return 'This field is required';
+                        }
+                    });
+
+    $('#profile-item-state').editable({
+                       validate: function(value) {
+                          if($.trim(value) == '') 
+                            return 'This field is required';
+                        }
+                    });
+
+    $('#profile-item-country').editable({
+                       validate: function(value) {
+                          if($.trim(value) == '') 
+                            return 'This field is required';
+                        }
+                    });
+
+    $('#profile-item-pincode').editable({
+                       validate: function(value) {
+                          if($.trim(value) == '') 
+                            return 'This field is required';
+                        }
+                    });
+  });
+</script>
   </body>
 </html>

@@ -4,13 +4,13 @@
       <div class="x_panel">
         <div class="x_title">
         <?php
-          if($this->uri->segment(2) == 'sell-products') {
+          if($this->uri->segment(2) == 'sell-products-request') {
             $forWhich = 'Sell';
-          } else if($this->uri->segment(2) == 'buy-products') {
+          } else if($this->uri->segment(2) == 'buy-products-request') {
             $forWhich = 'Buy';
           } else { redirect('admin'); }
         ?>
-          <h2><?php echo $forWhich ?> Products List <small>Products</small></h2>
+          <h2><?php echo $forWhich ?> Products Request List <small>Request</small></h2>
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
@@ -30,8 +30,8 @@
         </div>
         <div class="x_content">
           <?php 
-              $configUrl = base_url()."index.php/admin/sell-products";
-              $data = $this->AdminModel->showProducts($forWhich, $configUrl);
+              $configUrl = base_url()."index.php/admin/product-request-details";
+              $data = $this->AdminModel->showInActiveProducts($forWhich, $configUrl);
               $rows = $data->rows;
               $count = $data->count;
 
@@ -42,7 +42,7 @@
                   <div class="col-xs-6 col-sm-4 col-md-3">
                     <div class="panel panel-default">
                       <div class="panel-body">
-                        <a href='<?php echo base_url()."index.php/admin/product-details/".$this->HomeModel->encode($row->id); ?>'>
+                        <a href='<?php echo base_url()."index.php/admin/product-request-details/".$this->HomeModel->encode($row->id); ?>'>
                           <img src="<?php echo base_url() ."images/".$row->productPic ?>" class="img-responsive">
                         </a>
                         <h3 class="text-center"><?php echo $row->productName ?></h3>
@@ -51,11 +51,19 @@
                           <p class="pull-left"><?php echo $row->price ." INR" ?></p>
                           <p class="pull-right">Posted <?php echo date("d F", $row->postedOn) ?></p>
                         </div>
-                        <div class="text-center">
+                        <div>
+                          <div class="pull-left">
                             <?php echo form_open('admin/approve-product'); ?>
                             <input type="hidden" name="id" value="<?php echo $row->id ?>">
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-primary pull-left">Approve</button>
                             <?php echo form_close(); ?>
+                          </div>
+                          <div class="pull-right">
+                            <?php echo form_open('admin/delete-product'); ?>
+                            <input type="hidden" name="id" value="<?php echo $row->id ?>">
+                            <button type="submit" class="btn btn-danger pull-right">Delete</button>
+                            <?php echo form_close(); ?>
+                          </div>   
                         </div>
                       </div>
                     </div>

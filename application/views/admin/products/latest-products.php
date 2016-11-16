@@ -4,13 +4,15 @@
       <div class="x_panel">
         <div class="x_title">
         <?php
-          if($this->uri->segment(2) == 'sell-products') {
-            $forWhich = 'Sell';
-          } else if($this->uri->segment(2) == 'buy-products') {
-            $forWhich = 'Buy';
+          if($this->uri->segment(2) == 'latest-bags') {
+            $category = 'Bags';
+          } else if($this->uri->segment(2) == 'latest-twines') {
+            $category = 'Twine and Yarn';
+          } else if($this->uri->segment(2) == 'latest-machines') {
+            $category = 'Machines';
           } else { redirect('admin'); }
         ?>
-          <h2><?php echo $forWhich ?> Products List <small>Products</small></h2>
+          <h2>Latest Products List <small>Products</small></h2>
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
@@ -29,14 +31,48 @@
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
+        <?php
+            $data = $this->AdminModel->showLatestProducts($category);
+            echo "<div class='row'>";
+            echo "<div class='col-sm-12'><h2>Live Latest Bags</h2></div>";
+            
+              foreach ($data as $row) { ?>
+
+        <div class="col-xs-6 col-sm-4 col-md-3">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <a href='<?php echo base_url()."index.php/admin/product-details/".$this->HomeModel->encode($row->id); ?>'>
+                <img src="<?php echo base_url() ."images/".$row->productPic ?>" class="img-responsive">
+              </a>
+              <h3 class="text-center"><?php echo $row->productName ?></h3>
+              <p><?php echo $row->productDescription ?></p>
+              <div class="">
+                <p class="pull-left"><?php echo $row->price ." INR" ?></p>
+                <p class="pull-right">Posted <?php echo date("d F", $row->postedOn) ?></p>
+              </div>
+              <div class="text-center">
+                <?php echo form_open('admin/remove-product-from-latest'); ?>
+                <input type="hidden" name="id" value="<?php echo $row->id ?>">
+                <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign"></span> Remove</button>
+                <?php echo form_close(); ?>
+              </div>
+            </div>
+          </div>
+        </div>
+      <?php } echo "</div>"; ?>
+
+
+
+
           <?php 
-              $configUrl = base_url()."index.php/admin/sell-products";
-              $data = $this->AdminModel->showProducts($forWhich, $configUrl);
+              $configUrl = base_url()."index.php/admin/".$this->uri->segment(2);
+              $data = $this->AdminModel->showLatestProductsToAdd($category, $configUrl);
               $rows = $data->rows;
               $count = $data->count;
 
               if($count != 0) {
               echo "<div class='row'>";
+              echo "<div class='col-sm-12'><h2>Bags to add in latest section</h2></div>";
               foreach ($rows as $row) { ?>
     
                   <div class="col-xs-6 col-sm-4 col-md-3">
@@ -52,10 +88,10 @@
                           <p class="pull-right">Posted <?php echo date("d F", $row->postedOn) ?></p>
                         </div>
                         <div class="text-center">
-                            <?php echo form_open('admin/approve-product'); ?>
-                            <input type="hidden" name="id" value="<?php echo $row->id ?>">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                            <?php echo form_close(); ?>
+                          <?php echo form_open('admin/add-product-to-latest'); ?>
+                          <input type="hidden" name="id" value="<?php echo $row->id ?>">
+                          <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Add to Latest</button>
+                          <?php echo form_close(); ?>
                         </div>
                       </div>
                     </div>

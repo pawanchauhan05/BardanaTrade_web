@@ -44,49 +44,58 @@ class HomeController extends CI_Controller {
 
 	public function updateUserProfileName() {
 		$fullName = $this->input->post('value');
-		$this->HomeModel->updateName($fullName);
+		$email = $this->input->post('pk');
+		$this->HomeModel->updateName($fullName, $email);
 	}
 
 	public function updateUserProfileMobile() {
 		$mobile = $this->input->post('value');
-		$this->HomeModel->updateMobile($mobile);
+		$email = $this->input->post('pk');
+		$this->HomeModel->updateMobile($mobile, $email);
 	}
 
 	public function updateUserProfileOrganisation() {
 		$organisation = $this->input->post('value');
-		$this->HomeModel->updateOrganisation($organisation);
+		$email = $this->input->post('pk');
+		$this->HomeModel->updateOrganisation($organisation, $email);
 	}
 
 	public function updateUserProfileDesignation() {
 		$designation = $this->input->post('value');
-		$this->HomeModel->updateDesignation($designation);
+		$email = $this->input->post('pk');
+		$this->HomeModel->updateDesignation($designation, $email);
 	}
 
 
 	public function updateUserProfileAddress() {
 		$location = $this->input->post('value');
-		$this->HomeModel->updateLocation($location);
+		$email = $this->input->post('pk');
+		$this->HomeModel->updateLocation($location, $email);
 	}
 
 	public function updateUserProfileCity() {
 		$city = $this->input->post('value');
-		$this->HomeModel->updateCity($city);
+		$email = $this->input->post('pk');
+		$this->HomeModel->updateCity($city, $email);
 	}
 
 
 	public function updateUserProfileState() {
 		$state = $this->input->post('value');
-		$this->HomeModel->updateState($state);
+		$email = $this->input->post('pk');
+		$this->HomeModel->updateState($state, $email);
 	}
 
 	public function updateUserProfileCountry() {
 		$country = $this->input->post('value');
-		$this->HomeModel->updateCountry($country);
+		$email = $this->input->post('pk');
+		$this->HomeModel->updateCountry($country, $email);
 	}
 
 	public function updateUserProfilePincode() {
 		$pincode = $this->input->post('value');
-		$this->HomeModel->updatePincode($pincode);
+		$email = $this->input->post('pk');
+		$this->HomeModel->updatePincode($pincode, $email);
 	}
 
 	public function filterProductsBySubCategory() {

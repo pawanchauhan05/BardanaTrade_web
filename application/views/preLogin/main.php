@@ -86,26 +86,35 @@
 			<p class="latest-product-title">Latest Products</p>
 			<p class="product-title">Bags</p>
 			<div class="owl-carousel owl-theme">
-			  <div> <img src="<?php echo base_url() ?>images/bg1.jpg" class="img-responsive"> </div>
-			  <div> <img src="<?php echo base_url() ?>images/bg6.jpg" class="img-responsive"> </div>
-			  <div> <img src="<?php echo base_url() ?>images/bg8.jpg" class="img-responsive"> </div>
-			  <div> <img src="<?php echo base_url() ?>images/bg9.jpg" class="img-responsive"> </div>
+			  <?php
+			  	$rows = $this->AdminModel->showLatestProducts('Bags');
+			  	foreach ($rows as $row) {
+			  		$bagsImagePath = base_url()."images/".$row->productPic;
+			  		echo "<div> <img src='".$bagsImagePath."' class='img-responsive'> </div>";
+			  	}
+			  ?>
 			</div>
-
+			<br>
 			<p class="product-title">Thread & Yarn</p>
 			<div class="owl-carousel owl-theme">
-			  <div> <img src="<?php echo base_url() ?>images/t5.jpg" class="img-responsive"> </div>
-			  <div> <img src="<?php echo base_url() ?>images/t6.jpg" class="img-responsive"> </div>
-			  <div> <img src="<?php echo base_url() ?>images/t7.jpg" class="img-responsive"> </div>
-			  <div> <img src="<?php echo base_url() ?>images/t8.jpg" class="img-responsive"> </div>
+			  <?php
+			  	$rows = $this->AdminModel->showLatestProducts('Bags');
+			  	foreach ($rows as $row) {
+			  		$yarnImagePath = base_url()."images/".$row->productPic;
+			  		echo "<div> <img src='".$yarnImagePath."' class='img-responsive'> </div>";
+			  	}
+			  ?>
 			</div>
 
 			<p class="product-title">Machines</p>
 			<div class="owl-carousel owl-theme">
-			  <div> <img src="<?php echo base_url() ?>images/m1.jpg" class="img-responsive"> </div>
-			  <div> <img src="<?php echo base_url() ?>images/m3.jpg" class="img-responsive"> </div>
-			  <div> <img src="<?php echo base_url() ?>images/m4.jpg" class="img-responsive"> </div>
-			  <div> <img src="<?php echo base_url() ?>images/m5.jpg" class="img-responsive"> </div>
+			  <?php
+			  	$rows = $this->AdminModel->showLatestProducts('Bags');
+			  	foreach ($rows as $row) {
+			  		$machineImagePath = base_url()."images/".$row->productPic;
+			  		echo "<div> <img src='".$machineImagePath."' class='img-responsive'> </div>";
+			  	}
+			  ?>
 			</div>
 
 		</div>

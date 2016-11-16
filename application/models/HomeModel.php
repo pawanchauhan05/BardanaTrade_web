@@ -19,6 +19,19 @@ class HomeModel extends CI_Model {
         }
     }
 
+    public function getUserInfoById($id) {
+        $condition = array('id' => $id);
+        $this->db->select('*');
+        $this->db->from('Users');
+        $this->db->where($condition);
+        $this->db->limit(1);
+        $query = $this->db->get();
+        $row = $query->row();
+        if (isset($row)) {
+            return $query->row();
+        } 
+    }
+
     public function registerUser($data) {
         $data = array(
             'name' => $data['fullName'],
@@ -49,9 +62,7 @@ class HomeModel extends CI_Model {
                 redirect('check-profile');  
 
             } 
-        }
-        
-        
+        }  
     }
 
     public function startSession($name, $email, $flag) {
@@ -95,12 +106,12 @@ class HomeModel extends CI_Model {
         }
     }
 
-    public function updateName($fullName) {
+    public function updateName($fullName, $email) {
         $data = array(
                 'name' => $fullName
             );
         $this->db->set($data);
-        $this->db->where("email", 'demo@gmail.com');
+        $this->db->where("email", $email);
         if($this->db->update("Users", $data)) {
         } else {
 
@@ -108,12 +119,12 @@ class HomeModel extends CI_Model {
 
     }
 
-    public function updateMobile($mobileNumber) {
+    public function updateMobile($mobileNumber, $email) {
         $data = array(
                 'mobile' => $mobileNumber
             );
         $this->db->set($data);
-        $this->db->where("email", 'demo@gmail.com');
+        $this->db->where("email", $email);
         if($this->db->update("Users", $data)) {
         } else {
 
@@ -121,84 +132,84 @@ class HomeModel extends CI_Model {
 
     }
 
-    public function updateOrganisation($organisation) {
+    public function updateOrganisation($organisation, $email) {
         $data = array(
                 'organisation' => $organisation
             );
         $this->db->set($data);
-        $this->db->where("email", 'demo@gmail.com');
+        $this->db->where("email", $email);
         if($this->db->update("Users", $data)) {
         } else {
 
         }
     }
 
-    public function updateDesignation($designation) {
+    public function updateDesignation($designation, $email) {
         $data = array(
                 'designation' => $designation
             );
         $this->db->set($data);
-        $this->db->where("email", 'demo@gmail.com');
+        $this->db->where("email", $email);
         if($this->db->update("Users", $data)) {
         } else {
 
         }
     }
 
-    public function updateLocation($location) {
+    public function updateLocation($location, $email) {
         $data = array(
                 'address' => $location
             );
         $this->db->set($data);
-        $this->db->where("email", 'demo@gmail.com');
+        $this->db->where("email", $email);
         if($this->db->update("Users", $data)) {
         } else {
 
         }
     }
 
-    public function updateCity($city) {
+    public function updateCity($city, $email) {
         $data = array(
-                'city' => $location
+                'city' => $city
             );
         $this->db->set($data);
-        $this->db->where("email", 'demo@gmail.com');
+        $this->db->where("email", $email);
         if($this->db->update("Users", $data)) {
         } else {
 
         }
     }
 
-    public function updateState($state) {
+    public function updateState($state, $email) {
         $data = array(
                 'state' => $state
             );
         $this->db->set($data);
-        $this->db->where("email", 'demo@gmail.com');
+        $this->db->where("email", $email);
         if($this->db->update("Users", $data)) {
         } else {
 
         }
     }
 
-    public function updateCountry($country) {
+    public function updateCountry($country, $email) {
         $data = array(
                 'country' => $country
             );
         $this->db->set($data);
-        $this->db->where("email", 'demo@gmail.com');
+        $this->db->where("email", $email);
         if($this->db->update("Users", $data)) {
         } else {
 
         }
     }
 
-    public function updatePincode($pincode) {
+    public function updatePincode($pincode, $email) {
         $data = array(
                 'pincode' => $pincode
             );
         $this->db->set($data);
-        $this->db->where("email", 'demo@gmail.com');
+        $this->db->where("email", $email);
         if($this->db->update("Users", $data)) {
         } else {
 
@@ -411,6 +422,15 @@ class HomeModel extends CI_Model {
         if (isset($row)) {
             return $query->row();
         }
+    }
+
+    public function getTotalProducts($email) {
+        $condition = array("email" => $email);
+        $this->db->select('*');
+        $this->db->from('Products');
+        $this->db->where($condition);
+        $query = $this->db->get();
+        return $query->num_rows();
     }
 
     /********************************** send emails *********************************************/

@@ -40,7 +40,7 @@
               if(isset($data)) { 
                 foreach ($data as $row) { ?>
                 <tr>
-                  <td><?php echo $row->name;  ?></td>
+                  <td><a href="<?php echo base_url() ."index.php/admin/user-info/". $this->HomeModel->encode($row->id) ?>"><?php echo $row->name; ?></a></td>
                   <td><?php echo $row->email;  ?></td>
                   <td><?php echo date("d F Y", $row->created_at);  ?></td>
                   <td><?php echo date("d F Y", $row->updated_at);  ?></td>
@@ -83,7 +83,7 @@
       }
 
       function deleteUser() {
-        window.location.href = 'http://localhost/CallCustomizer_web/index.php/admin/deleteUser/'+tempEmail;
+        window.location.href = 'http://localhost/BardanaTrade_web/index.php/admin/deleteUser/'+tempEmail;
         tempEmail = "";
       }
     </script>

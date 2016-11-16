@@ -40,4 +40,24 @@ class AdminController extends CI_Controller {
         $this->index();
     }
 
+    public function removeProductFromLatest() {
+        $id = $this->input->post('id');
+        $this->AdminModel->removeProductFromLatest($id);
+    }
+
+    public function addProductToLatest() {
+        $id = $this->input->post('id');
+        $this->AdminModel->addProductFromLatest($id);
+    }
+
+    public function approveProduct() {
+        $id = $this->input->post('id');
+        $this->AdminModel->approveProduct($id);
+    }
+
+    public function deleteProduct() {
+        $id = $this->input->post('id');
+        $this->AdminModel->approveProduct($id);
+    }
+
 }

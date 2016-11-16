@@ -107,13 +107,32 @@ $route['load-products'] = 'home/HomeController/loadProducts';
 $route['load-more-products'] = 'home/HomeController/loadMoreProducts';
 
 //Admin
+$route['admin/deleteUser/:any'] = 'admin/Admin/deleteUser';
 $route['admin/login'] = 'admin/AdminController/isAdminExist';
 $route['admin/logout'] = 'admin/AdminController/logout';
 $route['admin'] = 'admin/AdminController';
 $route['admin/users'] = 'admin/AdminController';
+$route['admin/user-info/:any'] = 'admin/AdminController';
 $route['admin/sell-products'] = 'admin/AdminController';
-$route['admin/Tokens'] = 'admin/AdminController';
-$route['admin/sendNotification/:any'] = 'admin/AdminController';
+$route['admin/sell-products/:num'] = 'admin/AdminController';
+$route['admin/buy-products'] = 'admin/AdminController';
+$route['admin/buy-products/:num'] = 'admin/AdminController';
+$route['admin/product-details/:any'] = 'admin/AdminController';
+$route['admin/sell-products-request'] = 'admin/AdminController';
+$route['admin/sell-products-request/:num'] = 'admin/AdminController';
+$route['admin/buy-products-request'] = 'admin/AdminController';
+$route['admin/buy-products-request/:num'] = 'admin/AdminController';
+$route['admin/product-request-details/:any'] = 'admin/AdminController';
+$route['admin/latest-bags'] = 'admin/AdminController';
+$route['admin/latest-bags/:any'] = 'admin/AdminController';
+$route['admin/latest-twines'] = 'admin/AdminController';
+$route['admin/latest-twines/:any'] = 'admin/AdminController';
+$route['admin/latest-machines'] = 'admin/AdminController';
+$route['admin/latest-machines/:any'] = 'admin/AdminController';
+$route['admin/remove-product-from-latest'] = 'admin/AdminController/removeProductFromLatest';
+$route['admin/add-product-to-latest'] = 'admin/AdminController/addProductToLatest';
+$route['admin/approve-product'] = 'admin/AdminController/approveProduct';
+$route['admin/delete-product'] = 'admin/AdminController/deleteProduct';
 
 
 $route['404_override'] = '';
