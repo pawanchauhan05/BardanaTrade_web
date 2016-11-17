@@ -327,47 +327,55 @@ class AdminModel extends CI_Model {
         }
     }
 
-    public function removeProductFromLatest($id) {
+    public function removeProductFromLatest($id, $currentUrl) {
         $data = array(
                 'isLatest' => '0'
             );
         $this->db->set($data);
         $this->db->where("id", $id);
         if($this->db->update("Products", $data)) {
-            redirect('admin');
+            $this->session->set_flashdata('message', 'Product is successfuly removed from latest section.');
+            redirect("admin/".$currentUrl, 'refresh');
         } else {
 
         }
     }
 
-    public function addProductFromLatest($id) {
+    public function addProductToLatest($id, $currentUrl) {
         $data = array(
                 'isLatest' => '1'
             );
         $this->db->set($data);
         $this->db->where("id", $id);
         if($this->db->update("Products", $data)) {
-            redirect('admin');
+            $this->session->set_flashdata('message', 'Product is successfuly listed in latest section.');
+            redirect("admin/".$currentUrl, 'refresh');
         } else {
 
         }
     }
 
-    public function approveProduct($id) {
+    public function approveProduct($id, $currentUrl) {
         $data = array(
                 'isVisible' => '1'
             );
         $this->db->set($data);
         $this->db->where("id", $id);
         if($this->db->update("Products", $data)) {
-            redirect('admin');
+            $this->session->set_flashdata('message', 'Product is live on website.');
+            redirect("admin/".$currentUrl, 'refresh');
         } else {
 
         }
     }
 
-    public function deleteProduct($id) {
-        // TODO delete row and also product image
+    public function deleteProduct($id, $currentUrl, $productPic) {
+        $condition = array('id' => $id);
+        $this->db->where($condition);
+        $this->db->delete("Products");
+        $this->session->set_flashdata('message', 'Product has been successfuly deleted.');
+        unlink(dirname(BASEPATH)."/images/".$productPic);
+        redirect("admin/".$currentUrl, 'refresh');
     }
 
 

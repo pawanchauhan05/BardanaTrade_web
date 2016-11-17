@@ -37,6 +37,13 @@
 
               if($count != 0) {
               echo "<div class='row'>";
+              $message = $this->session->flashdata('message');
+              if(isset($message)) {
+              echo "<div class='col-sm-12'>";
+              echo "<h5>".$message."</h5>";
+              echo "</div>";
+              }
+              
               foreach ($rows as $row) { ?>
     
                   <div class="col-xs-6 col-sm-4 col-md-3">
@@ -52,8 +59,10 @@
                           <p class="pull-right">Posted <?php echo date("d F", $row->postedOn) ?></p>
                         </div>
                         <div class="text-center">
-                            <?php echo form_open('admin/approve-product'); ?>
+                            <?php echo form_open('admin/delete-product'); ?>
                             <input type="hidden" name="id" value="<?php echo $row->id ?>">
+                            <input type="hidden" name="currentUrl" value="<?php echo $this->uri->segment(2);  ?>">
+                            <input type="hidden" name="productPic" value="<?php echo $row->productPic ?>">
                             <button type="submit" class="btn btn-danger">Delete</button>
                             <?php echo form_close(); ?>
                         </div>

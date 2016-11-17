@@ -88,7 +88,12 @@
 
                 <div class="col-sm-12">
                   <br>
-                  <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-user"></span> Contact Here</button>
+                  <?php echo form_open('admin/delete-product'); ?>
+                    <input type="hidden" name="id" value="<?php echo $row->id ?>">
+                    <input type="hidden" name="currentUrl" value="<?php echo $this->uri->segment(2);  ?>">
+                    <input type="hidden" name="productPic" value="<?php echo $row->productPic ?>">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                  <?php echo form_close(); ?>
                 </div>
 
               </div>

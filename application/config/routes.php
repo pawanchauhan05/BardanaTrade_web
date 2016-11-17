@@ -118,6 +118,7 @@ $route['admin/sell-products/:num'] = 'admin/AdminController';
 $route['admin/buy-products'] = 'admin/AdminController';
 $route['admin/buy-products/:num'] = 'admin/AdminController';
 $route['admin/product-details/:any'] = 'admin/AdminController';
+$route['admin/product-details'] = 'admin/AdminController';
 $route['admin/sell-products-request'] = 'admin/AdminController';
 $route['admin/sell-products-request/:num'] = 'admin/AdminController';
 $route['admin/buy-products-request'] = 'admin/AdminController';

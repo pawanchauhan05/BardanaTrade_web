@@ -35,7 +35,15 @@
             $data = $this->AdminModel->showLatestProducts($category);
             echo "<div class='row'>";
             echo "<div class='col-sm-12'><h2>Live Latest Bags</h2></div>";
-            
+            $message = $this->session->flashdata('message');
+            if(isset($message)) {
+            echo "<div class='col-sm-12'>";
+            echo "<h5>". $message ."</h5>";
+            echo "</div>";
+            } ?>
+
+
+            <?php
               foreach ($data as $row) { ?>
 
         <div class="col-xs-6 col-sm-4 col-md-3">
@@ -53,6 +61,7 @@
               <div class="text-center">
                 <?php echo form_open('admin/remove-product-from-latest'); ?>
                 <input type="hidden" name="id" value="<?php echo $row->id ?>">
+                <input type="hidden" name="currentUrl" value="<?php echo $this->uri->segment(2) ?>">
                 <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign"></span> Remove</button>
                 <?php echo form_close(); ?>
               </div>
@@ -90,6 +99,7 @@
                         <div class="text-center">
                           <?php echo form_open('admin/add-product-to-latest'); ?>
                           <input type="hidden" name="id" value="<?php echo $row->id ?>">
+                          <input type="hidden" name="currentUrl" value="<?php echo $this->uri->segment(2) ?>">
                           <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Add to Latest</button>
                           <?php echo form_close(); ?>
                         </div>
