@@ -8,7 +8,7 @@
         <form method="post" action="<?php echo base_url()."index.php/admin/login" ?>">
           <h1>Admin Login Form</h1>
           <div>
-            <input type="text" class="form-control" name="email" placeholder="email" required="" />
+            <input type="text" class="form-control" name="email" placeholder="Email" required="" />
           </div>
           <div>
             <input type="password" class="form-control" name="password" placeholder="Password" required="" />
@@ -29,8 +29,8 @@
             <br />
 
             <div>
-              <h1><i class="fa fa-paw"></i> Call Customizer!</h1>
-              <p>©2016 All Rights Reserved. Call Customizer! Privacy and Terms</p>
+              <h1><i class="fa fa-paw"></i> Bardana Trade!</h1>
+              <p>©2014-2016 All Rights Reserved. Bardana Trade!</p>
             </div>
           </div>
         </form>

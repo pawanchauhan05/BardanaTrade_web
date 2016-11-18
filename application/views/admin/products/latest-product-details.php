@@ -88,17 +88,21 @@
 
                 <div class="col-sm-12">
                   <br>
-                  <?php echo form_open('admin/approve-product'); ?>
+
+                  <?php
+                  if($row->isLatest == 1) { 
+                  echo form_open('admin/remove-product-from-latest'); ?>
                   <input type="hidden" name="id" value="<?php echo $row->id ?>">
-                  <input type="hidden" name="currentUrl" value="<?php echo $this->uri->segment(2); ?>">
-                  <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-user"></span> Approve</button>
-                  <?php echo form_close(); ?>
-                  <?php echo form_open('admin/delete-product'); ?>
+                  <input type="hidden" name="currentUrl" value="<?php echo $this->uri->segment(2) ?>">
+                  <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign"></span> Remove</button>
+                  <?php
+                  } else { 
+                  echo form_close(); ?>
+                  <?php echo form_open('admin/add-product-to-latest'); ?>
                   <input type="hidden" name="id" value="<?php echo $row->id ?>">
-                  <input type="hidden" name="currentUrl" value="<?php echo $this->uri->segment(2);  ?>">
-                  <input type="hidden" name="productPic" value="<?php echo $row->productPic ?>">
-                  <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-user"></span> Delete</button>
-                  <?php echo form_close(); ?>
+                  <input type="hidden" name="currentUrl" value="<?php echo $this->uri->segment(2) ?>">
+                  <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Add to Latest</button>
+                  <?php echo form_close(); }; ?>
                 </div>
 
               </div>

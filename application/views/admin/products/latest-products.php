@@ -7,7 +7,7 @@
           if($this->uri->segment(2) == 'latest-bags') {
             $category = 'Bags';
           } else if($this->uri->segment(2) == 'latest-twines') {
-            $category = 'Twine and Yarn';
+            $category = 'TwineAndYarn';
           } else if($this->uri->segment(2) == 'latest-machines') {
             $category = 'Machines';
           } else { redirect('admin'); }
@@ -49,7 +49,7 @@
         <div class="col-xs-6 col-sm-4 col-md-3">
           <div class="panel panel-default">
             <div class="panel-body">
-              <a href='<?php echo base_url()."index.php/admin/product-details/".$this->HomeModel->encode($row->id); ?>'>
+              <a href='<?php echo base_url()."index.php/admin/latest-product-details/".$this->HomeModel->encode($row->id); ?>'>
                 <img src="<?php echo base_url() ."images/".$row->productPic ?>" class="img-responsive">
               </a>
               <h3 class="text-center"><?php echo $row->productName ?></h3>
@@ -87,7 +87,7 @@
                   <div class="col-xs-6 col-sm-4 col-md-3">
                     <div class="panel panel-default">
                       <div class="panel-body">
-                        <a href='<?php echo base_url()."index.php/admin/product-details/".$this->HomeModel->encode($row->id); ?>'>
+                        <a href='<?php echo base_url()."index.php/admin/latest-product-details/".$this->HomeModel->encode($row->id); ?>'>
                           <img src="<?php echo base_url() ."images/".$row->productPic ?>" class="img-responsive">
                         </a>
                         <h3 class="text-center"><?php echo $row->productName ?></h3>

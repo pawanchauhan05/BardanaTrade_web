@@ -65,10 +65,10 @@
 			<div class="panel panel-default">
 			    <div class="panel-heading"><a href="<?php echo base_url() ?>index.php/products">Categories</a></div>
 			    <div class="panel-body">
-			    	<a href="<?php echo base_url() ?>index.php/products/Bags">Bags</a><br>
-			    	<a href="<?php echo base_url() ?>index.php/products/Twine-and-Yarn">Twine & Yarn</a><br>
-			    	<a href="<?php echo base_url() ?>index.php/products/Machines">Machines</a><br>
-			    	<a href="<?php echo base_url() ?>index.php/products/Others">Others</a>
+			    	<a href="<?php echo BAGS_URL ?>">Bags</a><br>
+			    	<a href="<?php echo TWINE_URL ?>">Twine & Yarn</a><br>
+			    	<a href="<?php echo MACHINES_URL ?>">Machines</a><br>
+			    	<a href="<?php echo OTHERS_URL ?>">Others</a>
 			    </div>
 			</div>
 			<div class="panel panel-default">
@@ -98,7 +98,7 @@
 			<p class="product-title">Thread & Yarn</p>
 			<div class="owl-carousel owl-theme">
 			  <?php
-			  	$rows = $this->AdminModel->showLatestProducts('Bags');
+			  	$rows = $this->AdminModel->showLatestProducts('TwineAndYarn');
 			  	foreach ($rows as $row) {
 			  		$yarnImagePath = base_url()."images/".$row->productPic;
 			  		echo "<div> <img src='".$yarnImagePath."' class='img-responsive'> </div>";
@@ -109,7 +109,7 @@
 			<p class="product-title">Machines</p>
 			<div class="owl-carousel owl-theme">
 			  <?php
-			  	$rows = $this->AdminModel->showLatestProducts('Bags');
+			  	$rows = $this->AdminModel->showLatestProducts('Machines');
 			  	foreach ($rows as $row) {
 			  		$machineImagePath = base_url()."images/".$row->productPic;
 			  		echo "<div> <img src='".$machineImagePath."' class='img-responsive'> </div>";

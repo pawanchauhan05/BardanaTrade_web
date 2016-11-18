@@ -18,8 +18,8 @@
                         <li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services Form</a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url() ?>index.php/product-buy-form">Buy Request Form</a></li>
-                                <li><a href="<?php echo base_url() ?>index.php/product-sell-form">Sell Request Form</a></li>
+                                <li><a href="<?php echo PRODUCT_BUY_FORM_URL ?>">Buy Request Form</a></li>
+                                <li><a href="<?php echo PRODUCT_SELL_FORM_URL ?>">Sell Request Form</a></li>
                                 <li><a href="#">Tender Request Form</a></li>
                             </ul>
                         </li>
@@ -27,23 +27,23 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services Quality</a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Product & Service</a></li>
-                                <li><a href="<?php echo base_url() ?>index.php/benefits">Benefits</a></li>
-                                <li><a href="<?php echo base_url() ?>index.php/quality">Quality</a></li>
+                                <li><a href="<?php echo BENEFITS_URL ?>">Benefits</a></li>
+                                <li><a href="<?php echo QUALITY_URL ?>">Quality</a></li>
                             </ul>
                         </li>
                         <li class="dropdown-submenu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories</a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url() ?>index.php/products/Bags">Bags</a></li>
-                                <li><a href="<?php echo base_url() ?>index.php/products/Twine-and-Yarn">Twine & Yarn</a></li>
-                                <li><a href="<?php echo base_url() ?>index.php/products/Machines">Machines</a></li>
+                                <li><a href="<?php echo BAGS_URL ?>">Bags</a></li>
+                                <li><a href="<?php echo TWINE_URL ?>">Twine & Yarn</a></li>
+                                <li><a href="<?php echo MACHINES_URL ?>">Machines</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li><a href="<?php echo base_url() ?>index.php/about">About Us</a></li>
-                <li><a href="<?php echo base_url() ?>index.php/vision-mission">Vision & Mission</a></li>
-                <li><a href="<?php echo base_url() ?>index.php/contact">Contact Us</a></li>
+                <li><a href="<?php echo ABOUT_URL ?>">About Us</a></li>
+                <li><a href="<?php echo VISION_MISSION_URL ?>">Vision & Mission</a></li>
+                <li><a href="<?php echo CONTACT_URL ?>">Contact Us</a></li>
                 
             </ul>
         </div>

@@ -83,3 +83,25 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+/********  custom constents ********/
+define("BASE_URL",				"http://localhost/BardanaTrade_web/");
+define("BAGS_URL",				BASE_URL."index.php/products/Bags");
+define("TWINE_URL",				BASE_URL."index.php/products/TwineAndYarn");
+define("MACHINES_URL",			BASE_URL."index.php/products/Machines");
+define("OTHERS_URL",			BASE_URL."index.php/products/Others");
+define("ALL_PRODUCT_URL",		BASE_URL."index.php/products");
+define("PRODUCT_BUY_FORM_URL",	BASE_URL."index.php/product-buy-form");
+define("PRODUCT_SELL_FORM_URL",	BASE_URL."index.php/product-sell-form");
+define("BENEFITS_URL",			BASE_URL."index.php/benefits");
+define("QUALITY_URL",			BASE_URL."index.php/quality");
+define("ABOUT_URL",				BASE_URL."index.php/about");
+define("VISION_MISSION_URL",	BASE_URL."index.php/vision-mission");
+define("CONTACT_URL",			BASE_URL."index.php/contact");
+define("FAQ_URL",				BASE_URL."index.php/faq");
+define("FEEDBACK_URL",			BASE_URL."index.php/feedback");
+define("LOGIN_URL",				BASE_URL."index.php/login");
+define("USER_LOGOUT_URL",		BASE_URL."index.php/user-logout");
+define("PROFILE_URL",			BASE_URL."index.php/profile");
+
+

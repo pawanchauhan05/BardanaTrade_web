@@ -55,6 +55,10 @@ class AdminModel extends CI_Model {
                     $content = 'admin/products/latest-products';
                     break;
 
+                case 'latest-product-details':
+                    $content = 'admin/products/latest-product-details';
+                    break;
+
                 case 'latest-twines':
                     $content = 'admin/products/latest-products';
                     break;

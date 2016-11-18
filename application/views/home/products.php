@@ -2,12 +2,12 @@
 	<div class="row">
 		<div class="col-sm-3">
 			<div class="panel panel-default">
-			    <div class="panel-heading"><a href="<?php echo base_url() ?>index.php/products">All</a></div>
+			    <div class="panel-heading"><a href="<?php echo ALL_PRODUCT_URL ?>">All</a></div>
 			    <div class="panel-body">
-			    	<a href="<?php echo base_url() ?>index.php/products/Bags">Bags</a><br>
-			    	<a href="<?php echo base_url() ?>index.php/products/Twine-and-Yarn">Twine & Yarn</a><br>
-			    	<a href="<?php echo base_url() ?>index.php/products/Machines">Machines</a><br>
-			    	<a href="<?php echo base_url() ?>index.php/products/Others">Others</a>
+			    	<a href="<?php echo BAGS_URL ?>">Bags</a><br>
+			    	<a href="<?php echo TWINE_URL ?>">Twine & Yarn</a><br>
+			    	<a href="<?php echo MACHINES_URL ?>">Machines</a><br>
+			    	<a href="<?php echo OTHERS_URL ?>">Others</a>
 			    </div>
 			</div>
 			<div class="panel panel-default">
@@ -15,10 +15,11 @@
 			    <div class="panel-body">
 			    <?php
 			    	if($category != null && !$category == '' && !is_numeric($category)) { 
-			    		if($category == "Twine-and-Yarn") {
+			    		/*if($category == "Twine-and-Yarn") {
 			    			$category = "Twine and Yarn";
-			    		}
-			    		$categories = $this->HomeModel->getProductSubCategory($category); 
+			    		}*/
+
+			    		$categories = $this->HomeModel->getProductSubCategory($category);
 			    	} else {
 			    		$categories = $this->HomeModel->getProductCategory();
 			    	}
@@ -26,8 +27,7 @@
 			    	foreach ($categories as $row) { ?>
 			    		<div class="checkbox">
 						  <label>
-						  	<input type="checkbox" name="subCategory[]" onclick="check()" value='<?php echo $row->subCategory ?>' 
-						  	<?php // 	echo in_array($row->subCategory, $people) ? "checked" : ""; ?> >
+						  	<input type="checkbox" name="subCategory[]" onclick="check()" value='<?php echo $row->subCategory ?>' >
 						  	<?php echo $row->subCategory ?>
 						  </label>
 						</div>
