@@ -30,7 +30,7 @@
         </div>
         <div class="x_content">
           <?php 
-              $configUrl = base_url()."index.php/admin/sell-products";
+              $configUrl = ADMIN_SELL_PRODUCTS_URL;
               $data = $this->AdminModel->showProducts($forWhich, $configUrl);
               $rows = $data->rows;
               $count = $data->count;
@@ -50,7 +50,7 @@
                     <div class="panel panel-default">
                       <div class="panel-body">
                         <a href='<?php echo base_url()."index.php/admin/product-details/".$this->HomeModel->encode($row->id); ?>'>
-                          <img src="<?php echo base_url() ."images/".$row->productPic ?>" class="img-responsive">
+                          <img src="<?php echo IMAGE_PATH.$row->productPic ?>" class="img-responsive">
                         </a>
                         <h3 class="text-center"><?php echo $row->productName ?></h3>
                         <p><?php echo $row->productDescription ?></p>

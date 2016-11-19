@@ -105,7 +105,7 @@
 		        <div id="sectionB" class="tab-pane fade">
 		        <br>
 		        <?php 
-		        	$configUrl = base_url()."index.php/profile";
+		        	$configUrl = PROFILE_URL;
 	        		$data = $this->HomeModel->showOwnProducts("demo@gmail.com", $configUrl);
 	        		$rows = $data->rows;
 	        		$count = $data->count;
@@ -117,8 +117,8 @@
 		            	<div class="col-xs-6 col-sm-4 col-md-3">
 			            	<div class="panel panel-default">
 							    <div class="panel-body">
-							    	<a href='<?php echo base_url()."index.php/update-product/".$this->HomeModel->encode($row->id); ?>'>
-							    		<img src="<?php echo base_url() ."images/".$row->productPic ?>" class="img-responsive">
+							    	<a href='<?php echo UPDATE_PRODUCT_URL.$this->HomeModel->encode($row->id); ?>'>
+							    		<img src="<?php echo IMAGE_PATH.$row->productPic ?>" class="img-responsive">
 							    	</a>
 							    	<h3 class="text-center"><?php echo $row->productName ?></h3>
 							    	<p><?php echo $row->productDescription ?></p>

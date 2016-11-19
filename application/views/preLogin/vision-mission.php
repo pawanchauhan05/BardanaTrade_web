@@ -7,7 +7,7 @@
 			<p class="vision-text">Provide trustworthy services and gain trust.</p>
 		</div>
 		<div class="col-sm-3">
-			<img src="<?php echo base_url() ?>images/vm3.jpg" class="image-responsive hidden-xs">
+			<img src="<?php echo IMAGE_PATH ?>vm3.jpg" class="image-responsive hidden-xs">
 		</div>
 	</div>
 </div>

@@ -242,7 +242,7 @@
     <?php echo "var total_group = " . $this->HomeModel->totolGroup() . ""  ?>;
     var total_record = 0;
     console.log(total_group);  
-    $('#results').load("<?php echo base_url() ?>index.php/load-products",
+    $('#results').load("<?php echo LOAD_PRODUCT_URL ?>",
      {'selectedProducts':selectedProducts, 'category' : '<?php echo $this->uri->segment(2) ?>'}, 
      function() {total_record++; console.log("load "+total_record);  });
     
@@ -252,7 +252,7 @@
         {
           if(total_record <= total_group) {
             
-            $.post('<?php echo base_url() ?>index.php/load-more-products',{'group_no': total_record, 'category' : '<?php echo $this->uri->segment(2) ?>', 'selectedProducts': selectedProducts },
+            $.post('<?php echo LOAD_MORE_PRODUCT_URL ?>',{'group_no': total_record, 'category' : '<?php echo $this->uri->segment(2) ?>', 'selectedProducts': selectedProducts },
               function(data){ 
                   if (data != "") {                               
                       $("#results").append(data);                 
@@ -275,7 +275,7 @@
        });
       console.log(selectedProducts);
       $(document).ready(function() {
-        $('#results').load("<?php echo base_url() ?>index.php/load-products",
+        $('#results').load("<?php echo LOAD_PRODUCT_URL ?>",
        {'selectedProducts': selectedProducts, 'category' : '<?php echo $this->uri->segment(2) ?>'}, 
        function() {});
       });

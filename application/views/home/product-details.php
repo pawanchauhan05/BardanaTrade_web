@@ -1,19 +1,18 @@
 <div class="container">
 	<div class="row">
+		<?php 
+			$id = $this->HomeModel->decode($this->uri->segment(2)); 
+			if(!is_numeric($id)) {
+				redirect('products');
+			}
+			$row = $this->HomeModel->getProductDetails($id);
+			$data = $this->HomeModel->getContactDetails($row->email);
+		?>
 		<div class="col-sm-4 col-xs-12">
-			<img src="<?php echo base_url() ?>images/t7.jpg" class="img-responsive">
+			<img src="<?php echo IMAGE_PATH.$row->productPic ?>" class="img-responsive">
 		</div>
 		<div class="col-sm-8 col-xs-12">
 			<div class="row">
-				<?php 
-					$id = $this->HomeModel->decode($this->uri->segment(2)); 
-					if(!is_numeric($id)) {
-						redirect('products');
-					}
-					$row = $this->HomeModel->getProductDetails($id);
-					$data = $this->HomeModel->getContactDetails($row->email);
-
-				?>
 				<div class="col-sm-5 col-xs-6 product-details">Product Name</div>
 				<div class="col-sm-2 col-xs-2 hidden-xs product-details">:</div>
 				<div class="col-sm-5 col-xs-6 product-details"><?php echo $row->productName ?></div>

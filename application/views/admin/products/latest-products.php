@@ -49,8 +49,8 @@
         <div class="col-xs-6 col-sm-4 col-md-3">
           <div class="panel panel-default">
             <div class="panel-body">
-              <a href='<?php echo base_url()."index.php/admin/latest-product-details/".$this->HomeModel->encode($row->id); ?>'>
-                <img src="<?php echo base_url() ."images/".$row->productPic ?>" class="img-responsive">
+              <a href='<?php echo ADMIN_LATEST_PRODUCT_DETAILS_URL.$this->HomeModel->encode($row->id); ?>'>
+                <img src="<?php echo IMAGE_PATH.$row->productPic ?>" class="img-responsive">
               </a>
               <h3 class="text-center"><?php echo $row->productName ?></h3>
               <p><?php echo $row->productDescription ?></p>
@@ -74,7 +74,7 @@
 
 
           <?php 
-              $configUrl = base_url()."index.php/admin/".$this->uri->segment(2);
+              $configUrl = ADMIN_HOME_URL.$this->uri->segment(2);
               $data = $this->AdminModel->showLatestProductsToAdd($category, $configUrl);
               $rows = $data->rows;
               $count = $data->count;
@@ -87,8 +87,8 @@
                   <div class="col-xs-6 col-sm-4 col-md-3">
                     <div class="panel panel-default">
                       <div class="panel-body">
-                        <a href='<?php echo base_url()."index.php/admin/latest-product-details/".$this->HomeModel->encode($row->id); ?>'>
-                          <img src="<?php echo base_url() ."images/".$row->productPic ?>" class="img-responsive">
+                        <a href='<?php echo ADMIN_LATEST_PRODUCT_DETAILS_URL.$this->HomeModel->encode($row->id); ?>'>
+                          <img src="<?php echo IMAGE_PATH.$row->productPic ?>" class="img-responsive">
                         </a>
                         <h3 class="text-center"><?php echo $row->productName ?></h3>
                         <p><?php echo $row->productDescription ?></p>

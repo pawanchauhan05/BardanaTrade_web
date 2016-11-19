@@ -9,7 +9,7 @@
     <!-- menu profile quick info -->
     <div class="profile">
       <div class="profile_pic">
-        <img src="<?php echo base_url() ?>images/img.jpg" alt="..." class="img-circle profile_img">
+        <img src="<?php echo IMAGE_PATH ?>img.jpg" alt="..." class="img-circle profile_img">
       </div>
       <div class="profile_info">
         <span>Welcome,</span>
@@ -26,18 +26,18 @@
         <h3>Admin</h3>
         <ul class="nav side-menu">
           
-          <li><a href="<?php echo base_url()."index.php/admin"; ?>"><i class="fa fa-home"></i> Home </a>
+          <li><a href="<?php echo ADMIN_HOME_URL ?>"><i class="fa fa-home"></i> Home </a>
           </li>
 
           <li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="<?php echo base_url()."index.php/admin/users"; ?>">Registered Users</a></li>
+              <li><a href="<?php echo ADMIN_USERS_URL ?>">Registered Users</a></li>
             </ul>
           </li>
           <li><a><i class="fa fa-edit"></i> Products <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="<?php echo base_url()."index.php/admin/sell-products"; ?>">Sell Products</a></li>
-              <li><a href="<?php echo base_url()."index.php/admin/buy-products"; ?>">Buy Products</a></li>
+              <li><a href="<?php echo ADMIN_SELL_PRODUCTS_URL ?>">Sell Products</a></li>
+              <li><a href="<?php echo ADMIN_BUY_PRODUCTS_URL ?>">Buy Products</a></li>
             </ul>
           </li>
           <li><a><i class="fa fa-desktop"></i> Slider <span class="fa fa-chevron-down"></span></a>
@@ -47,15 +47,15 @@
           </li>
           <li><a><i class="fa fa-table"></i> Latest Products <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="<?php echo base_url()."index.php/admin/latest-bags"; ?>">Bags</a></li>
-              <li><a href="<?php echo base_url()."index.php/admin/latest-twines"; ?>">Twine & Yarn</a></li>
-              <li><a href="<?php echo base_url()."index.php/admin/latest-machines"; ?>">Machines</a></li>
+              <li><a href="<?php echo ADMIN_LATEST_BAGS_URL?>">Bags</a></li>
+              <li><a href="<?php echo ADMIN_LATEST_TWINES_URL ?>">Twine & Yarn</a></li>
+              <li><a href="<?php echo ADMIN_LATEST_MACHINES_URL ?>">Machines</a></li>
             </ul>
           </li>
           <li><a><i class="fa fa-bar-chart-o"></i> Product Request <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="<?php echo base_url()."index.php/admin/sell-products-request"; ?>">Sell Product</a></li>
-              <li><a href="<?php echo base_url()."index.php/admin/buy-products-request"; ?>">Buy Product</a></li>
+              <li><a href="<?php echo ADMIN_SELL_PRODUCTS_REQUEST_URL ?>">Sell Product</a></li>
+              <li><a href="<?php echo ADMIN_BUY_PRODUCTS_REQUEST_URL ?>">Buy Product</a></li>
             </ul>
           </li>
         </ul>
@@ -74,7 +74,7 @@
       <a data-toggle="tooltip" data-placement="top" title="Lock">
         <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
       </a>
-      <a data-toggle="tooltip" data-placement="top" title="Logout" href="<?php echo base_url()."index.php/admin/logout" ?>">
+      <a data-toggle="tooltip" data-placement="top" title="Logout" href="<?php echo ADMIN_LOGOUT_URL ?>">
         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
       </a>
     </div>

@@ -12,16 +12,16 @@
 		        <!-- Wrapper for carousel items -->
 		        <div class="carousel-inner">
 		            <div class="item active">
-		                <img src="<?php echo base_url() ?>images/slider/slider2.jpg" alt="First Slide">
+		                <img src="<?php echo IMAGE_PATH ?>slider/slider2.jpg" alt="First Slide">
 		            </div>
 		            <div class="item">
-		                <img src="<?php echo base_url() ?>images/slider/slider3.jpg" alt="Second Slide">
+		                <img src="<?php echo IMAGE_PATH ?>slider/slider3.jpg" alt="Second Slide">
 		            </div>
 		            <div class="item">
-		                <img src="<?php echo base_url() ?>images/slider/slider6.jpg" alt="Third Slide">
+		                <img src="<?php echo IMAGE_PATH ?>slider/slider6.jpg" alt="Third Slide">
 		            </div>
 		            <div class="item">
-		                <img src="<?php echo base_url() ?>images/slider/slider8.jpg" alt="Third Slide">
+		                <img src="<?php echo IMAGE_PATH ?>slider/slider8.jpg" alt="Third Slide">
 		            </div>
 		        </div>
 		        <!-- Carousel controls -->
@@ -63,7 +63,7 @@
 	<div class="row">
 		<div class="col-sm-3">
 			<div class="panel panel-default">
-			    <div class="panel-heading"><a href="<?php echo base_url() ?>index.php/products">Categories</a></div>
+			    <div class="panel-heading"><a href="<?php echo ALL_PRODUCT_URL ?>">Categories</a></div>
 			    <div class="panel-body">
 			    	<a href="<?php echo BAGS_URL ?>">Bags</a><br>
 			    	<a href="<?php echo TWINE_URL ?>">Twine & Yarn</a><br>
@@ -89,7 +89,7 @@
 			  <?php
 			  	$rows = $this->AdminModel->showLatestProducts('Bags');
 			  	foreach ($rows as $row) {
-			  		$bagsImagePath = base_url()."images/".$row->productPic;
+			  		$bagsImagePath = IMAGE_PATH.$row->productPic;
 			  		echo "<div> <img src='".$bagsImagePath."' class='img-responsive'> </div>";
 			  	}
 			  ?>
@@ -100,7 +100,7 @@
 			  <?php
 			  	$rows = $this->AdminModel->showLatestProducts('TwineAndYarn');
 			  	foreach ($rows as $row) {
-			  		$yarnImagePath = base_url()."images/".$row->productPic;
+			  		$yarnImagePath = IMAGE_PATH.$row->productPic;
 			  		echo "<div> <img src='".$yarnImagePath."' class='img-responsive'> </div>";
 			  	}
 			  ?>
@@ -111,7 +111,7 @@
 			  <?php
 			  	$rows = $this->AdminModel->showLatestProducts('Machines');
 			  	foreach ($rows as $row) {
-			  		$machineImagePath = base_url()."images/".$row->productPic;
+			  		$machineImagePath = IMAGE_PATH.$row->productPic;
 			  		echo "<div> <img src='".$machineImagePath."' class='img-responsive'> </div>";
 			  	}
 			  ?>

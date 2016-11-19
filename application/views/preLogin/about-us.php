@@ -9,8 +9,8 @@
 			bardanatrade.com is a new venture to provide the best market place for all agr0 packaging material.</p>
 		</div>
 		<div class="col-sm-3">
-			<img src="<?php echo base_url() ?>images/about1.jpg" class="img-responsive hidden-xs"><hr class="hidden-xs">
-			<img src="<?php echo base_url() ?>images/about3.jpg" class="img-responsive hidden-xs">
+			<img src="<?php echo IMAGE_PATH ?>about1.jpg" class="img-responsive hidden-xs"><hr class="hidden-xs">
+			<img src="<?php echo IMAGE_PATH ?>about3.jpg" class="img-responsive hidden-xs">
 		</div>
 	</div>
 </div>
