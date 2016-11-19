@@ -130,7 +130,7 @@ class HomeController extends CI_Controller {
         	$fileName = time().$_FILES["product-form-image"]['name'];
         	$config = array(
 				'upload_path' => "./images/",
-				'allowed_types' => "gif|jpg|png|jpeg|pdf",
+				'allowed_types' => "gif|jpg|png|jpeg",
 				'overwrite' => TRUE,
 				'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
 				'max_height' => "768",
@@ -362,6 +362,8 @@ class HomeController extends CI_Controller {
     }
 
     public function loadProducts() {
+    	if ($this->input->server('REQUEST_METHOD') == 'GET')
+    		exit();
     	$selectedProducts = $this->input->post('selectedProducts');
     	$category = $this->input->post('category');
 		if(isset($_SESSION['forWhich'])) {
@@ -374,7 +376,6 @@ class HomeController extends CI_Controller {
 				$condition = array('isVisible' => 1, 'forWhich' => $forWhich, 'productCategory' => $category);
 			} else { $condition = array('isVisible' => 1, 'forWhich' => $forWhich); }
 		} 
-        //$query = $this->db->get_where('Products', $condition, $start, $end);
         $this->db->select('*');
         $this->db->from('Products');
         $this->db->where_in("productName",$selectedProducts);
@@ -382,26 +383,33 @@ class HomeController extends CI_Controller {
         $this->db->limit(3);
         $query = $this->db->get();
         $data = $query->result();
-        foreach ($data as $row) {
-		echo "<div class='col-sm-4'>";
-        echo 	"<div class='panel panel-default'>";
-		echo 	    "<div class='panel-body'>";
-		echo 			"<a href=". base_url() ."index.php/product-details/". $this->HomeModel->encode($row->id) ." class='img-responsive'>";
-		echo 	    	"<img src=' ". base_url() ."images/". $row->productPic ."' class='img-responsive' />";
-		echo  			"</a>";
-		echo 	    	"<h3 class='text-center'> " . $row->productName . " </h3>";
-		echo 	    	"<p>".$row->productDescription."</p>";
-		echo	    	"<div class=''>";
-		echo	    		"<p class='pull-left'>". $row->price ." INR</p>";
-		echo 	    		"<p class='pull-right'>Posted  ". date("d F", $row->postedOn) ."</p>";
-		echo 	    	"</div>";
-		echo 	    	"<div class='text-center'>";
-		echo	    		"<a href='#' class='btn btn-primary' onClick='showSweetAlert(id)'>Contact</a>";
-		echo	    	"</div>";
-		echo	    "</div>";	
-		echo	"</div>";
-        echo "</div>";
-    	}
+        $count = $query->num_rows();
+        if($count != 0) {
+	        foreach ($data as $row) {
+			echo "<div class='col-sm-4'>";
+	        echo 	"<div class='panel panel-default'>";
+			echo 	    "<div class='panel-body'>";
+			echo 			"<a href=". base_url() ."index.php/product-details/". $this->HomeModel->encode($row->id) ." class='img-responsive'>";
+			echo 	    	"<img src=' ". base_url() ."images/". $row->productPic ."' class='img-responsive' />";
+			echo  			"</a>";
+			echo 	    	"<h3 class='text-center'> " . $row->productName . " </h3>";
+			echo 	    	"<p>".$row->productDescription."</p>";
+			echo	    	"<div class=''>";
+			echo	    		"<p class='pull-left'>". $row->price ." INR</p>";
+			echo 	    		"<p class='pull-right'>Posted  ". date("d F", $row->postedOn) ."</p>";
+			echo 	    	"</div>";
+			echo 	    	"<div class='text-center'>";
+			echo	    		"<a href='#' class='btn btn-primary' onClick='showSweetAlert(id)'>Contact</a>";
+			echo	    	"</div>";
+			echo	    "</div>";	
+			echo	"</div>";
+	        echo "</div>";
+	    	}
+	    } else {
+	    	echo "<div class='col-sm-12'>";
+	    	echo "<img src='".IMAGE_PATH."no-magento-product-found.jpg' class='img-responsive center-block' />";
+	    	echo "</div>";
+	    }
     }
 
 }
