@@ -142,6 +142,22 @@ class AdminModel extends CI_Model {
         return $rowcount = $query->num_rows();
     }
 
+    public function totalTypeProducts($forWhich) {
+        $condition = array("isVisible" => "1", "forWhich" => $forWhich);
+        $this->db->from("Products");
+        $this->db->where($condition);
+        $query = $this->db->get();
+        return $rowcount = $query->num_rows();
+    }
+
+    public function totalTypeRequestProducts($forWhich) {
+        $condition = array("isVisible" => "0", "forWhich" => $forWhich);
+        $this->db->from("Products");
+        $this->db->where($condition);
+        $query = $this->db->get();
+        return $rowcount = $query->num_rows();
+    }
+
     /**
      * to delete user
      * @param type $email   user email address

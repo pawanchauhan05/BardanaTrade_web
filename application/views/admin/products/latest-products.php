@@ -106,14 +106,12 @@
                       </div>
                     </div>
                   </div>
-                <?php } echo "</div>"; } else { ?> 
+                <?php } echo "</div>"; } else {
        
-
-              Add Error Msg for products
-
-              <?php } 
-
-                
+                echo "<div class='col-sm-12'>";
+                echo    "<img src='".IMAGE_PATH."no-magento-product-found.jpg' class='img-responsive center-block' />";
+                echo "</div>";
+              }                 
               ?>
               <div class="row">
                 <div class="col-sm-12"><?php echo $this->pagination->create_links(); ?></div>

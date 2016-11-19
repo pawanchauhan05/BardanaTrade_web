@@ -137,6 +137,8 @@ $route['admin/add-product-to-latest'] = 'admin/AdminController/addProductToLates
 $route['admin/approve-product'] = 'admin/AdminController/approveProduct';
 $route['admin/delete-product'] = 'admin/AdminController/deleteProduct';
 
+// test
+$route['resize'] = 'home/HomeController/resize';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

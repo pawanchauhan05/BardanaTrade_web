@@ -123,5 +123,6 @@ define("ADMIN_BUY_PRODUCTS_REQUEST_URL",				BASE_URL."index.php/admin/buy-produc
 define("ADMIN_LATEST_PRODUCT_DETAILS_URL",				BASE_URL."index.php/admin/latest-product-details/");
 define("ADMIN_PRODUCT_REQUEST_DETAILS_URL",				BASE_URL."index.php/admin/product-request-details/");
 define("ADMIN_USER_INFO_URL",				BASE_URL."index.php/admin/user-info/");
+define("WATERMARK",				'Copyright 2016 - BardanaTrade');
 
 

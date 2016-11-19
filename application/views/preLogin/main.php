@@ -118,14 +118,5 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="row">
-		<div class="col-sm-3"></div>
-		<div class="col-sm-9">
-			<img src="<?php echo IMAGE_PATH ?>no-magento-product-found.jpg" class="center-block img-responsive">
-		</div>
-	</div>
-
-
 </div>
 

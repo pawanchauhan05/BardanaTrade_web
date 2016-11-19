@@ -152,9 +152,12 @@ class HomeController extends CI_Controller {
         		$viewData = array(
 		            	'redirectUrl' => 'home/product-form',
 		            	'forWhich' => $forWhich,
-		            	'status' => '<p class="product-form-status">Product has been added successfully.</p>'
+		            	'status' => '<p class="product-form-status">Product has been added successfully.</p>',
+		            	'error'	=> ''
 	            	);
         		$this->load->view('index',$viewData);
+        		// just for test
+        		$this->resizeAndAddWatermark(dirname(BASEPATH)."/images/".$fileName);
         	} else {
         		$viewData = array(
 		            	'redirectUrl' => 'home/product-form',
@@ -410,6 +413,31 @@ class HomeController extends CI_Controller {
 	    	echo "<img src='".IMAGE_PATH."no-magento-product-found.jpg' class='img-responsive center-block' />";
 	    	echo "</div>";
 	    }
+    }
+
+    public function resizeAndAddWatermark($imagePath) {
+    	$resize_config['image_library'] = 'gd2';
+		$resize_config['source_image'] = $imagePath;
+		$resize_config['maintain_ratio'] = TRUE;
+		$resize_config['width']         = 499;
+		$resize_config['height']       = 498;
+		$this->image_lib->clear();
+        $this->image_lib->initialize($resize_config);
+		if (!$this->image_lib->resize()) {
+		    $this->image_lib->display_errors();
+		    exit();
+		}
+
+		$water_config['source_image'] = $imagePath;
+		$water_config['wm_text'] = WATERMARK;
+		$water_config['wm_type'] = 'text';
+		$water_config['wm_font_path'] = dirname(BASEPATH).'/system/fonts/texb.ttf';
+		$water_config['wm_font_size'] = '16';
+		$water_config['wm_font_color'] = 'ffffff';
+		$water_config['wm_vrt_alignment'] = 'bottom';
+		$water_config['wm_hor_alignment'] = 'center';
+		$this->image_lib->initialize($water_config);
+		$this->image_lib->watermark();
     }
 
 }
