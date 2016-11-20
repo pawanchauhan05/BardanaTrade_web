@@ -35,7 +35,7 @@
     <link href="<?php echo base_url() ?>custom/css/custom.min.css" rel="stylesheet">
   </head>
 
-  <body class="nav-md" ng-app="bardanaTradeApp">
+  <body class="nav-md">
     <div class="container body">
 
       <?php 
