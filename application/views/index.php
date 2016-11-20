@@ -47,8 +47,8 @@
     <script src="<?php echo base_url() ?>bower_components/bootstrap-sweetalert/dist/sweetalert.js"></script>
 
     
-    <!-- Custom Theme Scripts 
-    <script src="<?php echo base_url() ?>custom/js/custom.min.js"></script> -->
+    <!-- Chat Scripts  -->
+    <script src="<?php echo base_url() ?>custom/js/tawk.js"></script>
 
     <script type="text/javascript">
     $(document).ready(function(){
