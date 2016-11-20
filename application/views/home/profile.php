@@ -30,7 +30,7 @@
 		            			<div class="col-xs-4 col-sm-5">Name</div>
 		            			<div class="col-xs-2 col-sm-2">:</div>
 		            			<div class="col-xs-6 col-sm-5">
-		            				<a href="#" id="profile-item-name"><?php echo $data->name ?></a>
+		            				<a href="#" id="profile-item-name" name="fullName" data-type="text" data-pk="<?php echo $data->email ?>" data-url="<?php echo base_url().'index.php/update-user-profile-name' ?>" data-title="Enter full name"><?php echo $data->name ?></a>
 		            			</div>
 		            		</div>
 
@@ -38,7 +38,7 @@
 		            			<div class="col-xs-4 col-sm-5">Mobile</div>
 		            			<div class="col-xs-2 col-sm-2">:</div>
 		            			<div class="col-xs-6 col-sm-5">
-		            				<a href="#" id="profile-item-mobile"><?php echo $data->mobile ?></a>
+		            				<a href="#" id="profile-item-mobile" name="mobile" data-type="text" data-pk="<?php echo $data->email ?>" data-url="<?php echo base_url().'index.php/update-user-profile-mobile' ?>" data-title="Enter mobile no."><?php echo $data->mobile ?></a>
 		            			</div>
 		            		</div>
 
@@ -46,7 +46,7 @@
 		            			<div class="col-xs-4 col-sm-5">Organisation</div>
 		            			<div class="col-xs-2 col-sm-2">:</div>
 		            			<div class="col-xs-6 col-sm-5">
-		            				<a href="#" id="profile-item-organisation"><?php echo $data->organisation ?></a>
+		            				<a href="#" id="profile-item-organisation" name="organisation" data-type="text" data-pk="<?php echo $data->email ?>" data-url="<?php echo base_url().'index.php/update-user-profile-organisation' ?>" data-title="Enter organisation name"><?php echo $data->organisation ?></a>
 		            			</div>
 		            		</div>
 
@@ -54,7 +54,7 @@
 		            			<div class="col-xs-4 col-sm-5">Designation</div>
 		            			<div class="col-xs-2 col-sm-2">:</div>
 		            			<div class="col-xs-6 col-sm-5">
-		            				<a href="#" id="profile-item-designation"><?php echo $data->designation ?></a>
+		            				<a href="#" id="profile-item-designation" name="designation" data-type="text" data-pk="<?php echo $data->email ?>" data-url="<?php echo base_url().'index.php/update-user-profile-designation' ?>" data-title="Enter designation name"><?php echo $data->designation ?></a>
 		            			</div>
 		            		</div>
 
@@ -62,7 +62,7 @@
 		            			<div class="col-xs-4 col-sm-5">Location</div>
 		            			<div class="col-xs-2 col-sm-2">:</div>
 		            			<div class="col-xs-6 col-sm-5">
-		            				<a href="#" id="profile-item-location"><?php echo $data->address ?></a>
+		            				<a href="#" id="profile-item-location" name="location" data-type="textarea" data-pk="<?php echo $data->email ?>" data-url="<?php echo base_url().'index.php/update-user-profile-address' ?>" data-title="Enter full address"><?php echo $data->address ?></a>
 		            			</div>
 		            		</div>
 
@@ -70,7 +70,7 @@
 		            			<div class="col-xs-4 col-sm-5">City</div>
 		            			<div class="col-xs-2 col-sm-2">:</div>
 		            			<div class="col-xs-6 col-sm-5">
-		            				<a href="#" id="profile-item-city"><?php echo $data->city ?></a>
+		            				<a href="#" id="profile-item-city" name="city" data-type="text" data-pk="<?php echo $data->email ?>" data-url="<?php echo base_url().'index.php/update-user-profile-city' ?>" data-title="Enter city"><?php echo $data->city ?></a>
 		            			</div>
 		            		</div>
 
@@ -78,7 +78,7 @@
 		            			<div class="col-xs-4 col-sm-5">State</div>
 		            			<div class="col-xs-2 col-sm-2">:</div>
 		            			<div class="col-xs-6 col-sm-5">
-		            				<a href="#" id="profile-item-state"><?php echo $data->state ?></a>
+		            				<a href="#" id="profile-item-state" name="state" data-type="text" data-pk="<?php echo $data->email ?>" data-url="<?php echo base_url().'index.php/update-user-profile-state' ?>" data-title="Enter state"><?php echo $data->state ?></a>
 		            			</div>
 		            		</div>
 
@@ -86,7 +86,7 @@
 		            			<div class="col-xs-4 col-sm-5">Country</div>
 		            			<div class="col-xs-2 col-sm-2">:</div>
 		            			<div class="col-xs-6 col-sm-5">
-		            				<a href="#" id="profile-item-country"><?php echo $data->country ?></a>
+		            				<a href="#" id="profile-item-country" name="country" data-type="text" data-pk="<?php echo $data->email ?>" data-url="<?php echo base_url().'index.php/update-user-profile-country' ?>" data-title="Enter country"><?php echo $data->country ?></a>
 		            			</div>
 		            		</div>
 
@@ -94,7 +94,7 @@
 		            			<div class="col-xs-4 col-sm-5">PinCode</div>
 		            			<div class="col-xs-2 col-sm-2">:</div>
 		            			<div class="col-xs-6 col-sm-5">
-		            				<a href="#" id="profile-item-pincode"><?php echo $data->pincode ?></a>
+		            				<a href="#" id="profile-item-pincode" name="pincode" data-type="text" data-pk="<?php echo $data->email ?>" data-url="<?php echo base_url().'index.php/update-user-profile-pincode' ?>" data-title="Enter pincode"><?php echo $data->pincode ?></a>
 		            			</div>
 		            		</div>
 
@@ -106,7 +106,7 @@
 		        <br>
 		        <?php 
 		        	$configUrl = PROFILE_URL;
-	        		$data = $this->HomeModel->showOwnProducts("demo@gmail.com", $configUrl);
+	        		$data = $this->HomeModel->showOwnProducts($loggedUser, $configUrl);
 	        		$rows = $data->rows;
 	        		$count = $data->count;
 

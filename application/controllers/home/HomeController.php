@@ -103,7 +103,7 @@ class HomeController extends CI_Controller {
 		$this->HomeModel->showProductsBySubCategory($category);
 	}
 
-	public function sellProduct() {
+	public function postProduct() {
 		$forWhich = $this->input->post('forWhich');
 		$name = $this->input->post('product-form-name');
 		$other = $this->input->post('product-form-other');
@@ -140,15 +140,37 @@ class HomeController extends CI_Controller {
         	//$this->load->library('upload', $config);
         	$this->upload->initialize($config);
         	if($this->upload->do_upload('product-form-image')) {
+
+        		$whichCategory = array(
+        							'New Jute Bag' => 'Bags',
+        							'Old Jute Bag' => 'Bags',
+        							'New Plastic Bag' => 'Bags',
+        							'Old Plastic Bag' => 'Bags',
+        							'Jute Twine' => 'TwineAndYarn',
+        							'Thread/Yarn' => 'TwineAndYarn',
+        							'Jute Roll' => 'TwineAndYarn',
+        							'Plastic Roll' => 'TwineAndYarn',
+        							'Hessian Clothe' => 'Hessian Clothe',
+        							'Sewing/Stitching Machine' => 'Machines'
+        							 );
+        		$productCategory = element($name, $whichCategory, 'Others');
+        		$sessionData = $this->HomeModel->readSessionData();
+        		$email = $sessionData['sessionData']['email'];
         		// success
         		$data = array(
-        			'name' => $name,
+        			'productName' => $name,
         			'price' => $price,
         			'brand' => $brand,
-        			'description' => $description,
+        			'productDescription' => $description,
         			'forWhich' => $forWhich,
-        			'fileName' => $fileName
+        			'productPic' => $fileName,
+        			'productCategory' => $productCategory,
+        			'isVisible' => 0,
+        			'isLatest' => 0,
+        			'postedOn' => time(),
+        			'email' => $email
         		 );
+        		
         		$viewData = array(
 		            	'redirectUrl' => 'home/product-form',
 		            	'forWhich' => $forWhich,
@@ -156,8 +178,8 @@ class HomeController extends CI_Controller {
 		            	'error'	=> ''
 	            	);
         		$this->load->view('index',$viewData);
-        		// just for test
         		$this->resizeAndAddWatermark(dirname(BASEPATH)."/images/".$fileName);
+        		$this->HomeModel->postProduct($data);
         	} else {
         		$viewData = array(
 		            	'redirectUrl' => 'home/product-form',

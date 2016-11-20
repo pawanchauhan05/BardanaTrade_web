@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-sm-6">
 		<p class="product-form-title"><?php echo $forWhich ?> Product  </p><?php echo $status ?><hr>
-		<?php echo form_open_multipart('sell-product') ?>
+		<?php echo form_open_multipart('post-product') ?>
 		    <div class="form-group">
 		        <label class="<?php echo form_error('product-form-name') != '' ? "product-form-name" : "" ?>">
 		        	<?php echo form_error('product-form-name') != '' ? form_error('product-form-name') : "Product" ?>
@@ -17,7 +17,8 @@
 			        <option>Jute Roll</option>
 			        <option>Plastic Roll</option>
 			        <option>Hessian Clothe</option>
-			        <option>Sewing/Stitching Machine</option>
+			        <option>Stitching Machine</option>
+			        <option>Sewing Machine</option>
 			        <option>Others</option>
 			    </select>
 		    </div>

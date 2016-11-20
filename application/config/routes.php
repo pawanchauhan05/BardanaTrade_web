@@ -93,8 +93,7 @@ $route['update-user-profile-city'] = 'home/HomeController/updateUserProfileCity'
 $route['update-user-profile-state'] = 'home/HomeController/updateUserProfileState';
 $route['update-user-profile-country'] = 'home/HomeController/updateUserProfileCountry';
 $route['update-user-profile-pincode'] = 'home/HomeController/updateUserProfilePincode';
-$route['sell-product'] = 'home/HomeController/sellProduct';
-$route['buy-product'] = 'home/HomeController/sellProduct';
+$route['post-product'] = 'home/HomeController/postProduct';
 $route['contactUs'] = 'home/HomeController/contactUs';
 $route['sendFeedback'] = 'home/HomeController/sendFeedback';
 
@@ -138,7 +137,7 @@ $route['admin/approve-product'] = 'admin/AdminController/approveProduct';
 $route['admin/delete-product'] = 'admin/AdminController/deleteProduct';
 
 // test
-$route['resize'] = 'home/HomeController/resize';
+$route['check'] = 'home/HomeController/check';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

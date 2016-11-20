@@ -69,11 +69,6 @@
         })
 
         $('#profile-item-name').editable({
-                           type:  'text',
-                           pk:    1,
-                           name:  'fullName',
-                           url:   'update-user-profile-name',  
-                           title: 'Enter full name',
                            validate: function(value) {
                               if($.trim(value) == '') 
                                 return 'This field is required';
@@ -81,11 +76,6 @@
                         });
 
         $('#profile-item-mobile').editable({
-                           type:  'text',
-                           pk:    1,
-                           name:  'mobile',
-                           url:   'update-user-profile-mobile',  
-                           title: 'Enter mobile no.',
                            validate: function(value) {
                               if($.trim(value) == '') 
                                 return 'This field is required';
@@ -93,11 +83,6 @@
                         });
 
         $('#profile-item-organisation').editable({
-                           type:  'text',
-                           pk:    1,
-                           name:  'organisation',
-                           url:   'update-user-profile-organisation',  
-                           title: 'Enter organisation name',
                            validate: function(value) {
                               if($.trim(value) == '') 
                                 return 'This field is required';
@@ -106,11 +91,6 @@
 
 
         $('#profile-item-designation').editable({
-                           type:  'text',
-                           pk:    1,
-                           name:  'designation',
-                           url:   'update-user-profile-designation',  
-                           title: 'Enter designation name',
                            validate: function(value) {
                               if($.trim(value) == '') 
                                 return 'This field is required';
@@ -118,11 +98,6 @@
                         });
 
         $('#profile-item-location').editable({
-                           type:  'textarea',
-                           pk:    1,
-                           name:  'location',
-                           url:   'update-user-profile-address',  
-                           title: 'Enter full address',
                            validate: function(value) {
                               if($.trim(value) == '') 
                                 return 'This field is required';
@@ -130,11 +105,6 @@
                         });
 
         $('#profile-item-city').editable({
-                           type:  'text',
-                           pk:    1,
-                           name:  'city',
-                           url:   'update-user-profile-city',  
-                           title: 'Enter city',
                            validate: function(value) {
                               if($.trim(value) == '') 
                                 return 'This field is required';
@@ -142,11 +112,6 @@
                         });
 
         $('#profile-item-state').editable({
-                           type:  'text',
-                           pk:    1,
-                           name:  'state',
-                           url:   'update-user-profile-state',  
-                           title: 'Enter state',
                            validate: function(value) {
                               if($.trim(value) == '') 
                                 return 'This field is required';
@@ -154,11 +119,6 @@
                         });
 
         $('#profile-item-country').editable({
-                           type:  'text',
-                           pk:    1,
-                           name:  'country`',
-                           url:   'update-user-profile-country',  
-                           title: 'Enter country',
                            validate: function(value) {
                               if($.trim(value) == '') 
                                 return 'This field is required';
@@ -166,11 +126,6 @@
                         });
 
         $('#profile-item-pincode').editable({
-                           type:  'text',
-                           pk:    1,
-                           name:  'pincode',
-                           url:   'update-user-profile-pincode',  
-                           title: 'Enter pincode',
                            validate: function(value) {
                               if($.trim(value) == '') 
                                 return 'This field is required';

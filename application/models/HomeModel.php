@@ -106,6 +106,11 @@ class HomeModel extends CI_Model {
         }
     }
 
+    public function postProduct($data) {
+        $this->db->set($data);
+        $this->db->insert('Products', $data);
+    }
+
     public function updateName($fullName, $email) {
         $data = array(
                 'name' => $fullName

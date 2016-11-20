@@ -30,7 +30,8 @@
 				        <option>Jute Roll</option>
 				        <option>Plastic Roll</option>
 				        <option>Hessian Clothe</option>
-				        <option>Sewing/Stitching Machine</option>
+				        <option>Stitching Machine</option>
+				        <option>Sewing Machine</option>
 				        <option>Others</option>
 				    </select>
 			    </div>
