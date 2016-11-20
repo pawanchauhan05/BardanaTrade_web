@@ -1,6 +1,6 @@
-var callCustomizerApp = angular.module('callCustomizerApp', []);
+var bardanaTradeApp = angular.module('bardanaTradeApp', []);
 
-callCustomizerApp.controller('myCtrl', function($scope) {
+bardanaTradeApp.controller('myCtrl', function($scope) {
     $scope.firstName = "John";
     $scope.lastName = "Doe";
 });
