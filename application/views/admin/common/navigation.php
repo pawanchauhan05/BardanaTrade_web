@@ -42,7 +42,7 @@
           </li>
           <li><a><i class="fa fa-desktop"></i> Slider <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="general_elements.html">Update Slider</a></li>
+              <li><a href="<?php echo ADMIN_SLIDER_URL ?>">Update Slider</a></li>
             </ul>
           </li>
           <li><a><i class="fa fa-table"></i> Latest Products <span class="fa fa-chevron-down"></span></a>

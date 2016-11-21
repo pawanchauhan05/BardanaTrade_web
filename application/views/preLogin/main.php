@@ -2,27 +2,25 @@
 	<div class="row">
 		<div class="col-sm-8">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
-		        <!-- Carousel indicators -->
-		        <ol class="carousel-indicators">
-		            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		            <li data-target="#myCarousel" data-slide-to="1"></li>
-		            <li data-target="#myCarousel" data-slide-to="2"></li>
-		            <li data-target="#myCarousel" data-slide-to="3"></li>
-		        </ol>   
+				<!-- Carousel indicators -->
+				<ol class="carousel-indicators">
+				<?php
+				$data = $this->HomeModel->getSlider();
+				$count = 0;
+				$countSlide = 0; 
+				foreach ($data as $row) { ?>
+		            <li data-target="#myCarousel" data-slide-to="<?php echo $count ?>" class="<?php echo $count==0 ? "active" : "" ?>"></li>
+				<?php $count++; }; ?>
+				</ol>
+
+		           
 		        <!-- Wrapper for carousel items -->
 		        <div class="carousel-inner">
-		            <div class="item active">
-		                <img src="<?php echo IMAGE_PATH ?>slider/slider2.jpg" alt="First Slide">
+		        	<?php foreach ($data as $row) { ?>
+		            <div class="<?php echo $countSlide==0 ? "item active" : "item" ?>">
+		                <img src="<?php echo IMAGE_PATH.'slider/'.$row->sliderPic ?>" alt="First Slide">
 		            </div>
-		            <div class="item">
-		                <img src="<?php echo IMAGE_PATH ?>slider/slider3.jpg" alt="Second Slide">
-		            </div>
-		            <div class="item">
-		                <img src="<?php echo IMAGE_PATH ?>slider/slider6.jpg" alt="Third Slide">
-		            </div>
-		            <div class="item">
-		                <img src="<?php echo IMAGE_PATH ?>slider/slider8.jpg" alt="Third Slide">
-		            </div>
+		            <?php $countSlide++; }; ?>
 		        </div>
 		        <!-- Carousel controls -->
 		        <a class="carousel-control left" href="#myCarousel" data-slide="prev">

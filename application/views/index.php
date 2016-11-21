@@ -49,6 +49,8 @@
     
     <!-- Chat Scripts  -->
     <script src="<?php echo base_url() ?>custom/js/tawk.js"></script>
+    <!-- Google Analytics -->
+    <script src="<?php echo base_url() ?>custom/js/google-analytics.js"></script> 
 
     <script type="text/javascript">
     $(document).ready(function(){

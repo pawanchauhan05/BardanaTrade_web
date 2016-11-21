@@ -110,6 +110,7 @@ $route['admin/deleteUser/:any'] = 'admin/Admin/deleteUser';
 $route['admin/login'] = 'admin/AdminController/isAdminExist';
 $route['admin/logout'] = 'admin/AdminController/logout';
 $route['admin'] = 'admin/AdminController';
+$route['admin/slider'] = 'admin/AdminController';
 $route['admin/users'] = 'admin/AdminController';
 $route['admin/user-info/:any'] = 'admin/AdminController';
 $route['admin/sell-products'] = 'admin/AdminController';
@@ -135,6 +136,8 @@ $route['admin/remove-product-from-latest'] = 'admin/AdminController/removeProduc
 $route['admin/add-product-to-latest'] = 'admin/AdminController/addProductToLatest';
 $route['admin/approve-product'] = 'admin/AdminController/approveProduct';
 $route['admin/delete-product'] = 'admin/AdminController/deleteProduct';
+$route['admin/add-slider'] = 'admin/AdminController/addSlider';
+$route['admin/update-slider-sequence'] = 'admin/AdminController/updateSliderSequence';
 
 // test
 $route['check'] = 'home/HomeController/check';

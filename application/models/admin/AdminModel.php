@@ -27,6 +27,10 @@ class AdminModel extends CI_Model {
                     $content = 'admin/users/users';
                     break;
 
+                case 'slider':
+                    $content = 'admin/slider/slider';
+                    break;
+
                 case 'sell-products':
                     $content = 'admin/products/products';
                     break;
@@ -100,6 +104,24 @@ class AdminModel extends CI_Model {
     public function tokenDetails() {
         $query = $this->db->query("SELECT * FROM Tokens");
         return $query->result();
+    }
+
+    public function sliderDetails() {
+        $query = $this->db->query("SELECT * FROM Slider");
+        return $query->result();
+    }
+
+    public function updateSliderSequence($sequence, $id) {
+        $data = array(
+                'sequence' => $sequence
+            );
+        $this->db->set($data);
+        $this->db->where("id", $id);
+        if($this->db->update("Slider", $data)) {
+        } else {
+
+        }
+
     }
     
     /**
@@ -347,6 +369,14 @@ class AdminModel extends CI_Model {
         }
     }
 
+    public function getSlider() {
+        $this->db->select('*');
+        $this->db->from('Slider');
+        $this->db->order_by("sequence", "desc");
+        $query = $this->db->get();
+        return $data =  $query->result();
+    }
+
     public function removeProductFromLatest($id, $currentUrl) {
         $data = array(
                 'isLatest' => '0'
@@ -397,6 +427,7 @@ class AdminModel extends CI_Model {
         unlink(dirname(BASEPATH)."/images/".$productPic);
         redirect("admin/".$currentUrl, 'refresh');
     }
+
 
 
 

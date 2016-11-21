@@ -33,6 +33,8 @@
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url() ?>custom/css/custom.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="<?php echo base_url() ?>bower_components/jquery/dist/jquery.min.js"></script>
   </head>
 
   <body class="nav-md">
@@ -53,8 +55,7 @@
 
     </div>
 
-    <!-- jQuery -->
-    <script src="<?php echo base_url() ?>bower_components/jquery/dist/jquery.min.js"></script>
+    
     <!-- angular 
     <script src="<?php echo base_url() ?>bower_components/angular/angular.min.js"></script> -->
     <!-- Bootstrap -->
@@ -523,6 +524,13 @@
                             return 'This field is required';
                         }
                     });
+
+    /*$('#slider-sequence').editable({
+                       validate: function(value) {
+                          if($.trim(value) == '') 
+                            return 'This field is required';
+                        }
+                    });*/
   });
 </script>
   </body>

@@ -111,6 +111,15 @@ class HomeModel extends CI_Model {
         $this->db->insert('Products', $data);
     }
 
+    public function getSlider() {
+        $this->db->select('*');
+        $this->db->from('Slider');
+        $this->db->order_by("sequence", "asc");
+        $this->db->limit(5);
+        $query = $this->db->get();
+        return $data =  $query->result();
+    }
+
     public function updateName($fullName, $email) {
         $data = array(
                 'name' => $fullName
