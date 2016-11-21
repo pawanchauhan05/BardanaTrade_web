@@ -114,6 +114,7 @@ define("ADMIN_LOGIN_URL",				BASE_URL."index.php/admin/login");
 define("ADMIN_LOGOUT_URL",				BASE_URL."index.php/admin/logout");
 define("ADMIN_HOME_URL",				BASE_URL."index.php/admin/");
 define("ADMIN_USERS_URL",				BASE_URL."index.php/admin/users");
+define("ADMIN_SLIDER_URL",				BASE_URL."index.php/admin/slider");
 define("ADMIN_SELL_PRODUCTS_URL",				BASE_URL."index.php/admin/sell-products");
 define("ADMIN_BUY_PRODUCTS_URL",				BASE_URL."index.php/admin/buy-products");
 define("ADMIN_LATEST_BAGS_URL",				BASE_URL."index.php/admin/latest-bags");
