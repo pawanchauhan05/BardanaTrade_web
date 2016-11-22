@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css" />
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/bootstrap-sweetalert/dist/sweetalert.css" />
+    <!-- Tooltipster -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/tooltipster/dist/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css" />
     
 
     <!-- Custom Theme Style -->
@@ -45,6 +48,8 @@
     <script src="<?php echo base_url() ?>bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
     <!-- Sweet Alert -->
     <script src="<?php echo base_url() ?>bower_components/bootstrap-sweetalert/dist/sweetalert.js"></script>
+    <!-- Tooltipster -->
+    <script src="<?php echo base_url() ?>bower_components/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
 
     
     <!-- Chat Scripts  -->
@@ -133,6 +138,43 @@
                                 return 'This field is required';
                             }
                         });
+
+        $('.tooltip-price').tooltipster({
+          content: $('#tooltip_content_for_price'),
+          contentCloning: true,
+          side : ['right','top'],
+          theme: 'tooltipster-punk'
+        });
+
+        $('.tooltip-brand').tooltipster({
+          content: $('#tooltip_content_for_brand'),
+          contentCloning: true,
+          side : ['right','top'],
+          theme: 'tooltipster-punk'
+        });
+
+        $('.tooltip-description').tooltipster({
+          content: $('#tooltip_content_for_description'),
+          contentCloning: true,
+          side : ['right','top'],
+          theme: 'tooltipster-punk'
+        });
+
+        $('.tooltip-image').tooltipster({
+          content: $('#tooltip_content_for_image'),
+          contentCloning: true,
+          side : ['right','top'],
+          theme: 'tooltipster-punk'
+        });
+
+        $('.tooltip-others').tooltipster({
+          content: $('#tooltip_content_for_others'),
+          contentCloning: true,
+          side : ['right','top'],
+          theme: 'tooltipster-punk'
+        });
+
+        
 
     });
     </script>

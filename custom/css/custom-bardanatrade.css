@@ -37,6 +37,7 @@
 	color: #ffffff;
 }
 
+
 /******* navbar.php ***********/
 
 .dropdown-submenu {
@@ -288,6 +289,10 @@ hr.horizontal-line {
 
 .product-form-name, .product-form-price, .product-form-brand, .product-form-description, .product-form-image, .product-form-status {
 	color: red;
+}
+
+.tooltip_templates { 
+	display: none; 
 }
 
 /**************************************** product-details.php *******************/
