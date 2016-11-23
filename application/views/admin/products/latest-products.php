@@ -53,7 +53,7 @@
                 <img src="<?php echo IMAGE_PATH.$row->productPic ?>" class="img-responsive">
               </a>
               <h3 class="text-center"><?php echo $row->productName ?></h3>
-              <p><?php echo $row->productDescription ?></p>
+              <p><?php echo word_limiter($row->productDescription, 5) ?></p>
               <div class="">
                 <p class="pull-left"><?php echo $row->price ." INR" ?></p>
                 <p class="pull-right">Posted <?php echo date("d F", $row->postedOn) ?></p>

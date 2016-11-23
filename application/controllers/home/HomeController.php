@@ -372,7 +372,7 @@ class HomeController extends CI_Controller {
 		echo 	    	"<img src=' ". base_url() ."images/". $row->productPic ."' class='img-responsive' />";
 		echo  			"</a>";
 		echo 	    	"<h3 class='text-center'> " . $row->productName . " </h3>";
-		echo 	    	"<p>".$row->productDescription."</p>";
+		echo 	    	"<p>".word_limiter($row->productDescription, 5)."</p>";
 		echo	    	"<div class=''>";
 		echo	    		"<p class='pull-left'>". $row->price ." INR</p>";
 		echo 	    		"<p class='pull-right'>Posted  ". date("d F", $row->postedOn) ."</p>";
@@ -418,7 +418,7 @@ class HomeController extends CI_Controller {
 			echo 	    	"<img src=' ". base_url() ."images/". $row->productPic ."' class='img-responsive' />";
 			echo  			"</a>";
 			echo 	    	"<h3 class='text-center'> " . $row->productName . " </h3>";
-			echo 	    	"<p>".$row->productDescription."</p>";
+			echo 	    	"<p>".word_limiter($row->productDescription, 5)."</p>";
 			echo	    	"<div class=''>";
 			echo	    		"<p class='pull-left'>". $row->price ." INR</p>";
 			echo 	    		"<p class='pull-right'>Posted  ". date("d F", $row->postedOn) ."</p>";
