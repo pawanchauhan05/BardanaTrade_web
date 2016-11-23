@@ -5,7 +5,7 @@
   <div class="login_wrapper">
     <div class="animate form login_form">
       <section class="login_content">
-        <form method="post" action="<?php echo ADMIN_LOGIN_URL ?>">
+        <?php echo form_open(ADMIN_LOGIN_URL) ?>
           <h1>Admin Login Form</h1>
           <div>
             <input type="text" class="form-control" name="email" placeholder="Email" required="" />
@@ -33,7 +33,7 @@
               <p>©2014-2016 All Rights Reserved. Bardana Trade!</p>
             </div>
           </div>
-        </form>
+        <?php echo form_close() ?>
       </section>
     </div>
 

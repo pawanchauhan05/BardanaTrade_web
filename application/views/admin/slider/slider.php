@@ -71,7 +71,7 @@
 
                   <label>Slider Image</label>
                   <div class="input-group">
-                        <input type="file" name="slider-image" class="form-control" placeholder="select slider image">
+                        <input type="file" name="slider-image" data-tooltip-content="#tooltip_content_for_image" class="form-control tooltip-image" placeholder="select slider image">
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default">Browse image</button>
                         </span>
@@ -80,6 +80,16 @@
                 <button type="submit" class="btn btn-primary">Add Slider</button>
               <?php echo form_close() ?>
             </div>
+          </div>
+
+          <div class="tooltip_templates">
+              <span id="tooltip_content_for_image">
+                  <ul>
+                    <li>This field is required.</li>
+                    <li>Please upload new slider image.</li>
+                    <li>Product image should be 860x420 px for good resolution.</li>
+                  </ul>
+              </span>
           </div>
 
           <div id="myModal" class="modal fade">
@@ -132,3 +142,6 @@
     </script>
   </div>
 </div>
+<style type="text/css">
+.tooltip_templates { display: none; }
+</style>

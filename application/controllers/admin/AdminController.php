@@ -37,7 +37,7 @@ class AdminController extends CI_Controller {
      */
     public function logout() {
         $this->AdminModel->stopSession();
-        $this->index();
+        redirect('admin');
     }
 
     public function removeProductFromLatest() {

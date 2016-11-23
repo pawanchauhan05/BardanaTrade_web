@@ -242,8 +242,11 @@
     var total_record = 0;
     console.log(total_group);  
     $('#results').load("<?php echo LOAD_PRODUCT_URL ?>",
-     {'selectedProducts':selectedProducts, 'category' : '<?php echo $this->uri->segment(2) ?>'}, 
-     function() {total_record++; console.log("load "+total_record);  });
+     {  'selectedProducts':selectedProducts, 
+        'category' : '<?php echo $this->uri->segment(2) ?>',
+        "<?php echo $this->security->get_csrf_token_name() ?>" : "<?php echo $this->security->get_csrf_hash() ?>" 
+     }, 
+     function() {total_record++;});
     
 
     $(window).scroll(function() {       
@@ -251,13 +254,16 @@
         {
           if(total_record <= total_group) {
             
-            $.post('<?php echo LOAD_MORE_PRODUCT_URL ?>',{'group_no': total_record, 'category' : '<?php echo $this->uri->segment(2) ?>', 'selectedProducts': selectedProducts },
+            $.post("<?php echo LOAD_MORE_PRODUCT_URL ?>",
+              {   'group_no': total_record, 
+                  'category' : '<?php echo $this->uri->segment(2) ?>', 
+                  'selectedProducts': selectedProducts
+              },
               function(data){ 
                   if (data != "") {                               
                       $("#results").append(data);                 
                       //$('.loader_image').hide();                  
                       total_record++;
-                      console.log("scroll "+selectedProducts);
                   }
               });
           }     
@@ -275,7 +281,9 @@
       console.log(selectedProducts);
       $(document).ready(function() {
         $('#results').load("<?php echo LOAD_PRODUCT_URL ?>",
-       {'selectedProducts': selectedProducts, 'category' : '<?php echo $this->uri->segment(2) ?>'}, 
+        {  'selectedProducts': selectedProducts, 
+           'category' : '<?php echo $this->uri->segment(2) ?>'
+        }, 
        function() {});
       });
   }

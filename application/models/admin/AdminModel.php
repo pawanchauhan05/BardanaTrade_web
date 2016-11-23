@@ -135,7 +135,7 @@ class AdminModel extends CI_Model {
             'email' => $email,
             'loggedIn' => TRUE
         );
-        $this->session->set_userdata('sessionData', $sessionArray);
+        $this->session->set_userdata('adminSessionData', $sessionArray);
     }
 
     /**

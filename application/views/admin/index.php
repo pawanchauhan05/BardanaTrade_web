@@ -30,7 +30,9 @@
     <link href="<?php echo base_url() ?>bower_components/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
     <!-- X-editable -->
     <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css" />
-
+    <!-- Tooltipster -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/tooltipster/dist/css/tooltipster.bundle.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css" />
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url() ?>custom/css/custom.min.css" rel="stylesheet">
     <!-- jQuery -->
@@ -44,7 +46,7 @@
         // TODO check proper login or home
         //  $this->AdminModel->stopSession();
         $sessionData = $this->AdminModel->readSessionData();
-        if(isset($sessionData['sessionData'])) {
+        if(isset($sessionData['adminSessionData'])) {
           $this->load->view('admin/main');
         } else {
           $this->load->view('admin/login');
@@ -118,7 +120,8 @@
 
     <!-- Custom Angular Scripts -->
     <script src="<?php echo base_url() ?>application/views/admin/angular/app.js"></script>
-
+    <!-- Tooltipster -->
+    <script src="<?php echo base_url() ?>bower_components/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
     <!-- Flot -->
     <script>
       $(document).ready(function() {
@@ -525,12 +528,12 @@
                         }
                     });
 
-    /*$('#slider-sequence').editable({
-                       validate: function(value) {
-                          if($.trim(value) == '') 
-                            return 'This field is required';
-                        }
-                    });*/
+    $('.tooltip-image').tooltipster({
+          content: $('#tooltip_content_for_image'),
+          contentCloning: true,
+          side : ['right','top'],
+          theme: 'tooltipster-punk'
+        });
   });
 </script>
   </body>
