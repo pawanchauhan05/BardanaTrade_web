@@ -362,6 +362,12 @@ hr.horizontal-line {
 	.login-title {
 		margin-top: 10px;
 	}
+
+	.logo {
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
 }
 
 /* Portrait phones and smaller */
@@ -390,6 +396,12 @@ hr.horizontal-line {
 	.login-title {
 		margin-top: 10px;
 	}
+
+	.logo {
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
 }
 
 @media only screen and (max-width : 320px) {
@@ -416,6 +428,12 @@ hr.horizontal-line {
 
 	.login-title {
 		margin-top: 10px;
+	}
+
+	.logo {
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
 	}
 
 }

@@ -50,7 +50,7 @@
                     <div class="panel panel-default">
                       <div class="panel-body">
                         <a href='<?php echo base_url()."index.php/admin/product-details/".$this->HomeModel->encode($row->id); ?>'>
-                          <img src="<?php echo IMAGE_PATH.$row->productPic ?>" class="img-responsive">
+                          <img src="<?php echo IMAGE_PATH.$row->productPic ?>" class="img-responsive center-block">
                         </a>
                         <h3 class="text-center"><?php echo $row->productName ?></h3>
                         <p><?php echo word_limiter($row->productDescription, 5) ?></p>

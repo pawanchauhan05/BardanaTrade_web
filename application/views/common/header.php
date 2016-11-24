@@ -40,7 +40,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6">
-				<img src="<?php echo base_url() ?>images/logo.jpg" alt="" class="img-responsive"/>
+				<img src="<?php echo base_url() ?>images/logo.jpg" alt="" class="logo img-responsive"/>
 			</div>
 			<div class="col-sm-6">
 				<div class="head-button">

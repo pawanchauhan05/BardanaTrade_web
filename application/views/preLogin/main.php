@@ -88,7 +88,7 @@
 			  	$rows = $this->AdminModel->showLatestProducts('Bags');
 			  	foreach ($rows as $row) {
 			  		$bagsImagePath = IMAGE_PATH.$row->productPic;
-			  		echo "<div> <img src='".$bagsImagePath."' class='img-responsive'> </div>";
+			  		echo "<div> <img src='".$bagsImagePath."' class='img-responsive center-block'> </div>";
 			  	}
 			  ?>
 			</div>
@@ -99,7 +99,7 @@
 			  	$rows = $this->AdminModel->showLatestProducts('TwineAndYarn');
 			  	foreach ($rows as $row) {
 			  		$yarnImagePath = IMAGE_PATH.$row->productPic;
-			  		echo "<div> <img src='".$yarnImagePath."' class='img-responsive'> </div>";
+			  		echo "<div> <img src='".$yarnImagePath."' class='img-responsive center-block'> </div>";
 			  	}
 			  ?>
 			</div>
@@ -110,7 +110,7 @@
 			  	$rows = $this->AdminModel->showLatestProducts('Machines');
 			  	foreach ($rows as $row) {
 			  		$machineImagePath = IMAGE_PATH.$row->productPic;
-			  		echo "<div> <img src='".$machineImagePath."' class='img-responsive'> </div>";
+			  		echo "<div> <img src='".$machineImagePath."' class='img-responsive center-block'> </div>";
 			  	}
 			  ?>
 			</div>

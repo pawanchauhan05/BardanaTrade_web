@@ -368,8 +368,8 @@ class HomeController extends CI_Controller {
 		echo "<div class='col-sm-4'>";
         echo 	"<div class='panel panel-default'>";
 		echo 	    "<div class='panel-body'>";
-		echo 			"<a href=". base_url() ."index.php/product-details/". $this->HomeModel->encode($row->id) ." class='img-responsive'>";
-		echo 	    	"<img src=' ". base_url() ."images/". $row->productPic ."' class='img-responsive' />";
+		echo 			"<a href=". base_url() ."index.php/product-details/". $this->HomeModel->encode($row->id) .">";
+		echo 	    	"<img src=' ". base_url() ."images/". $row->productPic ."' class='img-responsive center-block' />";
 		echo  			"</a>";
 		echo 	    	"<h3 class='text-center'> " . $row->productName . " </h3>";
 		echo 	    	"<p>".word_limiter($row->productDescription, 5)."</p>";
@@ -414,8 +414,8 @@ class HomeController extends CI_Controller {
 			echo "<div class='col-sm-4'>";
 	        echo 	"<div class='panel panel-default'>";
 			echo 	    "<div class='panel-body'>";
-			echo 			"<a href=". base_url() ."index.php/product-details/". $this->HomeModel->encode($row->id) ." class='img-responsive'>";
-			echo 	    	"<img src=' ". base_url() ."images/". $row->productPic ."' class='img-responsive' />";
+			echo 			"<a href=". base_url() ."index.php/product-details/". $this->HomeModel->encode($row->id) .">";
+			echo 	    	"<img src=' ". base_url() ."images/". $row->productPic ."' class='img-responsive center-block' />";
 			echo  			"</a>";
 			echo 	    	"<h3 class='text-center'> " . $row->productName . " </h3>";
 			echo 	    	"<p>".word_limiter($row->productDescription, 5)."</p>";
