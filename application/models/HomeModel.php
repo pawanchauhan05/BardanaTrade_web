@@ -291,6 +291,30 @@ class HomeModel extends CI_Model {
         $this->load->view('index',$viewData);
     }
 
+    public function updateUserLocation($ip, $latitude, $longitude) {
+        $data = array(
+                'ipAddress' => $ip,
+                'latitude' => $latitude,
+                'longitude' => $longitude,
+                'updated_at' => time()
+            );
+        $count = $this->isIPExist($ip);
+        if($count == 0) {
+            $this->db->insert('Location', $data);
+            echo "insert";
+        } else {
+            $this->db->set($data);
+            $this->db->where("ipAddress", $ip);
+            $this->db->update("Location", $data);
+            echo "update";
+        }
+    }
+
+    public function isIPExist($ip) {
+        $query = $this->db->query("SELECT * FROM Location WHERE ipAddress = '$ip' ");
+        return $query->num_rows();
+    }
+
     /***************************** for products ************************************/
 
     public function showOwnProducts($email, $configUrl) {

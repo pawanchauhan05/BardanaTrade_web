@@ -105,5 +105,4 @@ class AdminController extends CI_Controller {
         $id = $this->input->post('pk');
         $this->AdminModel->updateSliderSequence($sequence, $id);
     }
-
 }

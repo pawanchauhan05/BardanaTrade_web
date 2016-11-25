@@ -35,5 +35,27 @@
 
 
 <div class="row">
-
+  <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>Online Users <small>Maps</small></h2>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <div class="row">
+            <div class="col-sm-12">
+              <div id="map"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
+
+<style type="text/css">
+#map{
+    height: 500px;
+    margin: 0 auto;
+}
+
+</style>

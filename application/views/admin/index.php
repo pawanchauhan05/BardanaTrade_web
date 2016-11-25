@@ -383,158 +383,197 @@
     <!-- /gauge.js -->
 
     <!-- Datatables -->
-<script>
-  $(document).ready(function() {
-    var handleDataTableButtons = function() {
-      if ($("#datatable-buttons").length) {
-        $("#datatable-buttons").DataTable({
-          dom: "Bfrtip",
-          buttons: [
-            {
-              extend: "copy",
-              className: "btn-sm"
-            },
-            {
-              extend: "csv",
-              className: "btn-sm"
-            },
-            {
-              extend: "excel",
-              className: "btn-sm"
-            },
-            {
-              extend: "pdfHtml5",
-              className: "btn-sm"
-            },
-            {
-              extend: "print",
-              className: "btn-sm"
-            },
-          ],
-          responsive: true
+    <script>
+      $(document).ready(function() {
+        var handleDataTableButtons = function() {
+          if ($("#datatable-buttons").length) {
+            $("#datatable-buttons").DataTable({
+              dom: "Bfrtip",
+              buttons: [
+                {
+                  extend: "copy",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "csv",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "excel",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "pdfHtml5",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "print",
+                  className: "btn-sm"
+                },
+              ],
+              responsive: true
+            });
+          }
+        };
+
+        TableManageButtons = function() {
+          "use strict";
+          return {
+            init: function() {
+              handleDataTableButtons();
+            }
+          };
+        }();
+
+        $('#datatable').dataTable();
+
+        $('#datatable-keytable').DataTable({
+          keys: true
         });
-      }
-    };
 
-    TableManageButtons = function() {
-      "use strict";
-      return {
-        init: function() {
-          handleDataTableButtons();
-        }
-      };
-    }();
+        $('#datatable-responsive').DataTable();
 
-    $('#datatable').dataTable();
+        $('#datatable-scroller').DataTable({
+          ajax: "js/datatables/json/scroller-demo.json",
+          deferRender: true,
+          scrollY: 380,
+          scrollCollapse: true,
+          scroller: true
+        });
 
-    $('#datatable-keytable').DataTable({
-      keys: true
-    });
+        $('#datatable-fixed-header').DataTable({
+          fixedHeader: true
+        });
 
-    $('#datatable-responsive').DataTable();
+        var $datatable = $('#datatable-checkbox');
 
-    $('#datatable-scroller').DataTable({
-      ajax: "js/datatables/json/scroller-demo.json",
-      deferRender: true,
-      scrollY: 380,
-      scrollCollapse: true,
-      scroller: true
-    });
+        $datatable.dataTable({
+          'order': [[ 1, 'asc' ]],
+          'columnDefs': [
+            { orderable: false, targets: [0] }
+          ]
+        });
+        $datatable.on('draw.dt', function() {
+          $('input').iCheck({
+            checkboxClass: 'icheckbox_flat-green'
+          });
+        });
 
-    $('#datatable-fixed-header').DataTable({
-      fixedHeader: true
-    });
-
-    var $datatable = $('#datatable-checkbox');
-
-    $datatable.dataTable({
-      'order': [[ 1, 'asc' ]],
-      'columnDefs': [
-        { orderable: false, targets: [0] }
-      ]
-    });
-    $datatable.on('draw.dt', function() {
-      $('input').iCheck({
-        checkboxClass: 'icheckbox_flat-green'
+        TableManageButtons.init();
       });
-    });
+    </script>
+    <!-- /Datatables -->
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#profile-item-name').editable({
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
 
-    TableManageButtons.init();
-  });
-</script>
-<!-- /Datatables -->
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('#profile-item-name').editable({
-                       validate: function(value) {
-                          if($.trim(value) == '') 
-                            return 'This field is required';
-                        }
-                    });
+        $('#profile-item-mobile').editable({
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
 
-    $('#profile-item-mobile').editable({
-                       validate: function(value) {
-                          if($.trim(value) == '') 
-                            return 'This field is required';
-                        }
-                    });
+        $('#profile-item-organisation').editable({
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
 
-    $('#profile-item-organisation').editable({
-                       validate: function(value) {
-                          if($.trim(value) == '') 
-                            return 'This field is required';
-                        }
-                    });
+        $('#profile-item-designation').editable({
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
 
-    $('#profile-item-designation').editable({
-                       validate: function(value) {
-                          if($.trim(value) == '') 
-                            return 'This field is required';
-                        }
-                    });
+        $('#profile-item-location').editable({
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
 
-    $('#profile-item-location').editable({
-                       validate: function(value) {
-                          if($.trim(value) == '') 
-                            return 'This field is required';
-                        }
-                    });
+        $('#profile-item-city').editable({
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
 
-    $('#profile-item-city').editable({
-                       validate: function(value) {
-                          if($.trim(value) == '') 
-                            return 'This field is required';
-                        }
-                    });
+        $('#profile-item-state').editable({
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
 
-    $('#profile-item-state').editable({
-                       validate: function(value) {
-                          if($.trim(value) == '') 
-                            return 'This field is required';
-                        }
-                    });
+        $('#profile-item-country').editable({
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
 
-    $('#profile-item-country').editable({
-                       validate: function(value) {
-                          if($.trim(value) == '') 
-                            return 'This field is required';
-                        }
-                    });
+        $('#profile-item-pincode').editable({
+                           validate: function(value) {
+                              if($.trim(value) == '') 
+                                return 'This field is required';
+                            }
+                        });
 
-    $('#profile-item-pincode').editable({
-                       validate: function(value) {
-                          if($.trim(value) == '') 
-                            return 'This field is required';
-                        }
-                    });
+        $('.tooltip-image').tooltipster({
+              content: $('#tooltip_content_for_image'),
+              contentCloning: true,
+              side : ['right','top'],
+              theme: 'tooltipster-punk'
+            });
+      });
+    </script>
 
-    $('.tooltip-image').tooltipster({
-          content: $('#tooltip_content_for_image'),
-          contentCloning: true,
-          side : ['right','top'],
-          theme: 'tooltipster-punk'
+    <script>
+      
+     function initMap() {
+        var marker, i;
+        var locations = <?php echo $this->AdminModel->getUserLocations(); ?>;
+        var uluru = {lat: 26.8851413, lng: 75.650127};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
         });
-  });
-</script>
+
+        for (i = 0; i < locations.length; i++) {
+          console.log(locations[i]['latitude'], locations[i]['longitude']);
+          new google.maps.Marker({
+              position: new google.maps.LatLng(locations[i]['latitude'], locations[i]['longitude']),
+              map: map,
+              icon: "<?php echo IMAGE_PATH."onlineUser.png" ?>"
+            });
+        }
+
+        //Resize Function
+        google.maps.event.addDomListener(window, "resize", function() {
+          var center = map.getCenter();
+          google.maps.event.trigger(map, "resize");
+          map.setCenter(center);
+          console.log("resize");
+        });
+
+        setTimeout(initMap, 25000);
+
+        //google.maps.event.addDomListener(window, 'load', initMap);
+      }
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAATWOWpZOm_MkJ_M0XXc3AiglkD-zxnKE&callback=initMap">
+    </script>
+
   </body>
 </html>

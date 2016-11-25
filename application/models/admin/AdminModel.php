@@ -180,6 +180,21 @@ class AdminModel extends CI_Model {
         return $rowcount = $query->num_rows();
     }
 
+    public function getUserLocations() {
+        $time = time();
+        $this->db->from('Location');
+        $query = $this->db->get();
+        $data = $query->result();
+        $locationData[] = new stdClass();
+        foreach ($data as $row) {
+            $diff = $time - $row->updated_at;
+            if($diff < 10) {
+                $locationData[] = $row;
+            }
+        }
+        return json_encode($locationData);
+    }
+
     /**
      * to delete user
      * @param type $email   user email address

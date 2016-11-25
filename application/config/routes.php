@@ -104,6 +104,7 @@ $route['contact-to-user'] = 'home/HomeController/contactToUser';
 $route['send-email'] = 'home/HomeController/sendEmail';
 $route['load-products'] = 'home/HomeController/loadProducts';
 $route['load-more-products'] = 'home/HomeController/loadMoreProducts';
+$route['register-location'] = 'home/HomeController/registerUserLocation';
 
 //Admin
 $route['admin/deleteUser/:any'] = 'admin/Admin/deleteUser';
@@ -139,8 +140,6 @@ $route['admin/delete-product'] = 'admin/AdminController/deleteProduct';
 $route['admin/add-slider'] = 'admin/AdminController/addSlider';
 $route['admin/update-slider-sequence'] = 'admin/AdminController/updateSliderSequence';
 
-// test
-$route['check'] = 'home/HomeController/check';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

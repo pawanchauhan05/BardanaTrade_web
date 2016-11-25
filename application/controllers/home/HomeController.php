@@ -462,4 +462,13 @@ class HomeController extends CI_Controller {
 		$this->image_lib->watermark();
     }
 
+    public function registerUserLocation() {
+    	$latitude = $this->input->post('latitude');
+    	$longitude = $this->input->post('longitude');
+    	$ip = $this->input->post('ip');
+    	if($latitude == null | $longitude == null)
+    		exit();
+    	$this->HomeModel->updateUserLocation($ip, $latitude, $longitude);
+    }
+
 }
