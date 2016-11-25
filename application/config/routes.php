@@ -140,6 +140,5 @@ $route['admin/delete-product'] = 'admin/AdminController/deleteProduct';
 $route['admin/add-slider'] = 'admin/AdminController/addSlider';
 $route['admin/update-slider-sequence'] = 'admin/AdminController/updateSliderSequence';
 
-
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

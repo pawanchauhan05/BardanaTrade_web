@@ -45,7 +45,7 @@
             </li>
             <li>
               <a>
-                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                <span class="image"><img src="<?php echo IMAGE_PATH ?>img.jpg" alt="Profile Image" /></span>
                 <span>
                   <span>John Smith</span>
                   <span class="time">3 mins ago</span>
@@ -57,7 +57,7 @@
             </li>
             <li>
               <a>
-                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                <span class="image"><img src="<?php echo IMAGE_PATH ?>img.jpg" alt="Profile Image" /></span>
                 <span>
                   <span>John Smith</span>
                   <span class="time">3 mins ago</span>
@@ -69,7 +69,7 @@
             </li>
             <li>
               <a>
-                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                <span class="image"><img src="<?php echo IMAGE_PATH ?>img.jpg" alt="Profile Image" /></span>
                 <span>
                   <span>John Smith</span>
                   <span class="time">3 mins ago</span>

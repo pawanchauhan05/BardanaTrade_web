@@ -111,6 +111,20 @@ class HomeModel extends CI_Model {
         $this->db->insert('Products', $data);
     }
 
+    public function getUserAgent() {
+        if ($this->agent->is_browser('Chrome')) {
+            return "Chrome";
+        } elseif ($this->agent->is_browser('Firefox')) {
+            return "Firefox";
+        } elseif ($this->agent->is_mobile('iphone')) {
+           return "IOS"; 
+        } elseif ($this->agent->is_mobile('android')) {
+           return "Android"; 
+        } else {
+            return "Others";
+        }
+    }
+
     public function getSlider() {
         $this->db->select('*');
         $this->db->from('Slider');
@@ -291,12 +305,13 @@ class HomeModel extends CI_Model {
         $this->load->view('index',$viewData);
     }
 
-    public function updateUserLocation($ip, $latitude, $longitude) {
+    public function updateUserLocation($ip, $latitude, $longitude, $userAgent) {
         $data = array(
                 'ipAddress' => $ip,
                 'latitude' => $latitude,
                 'longitude' => $longitude,
-                'updated_at' => time()
+                'updated_at' => time(),
+                'userAgent' => $userAgent
             );
         $count = $this->isIPExist($ip);
         if($count == 0) {

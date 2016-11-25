@@ -466,9 +466,10 @@ class HomeController extends CI_Controller {
     	$latitude = $this->input->post('latitude');
     	$longitude = $this->input->post('longitude');
     	$ip = $this->input->post('ip');
+    	$userAgent = $this->input->post('userAgent');
     	if($latitude == null | $longitude == null)
     		exit();
-    	$this->HomeModel->updateUserLocation($ip, $latitude, $longitude);
+    	$this->HomeModel->updateUserLocation($ip, $latitude, $longitude, $userAgent);
     }
 
 }

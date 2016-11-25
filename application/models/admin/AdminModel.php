@@ -195,6 +195,23 @@ class AdminModel extends CI_Model {
         return json_encode($locationData);
     }
 
+    public function getUserAgent($userAgent) {
+        $this->db->from('Location');
+        $query = $this->db->get();
+        $rowcount = $query->num_rows();
+
+        $condition = array('userAgent' => $userAgent );
+        $this->db->from("Location");
+        $this->db->where($condition);
+        $userAgentquery = $this->db->get();
+        $userAgentRowCount = $userAgentquery->num_rows();
+        if($userAgentRowCount > 0) {
+            $per = ($userAgentRowCount/$rowcount)*100;
+            return round($per, 0);
+        } else { return 0; }
+        
+    }
+
     /**
      * to delete user
      * @param type $email   user email address

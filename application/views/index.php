@@ -185,6 +185,7 @@
       var latitude;
       var longitude;
       var ip = "<?php echo $this->input->ip_address() ?>";
+      var userAgent = "<?php echo $this->HomeModel->getUserAgent() ?>";
       
       function showInputFeild(that) {
         if (that.value == "Others") {
@@ -236,7 +237,8 @@
           var sentData = {
             'latitude' : latitude,
             'longitude' : longitude,
-            'ip' : ip
+            'ip' : ip,
+            'userAgent' : userAgent
           }
           var call = $.ajax({
                               type: "POST",

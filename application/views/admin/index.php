@@ -242,44 +242,55 @@
 
     <!-- Doughnut Chart -->
     <script>
-      /*$(document).ready(function(){
+    var canvas = document.getElementById("canvas1");
+      $(document).ready(function(){
         var options = {
           legend: false,
           responsive: false
         };
 
-        new Chart(document.getElementById("canvas1"), {
-          type: 'doughnut',
-          tooltipFillColor: "rgba(51, 51, 51, 0.55)",
-          data: {
-            labels: [
-              "Symbian",
-              "Blackberry",
-              "Other",
-              "Android",
-              "IOS"
-            ],
-            datasets: [{
-              data: [15, 20, 30, 10, 30],
-              backgroundColor: [
-                "#BDC3C7",
-                "#9B59B6",
-                "#E74C3C",
-                "#26B99A",
-                "#3498DB"
+        if(canvas != null) {
+            new Chart(document.getElementById("canvas1"), {
+            type: 'doughnut',
+            tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+            data: {
+              labels: [
+                "Chrome",
+                "Firefox",
+                "Android",
+                "IOS",
+                "Other"
               ],
-              hoverBackgroundColor: [
-                "#CFD4D8",
-                "#B370CF",
-                "#E95E4F",
-                "#36CAAB",
-                "#49A9EA"
-              ]
-            }]
-          },
-          options: options
-        });
-      });*/
+              datasets: [{
+                data: [
+                        <?php echo $this->AdminModel->getUserAgent('Chrome') ?>, 
+                        <?php echo $this->AdminModel->getUserAgent('Firefox') ?>, 
+                        <?php echo $this->AdminModel->getUserAgent('Android') ?>, 
+                        <?php echo $this->AdminModel->getUserAgent('IOS') ?>,
+                        <?php echo $this->AdminModel->getUserAgent('Others') ?> ],
+
+                backgroundColor: [
+                  "#3498DB",
+                  "#26B99A",
+                  "#9B59B6",
+                  "#BDC3C7",
+                  "#E74C3C"
+                ],
+                hoverBackgroundColor: [
+                  "#49A9EA",
+                  "#36CAAB",
+                  "#B370CF",
+                  "#CFD4D8",
+                  "#E95E4F"
+                ]
+              }]
+            },
+            options: options
+          });
+        }
+
+        
+      });
     </script>
     <!-- /Doughnut Chart -->
     
@@ -560,7 +571,7 @@
         }
 
         google.maps.event.addDomListener(window, 'resize', function() {
-            map.setCenter(center);
+            map.setCenter(uluru);
         });
 
         setTimeout(initMap, 25000);
