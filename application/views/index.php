@@ -75,6 +75,8 @@
             owl.trigger('autoplay.stop.owl')
         })
 
+        getLocation();
+
         $('#profile-item-name').editable({
                            validate: function(value) {
                               if($.trim(value) == '') 
@@ -180,6 +182,9 @@
     </script>
 
     <script type="text/javascript">
+      var latitude;
+      var longitude;
+      var ip = "<?php echo $this->input->ip_address() ?>";
       
       function showInputFeild(that) {
         if (that.value == "Others") {
@@ -213,6 +218,36 @@
             closeOnConfirm: false
           });
         <?php } ?>
+      }
+
+      function getLocation() {
+          if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(showPosition);
+          }
+      }
+
+      function showPosition(position) {
+          latitude = position.coords.latitude;
+          longitude = position.coords.longitude;
+          sendLocation();
+      }
+
+      function sendLocation() {
+          var sentData = {
+            'latitude' : latitude,
+            'longitude' : longitude,
+            'ip' : ip
+          }
+          var call = $.ajax({
+                              type: "POST",
+                              url: "index.php/register-location",
+                              async: false,
+                              dataType: 'json',
+                              data: sentData
+                          }).complete(function(){
+                              setTimeout(function(){sendLocation();}, 5000);
+                          }).responseText;
+          console.log(sentData);
       }
 
     </script>

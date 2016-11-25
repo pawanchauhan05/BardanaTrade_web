@@ -444,7 +444,7 @@ $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
-$config['csrf_exclude_uris'] = array('update-user-profile-name','update-user-profile-mobile','update-user-profile-organisation','update-user-profile-designation','update-user-profile-address','update-user-profile-city','update-user-profile-state','update-user-profile-country','update-user-profile-pincode','load-more-products','load-products');
+$config['csrf_exclude_uris'] = array('update-user-profile-name','update-user-profile-mobile','update-user-profile-organisation','update-user-profile-designation','update-user-profile-address','update-user-profile-city','update-user-profile-state','update-user-profile-country','update-user-profile-pincode','load-more-products','load-products', 'register-location');
 
 /*
 |--------------------------------------------------------------------------

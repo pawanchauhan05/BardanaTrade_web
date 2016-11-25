@@ -51,11 +51,3 @@
       </div>
     </div>
 </div>
-
-<style type="text/css">
-#map{
-    height: 500px;
-    margin: 0 auto;
-}
-
-</style>

@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css" />
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url() ?>custom/css/custom.min.css" rel="stylesheet">
+    <!-- Custom Css Style -->
+    <link href="<?php echo base_url() ?>custom/css/admin.css" rel="stylesheet">
     <!-- jQuery -->
     <script src="<?php echo base_url() ?>bower_components/jquery/dist/jquery.min.js"></script>
   </head>
@@ -557,18 +559,15 @@
             });
         }
 
-        //Resize Function
-        google.maps.event.addDomListener(window, "resize", function() {
-          var center = map.getCenter();
-          google.maps.event.trigger(map, "resize");
-          map.setCenter(center);
-          console.log("resize");
+        google.maps.event.addDomListener(window, 'resize', function() {
+            map.setCenter(center);
         });
 
         setTimeout(initMap, 25000);
-
-        //google.maps.event.addDomListener(window, 'load', initMap);
       }
+
+      
+
 
     </script>
     <script async defer
