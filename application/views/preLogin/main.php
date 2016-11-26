@@ -18,7 +18,7 @@
 		        <div class="carousel-inner">
 		        	<?php foreach ($data as $row) { ?>
 		            <div class="<?php echo $countSlide==0 ? "item active" : "item" ?>">
-		                <img src="<?php echo IMAGE_PATH.'slider/'.$row->sliderPic ?>" alt="First Slide">
+		                <img src="<?php echo IMAGE_PATH.'slider/'.$row->sliderPic ?>" class="img-responsive center-block" alt="First Slide">
 		            </div>
 		            <?php $countSlide++; }; ?>
 		        </div>
@@ -88,7 +88,7 @@
 			  	$rows = $this->AdminModel->showLatestProducts('Bags');
 			  	foreach ($rows as $row) {
 			  		$bagsImagePath = IMAGE_PATH.$row->productPic;
-			  		echo "<div> <img src='".$bagsImagePath."' class='img-responsive center-block'> </div>";
+			  		echo "<div> <img data-src='".$bagsImagePath."' src='".IMAGE_PATH."loading.gif' class='b-lasy img-responsive center-block'> </div>";
 			  	}
 			  ?>
 			</div>
@@ -98,8 +98,8 @@
 			  <?php
 			  	$rows = $this->AdminModel->showLatestProducts('TwineAndYarn');
 			  	foreach ($rows as $row) {
-			  		$yarnImagePath = IMAGE_PATH.$row->productPic;
-			  		echo "<div> <img src='".$yarnImagePath."' class='img-responsive center-block'> </div>";
+			  		$yarnImagePath = IMAGE_PATH.$row->productPic; 
+			  		echo "<div> <img data-src='".$yarnImagePath."' src='".IMAGE_PATH."loading.gif' class='b-lasy img-responsive center-block'> </div>";
 			  	}
 			  ?>
 			</div>
@@ -110,7 +110,7 @@
 			  	$rows = $this->AdminModel->showLatestProducts('Machines');
 			  	foreach ($rows as $row) {
 			  		$machineImagePath = IMAGE_PATH.$row->productPic;
-			  		echo "<div> <img src='".$machineImagePath."' class='img-responsive center-block'> </div>";
+			  		echo "<div> <img data-src='".$machineImagePath."' src='".IMAGE_PATH."loading.gif' class='b-lasy img-responsive center-block'> </div>";
 			  	}
 			  ?>
 			</div>

@@ -39,7 +39,7 @@
     <?php $this->load->view('common/footer') ?>
 
     <!-- jQuery -->
-    <script src="<?php echo base_url() ?>bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>bower_components/jquery/dist/jquery.min.js"></script> 
     <!-- Bootstrap -->
     <script src="<?php echo base_url() ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Owal carousal -->
@@ -56,6 +56,8 @@
     <script src="<?php echo base_url() ?>custom/js/tawk.js"></script>
     <!-- Google Analytics -->
     <script src="<?php echo base_url() ?>custom/js/google-analytics.js"></script> 
+    <!-- bLazy -->
+    <script src="<?php echo base_url() ?>bower_components/bLazy/blazy.min.js"></script> 
 
     <script type="text/javascript">
     $(document).ready(function(){
@@ -75,7 +77,7 @@
             owl.trigger('autoplay.stop.owl')
         })
 
-        getLocation();
+        //getLocation();
 
         $('#profile-item-name').editable({
                            validate: function(value) {
@@ -242,12 +244,12 @@
           }
           var call = $.ajax({
                               type: "POST",
-                              url: "index.php/register-location",
+                              url: "<?php echo REGISTER_LOCATION_URL ?>",
                               async: false,
                               dataType: 'json',
                               data: sentData
                           }).complete(function(){
-                              setTimeout(function(){sendLocation();}, 5000);
+                              setTimeout(function(){sendLocation();}, 500000);
                           }).responseText;
           console.log(sentData);
       }
@@ -269,6 +271,21 @@
         }
       });
 
+      (function() {
+            // Initialize
+            var bLazy = new Blazy({
+              selector: 'img',
+              success: function(ele) {
+                console.log("success");
+              }, 
+              error: function(ele, msg) {
+                console.log(msg);
+                console.log(ele);
+              }
+            });
+            console.log("Initialize");
+      })();
+
     </script>
 
 <script type="text/javascript">
@@ -283,7 +300,16 @@
         'category' : '<?php echo $this->uri->segment(2) ?>',
         "<?php echo $this->security->get_csrf_token_name() ?>" : "<?php echo $this->security->get_csrf_hash() ?>" 
      }, 
-     function() {total_record++;});
+     function() {
+      total_record++;
+      var bLazy = new Blazy({
+              selector: 'img',
+              success: function(ele) {
+              }, 
+              error: function(ele, msg) {
+              }
+            });
+    });
     
 
     $(window).scroll(function() {       
@@ -301,6 +327,13 @@
                       $("#results").append(data);                 
                       //$('.loader_image').hide();                  
                       total_record++;
+                      var bLazy = new Blazy({
+                        selector: 'img',
+                        success: function(ele) {
+                        }, 
+                        error: function(ele, msg) {
+                        }
+                      });
                   }
               });
           }     

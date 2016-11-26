@@ -369,8 +369,7 @@ class HomeController extends CI_Controller {
         echo 	"<div class='panel panel-default'>";
 		echo 	    "<div class='panel-body'>";
 		echo 			"<a href=". base_url() ."index.php/product-details/". $this->HomeModel->encode($row->id) .">";
-		echo 	    	"<img src=' ". base_url() ."images/". $row->productPic ."' class='img-responsive center-block' />";
-		echo  			"</a>";
+		echo 	    	"<img data-src=' ". IMAGE_PATH . $row->productPic ."' class='b-lazy img-responsive center-block' src='" . IMAGE_PATH ."loading.gif' />";
 		echo 	    	"<h3 class='text-center'> " . $row->productName . " </h3>";
 		echo 	    	"<p>".word_limiter($row->productDescription, 5)."</p>";
 		echo	    	"<div class=''>";
@@ -415,7 +414,8 @@ class HomeController extends CI_Controller {
 	        echo 	"<div class='panel panel-default'>";
 			echo 	    "<div class='panel-body'>";
 			echo 			"<a href=". base_url() ."index.php/product-details/". $this->HomeModel->encode($row->id) .">";
-			echo 	    	"<img src=' ". base_url() ."images/". $row->productPic ."' class='img-responsive center-block' />";
+			//echo 	    	"<img src=' ". base_url() ."images/". $row->productPic ."' class='img-responsive center-block' />";
+			echo 	    	"<img data-src=' ". base_url() ."images/". $row->productPic ."' class='b-lazy img-responsive center-block' src='" . IMAGE_PATH ."loading.gif' />";
 			echo  			"</a>";
 			echo 	    	"<h3 class='text-center'> " . $row->productName . " </h3>";
 			echo 	    	"<p>".word_limiter($row->productDescription, 5)."</p>";
@@ -432,7 +432,7 @@ class HomeController extends CI_Controller {
 	    	}
 	    } else {
 	    	echo "<div class='col-sm-12'>";
-	    	echo "<img src='".IMAGE_PATH."no-magento-product-found.jpg' class='img-responsive center-block' />";
+	    	echo "<img data-src='".IMAGE_PATH."no-magento-product-found.jpg' src='" . IMAGE_PATH ."loading.gif' class='b-lazy img-responsive center-block' />";
 	    	echo "</div>";
 	    }
     }

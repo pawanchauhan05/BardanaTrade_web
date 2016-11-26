@@ -118,7 +118,7 @@
 			            	<div class="panel panel-default">
 							    <div class="panel-body">
 							    	<a href='<?php echo UPDATE_PRODUCT_URL.$this->HomeModel->encode($row->id); ?>'>
-							    		<img src="<?php echo IMAGE_PATH.$row->productPic ?>" class="img-responsive center-block">
+							    		<img src="<?php echo IMAGE_PATH.$row->productPic ?>" class="img-responsive center-block" >
 							    	</a>
 							    	<h3 class="text-center"><?php echo $row->productName ?></h3>
 							    	<p><?php echo word_limiter($row->productDescription, 5) ?></p>
@@ -136,7 +136,7 @@
 		            <?php 
 		        		} echo "</div>"; } else {
 		        			echo "<div class='col-sm-12'>";
-			                echo    "<img src='".IMAGE_PATH."no-magento-product-found.jpg' class='img-responsive center-block' />";
+			                echo    "<img data-src='".IMAGE_PATH."no-magento-product-found.jpg' class='b-lazy img-responsive center-block' src='".IMAGE_PATH."loading.gif' />";
 			                echo "</div>";
 		             	}	        	
 			        ?>
