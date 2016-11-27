@@ -33,7 +33,7 @@ class HomeModel extends CI_Model {
     }
 
     public function registerUser($data) {
-        $data = array(
+        $insertData = array(
             'name' => $data['fullName'],
             'email' => $data['email'],
             'password' => $data['password'],
@@ -51,18 +51,59 @@ class HomeModel extends CI_Model {
              );
             $this->load->view('index',$viewData);
         } else {
-            $query = $this->db->insert('Users', $data);
+            $query = $this->db->insert('Users', $insertData);
             if(isset($query)) {
-                $this->HomeModel->startSession($data['name'],  $data['email'], FALSE);
+                $this->HomeModel->startSession($insertData['name'],  $insertData['email'], FALSE);
                 $viewData = array(
-                    'name' => $data['name'], 
-                    'email' => $data['email']
+                    'name' => $insertData['name'], 
+                    'email' => $insertData['email']
                     );
-                $this->HomeModel->welcomeMail($viewData);
+                if($data['isFacebook'] != 0) {
+                    $this->HomeModel->welcomeMail($viewData);
+                } else {
+                    
+                }
                 redirect('check-profile');  
 
             } 
         }  
+    }
+
+    public function loginWithFacebook() {
+        $fb = $this->facebook->object();
+        // Get user info
+        $response = $fb->get('/me?fields=name,email');
+        $user     = $response->getDecodedBody();
+        if(isset($user['email'])) {
+            $email = $user['email'];
+            $count = $this->PreLoginModel->isUserExist($email);
+            if($count != 0) {
+                $userInfo = $this->getUserInfo($email);
+                if($userInfo->isComplete == 0) {
+                    $this->HomeModel->startSession($userInfo->name,  $userInfo->email, FALSE);
+                    redirect('check-profile'); 
+                } else {
+                    $this->HomeModel->startSession($userInfo->name,  $userInfo->email, TRUE);
+                    redirect('profile');    
+                }
+            } else {
+                echo "register user";
+                $data = array(
+                            'fullName' => $user['name'],
+                            'email' => $email,
+                            'password' => "54321",
+                            'mobile' => "0123456789",
+                            'dob' => time(),
+                            'isFacebook' => 1
+                        );
+                $this->registerUser($data);
+            }
+        } else {
+            // TODO with msg redirect to home
+            redirect('index');
+        }
+        
+        
     }
 
     public function startSession($name, $email, $flag) {

@@ -4,6 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class HomeController extends CI_Controller {
 
 	public function logoutUser() {
+		echo $token = $this->facebook->get_access_token();
+		if($token != '') {
+			curl_exec($this->facebook->logout_url());
+		}
 		$this->HomeModel->stopSession();
 		redirect('index');
 	}

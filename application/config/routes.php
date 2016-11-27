@@ -96,7 +96,7 @@ $route['update-user-profile-pincode'] = 'home/HomeController/updateUserProfilePi
 $route['post-product'] = 'home/HomeController/postProduct';
 $route['contactUs'] = 'home/HomeController/contactUs';
 $route['sendFeedback'] = 'home/HomeController/sendFeedback';
-
+$route['login-with-facebook'] = 'preLogin/PreLoginController/loginWithFacebook';
 $route['product-update'] = 'home/HomeController/updateProduct';
 $route['change-password'] = 'home/HomeController/changePassword';
 $route['contact-to-user'] = 'home/HomeController/contactToUser';

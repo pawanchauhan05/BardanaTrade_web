@@ -42,6 +42,11 @@ class PreLoginController extends CI_Controller {
         }        
     }
 
+
+    public function loginWithFacebook() {
+        $this->HomeModel->loginWithFacebook();
+    }
+
     public function registerUser() {
         $fullName = $this->input->post('signup-fullName');
         $email = $this->input->post('signup-email');
@@ -68,7 +73,8 @@ class PreLoginController extends CI_Controller {
                 'email' => $email,
                 'password' => md5($password),
                 'mobile' => $mobile,
-                'dob' => strtotime($dob)
+                'dob' => strtotime($dob),
+                'isFacebook' => 0
                 );
             $this->HomeModel->registerUser($data);
         }

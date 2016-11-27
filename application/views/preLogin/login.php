@@ -43,6 +43,16 @@
 		</div>
 		<div class="col-sm-6">
 			<p class="login-title">Existing User Sign In</p><?php echo $status  ?><hr>
+                        <a href="<?php echo $this->facebook->login_url() ?>">
+                        <img src="<?php echo IMAGE_PATH.'login-with-fb.png' ?>" class="img-responsive center-block" style="width:250px; height: 50px" />
+                        </a>
+                        <div class="row loginOr">
+                            <div class="col-lg-12">
+                              <hr class="hrOr">
+                              <span class="spanOr">or</span>
+                            </div>
+                        </div>
+                        
 			<?php echo form_open('user-login') ?>
 			    <div class="form-group">
 			        <label for="inputEmail" class="<?php echo form_error('login-email') != '' ? "login-email" : "" ?>">
@@ -58,6 +68,11 @@
 			    </div>
 			    <button type="submit" class="btn btn-primary">Sign In</button> <a href="" class="pull-right">Forgot Your Password ?</a>
 			<?php echo form_close() ?>
+
+			
+
+
+
 		</div>
 	</div>
 </div>
