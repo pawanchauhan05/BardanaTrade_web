@@ -276,14 +276,10 @@
             var bLazy = new Blazy({
               selector: 'img',
               success: function(ele) {
-                console.log("success");
               }, 
               error: function(ele, msg) {
-                console.log(msg);
-                console.log(ele);
               }
             });
-            console.log("Initialize");
       })();
 
     </script>
