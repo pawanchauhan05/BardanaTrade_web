@@ -22,8 +22,10 @@
     <!-- Tooltipster -->
     <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/tooltipster/dist/css/tooltipster.bundle.min.css" />
     <link rel="stylesheet" href="<?php echo base_url() ?>bower_components/tooltipster/dist/css/plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min.css" />
-    
-
+    <!-- jQuery -->
+    <script src="<?php echo base_url() ?>bower_components/jquery/dist/jquery.min.js"></script> 
+    <!-- bLazy -->
+    <script src="<?php echo base_url() ?>bower_components/bLazy/blazy.min.js"></script>
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url() ?>custom/css/custom-bardanatrade.css" rel="stylesheet">
   </head>
@@ -38,8 +40,7 @@
 
     <?php $this->load->view('common/footer') ?>
 
-    <!-- jQuery -->
-    <script src="<?php echo base_url() ?>bower_components/jquery/dist/jquery.min.js"></script> 
+    
     <!-- Bootstrap -->
     <script src="<?php echo base_url() ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Owal carousal -->
@@ -56,8 +57,7 @@
     <script src="<?php echo base_url() ?>custom/js/tawk.js"></script>
     <!-- Google Analytics -->
     <script src="<?php echo base_url() ?>custom/js/google-analytics.js"></script> 
-    <!-- bLazy -->
-    <script src="<?php echo base_url() ?>bower_components/bLazy/blazy.min.js"></script> 
+     
 
     <script type="text/javascript">
     $(document).ready(function(){
@@ -249,7 +249,7 @@
                               dataType: 'json',
                               data: sentData
                           }).complete(function(){
-                              setTimeout(function(){sendLocation();}, 500000);
+                              setTimeout(function(){sendLocation();}, 5000);
                           }).responseText;
           console.log(sentData);
       }
