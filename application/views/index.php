@@ -77,7 +77,7 @@
             owl.trigger('autoplay.stop.owl')
         })
 
-        //getLocation();
+        getLocation();
 
         $('#profile-item-name').editable({
                            validate: function(value) {
