@@ -40,7 +40,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6">
-				<img data-src="<?php echo base_url() ?>images/logo.jpg" alt="" src="http://localhost/BardanaTrade_web/images/loading.gif" class="b-lazy logo img-responsive"/>
+				<img data-src="<?php echo IMAGE_PATH.'logo.jpg' ?>" alt="" src="<?php echo IMAGE_PATH.'loading-logo.gif' ?>" class="b-lazy logo img-responsive"/>
 			</div>
 			<div class="col-sm-6">
 				<div class="head-button">

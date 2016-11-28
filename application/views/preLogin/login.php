@@ -42,9 +42,15 @@
 			<?php echo form_close() ?>
 		</div>
 		<div class="col-sm-6">
-			<p class="login-title">Existing User Sign In</p><?php echo $status  ?><hr>
+			<p class="login-title">Existing User Sign In</p>
+			<?php $message = $this->session->flashdata('message');
+					if(isset($message)) {
+						echo $message;
+					}
+			?>
+			<?php echo $status  ?><hr>
                         <a href="<?php echo $this->facebook->login_url() ?>">
-                        <img src="<?php echo IMAGE_PATH.'login-with-fb.png' ?>" class="img-responsive center-block" style="width:250px; height: 50px" />
+                        <img src="<?php echo IMAGE_PATH.'login-with-fb.png' ?>" class="img-responsive center-block" />
                         </a>
                         <div class="row loginOr">
                             <div class="col-lg-12">
@@ -68,10 +74,6 @@
 			    </div>
 			    <button type="submit" class="btn btn-primary">Sign In</button> <a href="" class="pull-right">Forgot Your Password ?</a>
 			<?php echo form_close() ?>
-
-			
-
-
 
 		</div>
 	</div>

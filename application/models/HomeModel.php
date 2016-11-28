@@ -99,8 +99,8 @@ class HomeModel extends CI_Model {
                 $this->registerUser($data);
             }
         } else {
-            // TODO with msg redirect to home
-            redirect('index');
+            $this->session->set_flashdata('message', '<p class="login-status">Please login with registered email facebook Id.</p>');
+            redirect("login", 'refresh');
         }
         
         
