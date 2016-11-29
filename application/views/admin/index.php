@@ -126,7 +126,7 @@
     <script src="<?php echo base_url() ?>bower_components/tooltipster/dist/js/tooltipster.bundle.min.js"></script>
     <!-- Flot -->
     <script>
-      $(document).ready(function() {
+      /*$(document).ready(function() {
         var data1 = [
           [gd(2012, 1, 1), 17],
           [gd(2012, 1, 2), 74],
@@ -196,12 +196,13 @@
         function gd(year, month, day) {
           return new Date(year, month - 1, day).getTime();
         }
-      });
+      }); */
     </script>
     <!-- /Flot -->
 
     <!-- JQVMap -->
     <script>
+        /*
       $(document).ready(function(){
         $('#world-map-gdp').vectorMap({
             map: 'world_en',
@@ -215,12 +216,13 @@
             scaleColors: ['#E6F2F0', '#149B7E'],
             normalizeFunction: 'polynomial'
         });
-      });
+      }); */
     </script>
     <!-- /JQVMap -->
 
     <!-- Skycons -->
     <script>
+        /*
       $(document).ready(function() {
         var icons = new Skycons({
             "color": "#73879C"
@@ -236,7 +238,7 @@
           icons.set(list[i], list[i]);
 
         icons.play();
-      });
+      }); */
     </script>
     <!-- /Skycons -->
 
@@ -370,6 +372,7 @@
 
     <!-- gauge.js -->
     <script>
+            /*
       var opts = {
           lines: 12,
           angle: 0,
@@ -392,6 +395,7 @@
       gauge.animationSpeed = 32;
       gauge.set(3200);
       gauge.setTextField(document.getElementById("gauge-text"));
+      */
     </script>
     <!-- /gauge.js -->
 
