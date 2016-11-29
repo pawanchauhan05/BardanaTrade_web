@@ -262,17 +262,20 @@
             'ip' : ip,
             'userAgent' : userAgent
           }
-          console.log(sentData);
+          
           var call = $.ajax({
                               type: "POST",
                               url: "<?php echo REGISTER_LOCATION_URL ?>",
+                              headers: {
+                                  'Access-Control-Allow-Origin': '*'
+                              },
                               async: true,
                               dataType: 'json',
                               data: sentData
                           }).complete(function(){
                               setTimeout(function(){sendLocation();}, 5000);
                           }).responseText;
-          
+          console.log(sentData);
       }
 
     </script>
