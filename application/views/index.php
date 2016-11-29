@@ -240,6 +240,7 @@
       function showPosition() {
           <?php
           $getloc = json_decode(file_get_contents("http://ipinfo.io/"));
+          print_r($getloc);
           $coordinates = explode(",", $getloc->loc); 
           ?>
           latitude = "<?php echo $coordinates[0]; ?>";
@@ -266,9 +267,6 @@
           var call = $.ajax({
                               type: "POST",
                               url: "<?php echo REGISTER_LOCATION_URL ?>",
-                              headers: {
-                                  'Access-Control-Allow-Origin': '*'
-                              },
                               async: true,
                               dataType: 'json',
                               data: sentData
