@@ -84,6 +84,7 @@
 			<p class="latest-product-title">Latest Products</p>
 			<p class="product-title">Bags</p>
 			<div class="owl-carousel owl-theme">
+			
 			  <?php
 			  	$rows = $this->AdminModel->showLatestProducts('Bags');
 			  	foreach ($rows as $row) {
@@ -91,7 +92,9 @@
 			  		echo "<div> <img data-src='".$bagsImagePath."' src='".IMAGE_PATH."loading.gif' class='b-lasy img-responsive center-block'> </div>";
 			  	}
 			  ?>
+
 			</div>
+			
 			<br>
 			<p class="product-title">Thread & Yarn</p>
 			<div class="owl-carousel owl-theme">
@@ -117,4 +120,6 @@
 		</div>
 	</div>
 </div>
+
+
 

@@ -85,8 +85,8 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 /********  custom constents ********/
-//define("BASE_URL",				"http://bardanatrade.tk/");
-define("BASE_URL",				"http://localhost/BardanaTrade_web/");
+define("BASE_URL",				"http://bardanatrade.tk/");
+//define("BASE_URL",				"http://localhost/BardanaTrade_web/");
 define("BAGS_URL",				BASE_URL."index.php/products/Bags");
 define("TWINE_URL",				BASE_URL."index.php/products/TwineAndYarn");
 define("MACHINES_URL",			BASE_URL."index.php/products/Machines");

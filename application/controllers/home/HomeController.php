@@ -374,6 +374,7 @@ class HomeController extends CI_Controller {
 		echo 	    "<div class='panel-body'>";
 		echo 			"<a href=". base_url() ."index.php/product-details/". $this->HomeModel->encode($row->id) .">";
 		echo 	    	"<img data-src=' ". IMAGE_PATH . $row->productPic ."' class='b-lazy img-responsive center-block' src='" . IMAGE_PATH ."loading.gif' />";
+		echo  			"</a>";
 		echo 	    	"<h3 class='text-center'> " . $row->productName . " </h3>";
 		echo 	    	"<p>".word_limiter($row->productDescription, 5)."</p>";
 		echo	    	"<div class=''>";
@@ -418,7 +419,6 @@ class HomeController extends CI_Controller {
 	        echo 	"<div class='panel panel-default'>";
 			echo 	    "<div class='panel-body'>";
 			echo 			"<a href=". base_url() ."index.php/product-details/". $this->HomeModel->encode($row->id) .">";
-			//echo 	    	"<img src=' ". base_url() ."images/". $row->productPic ."' class='img-responsive center-block' />";
 			echo 	    	"<img data-src=' ". base_url() ."images/". $row->productPic ."' class='b-lazy img-responsive center-block' src='" . IMAGE_PATH ."loading.gif' />";
 			echo  			"</a>";
 			echo 	    	"<h3 class='text-center'> " . $row->productName . " </h3>";

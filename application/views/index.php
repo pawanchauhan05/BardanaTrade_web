@@ -77,7 +77,21 @@
             owl.trigger('autoplay.stop.owl')
         })
 
-        getLocation();
+        var bLazy = new Blazy({
+              selector: 'img',
+              success: function(ele) {
+              }, 
+              error: function(ele, msg) {
+              }
+            });
+
+        if(window.sessionStorage.getItem('latitude')) {
+          sendLocation();
+        } else {
+          showLocation();
+        }
+
+        
 
         $('#profile-item-name').editable({
                            validate: function(value) {
@@ -223,35 +237,42 @@
         <?php } ?>
       }
 
-      function getLocation() {
-          if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(showPosition);
-          }
-      }
+      function showPosition() {
+          <?php
+          $getloc = json_decode(file_get_contents("http://ipinfo.io/"));
+          $coordinates = explode(",", $getloc->loc); 
+          ?>
+          latitude = "<?php echo $coordinates[0]; ?>";
+          longitude = "<?php echo $coordinates[1]; ?>";
 
-      function showPosition(position) {
-          latitude = position.coords.latitude;
-          longitude = position.coords.longitude;
+          if(window.sessionStorage.getItem('latitude')) {
+            console.log("second time");
+          } else {
+            window.sessionStorage.setItem("latitude", latitude);
+            window.sessionStorage.setItem("longitude", longitude);
+            console.log("first time");
+          }
           sendLocation();
       }
 
       function sendLocation() {
           var sentData = {
-            'latitude' : latitude,
-            'longitude' : longitude,
+            'latitude' : window.sessionStorage.getItem('latitude'),
+            'longitude' : window.sessionStorage.getItem('longitude'),
             'ip' : ip,
             'userAgent' : userAgent
           }
+          console.log(sentData);
           var call = $.ajax({
                               type: "POST",
                               url: "<?php echo REGISTER_LOCATION_URL ?>",
-                              async: false,
+                              async: true,
                               dataType: 'json',
                               data: sentData
                           }).complete(function(){
                               setTimeout(function(){sendLocation();}, 5000);
                           }).responseText;
-          console.log(sentData);
+          
       }
 
     </script>
@@ -350,11 +371,18 @@
         {  'selectedProducts': selectedProducts, 
            'category' : '<?php echo $this->uri->segment(2) ?>'
         }, 
-       function() {});
+       function() {
+        var bLazy = new Blazy({
+                        selector: 'img',
+                        success: function(ele) {
+                        }, 
+                        error: function(ele, msg) {
+                        }
+                      });
+       });
       });
   }
   
 </script>
-
   </body>
 </html>

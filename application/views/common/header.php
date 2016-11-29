@@ -26,7 +26,7 @@
         				if(isset($sessionData['sessionData'])) { ?>
 						<a href="<?php echo USER_LOGOUT_URL ?>" class='top-head-title'><?php echo "Logout" ?></a>
         				<?php } else { ?>
-        					<a href="<?php echo LOGIN_URL ?> ?>" class="top-head-title">Create Account</a> 
+        					<a href="<?php echo LOGIN_URL ?>" class="top-head-title">Create Account</a> 
 					<span class="top-head-title">|</span> 
 					<a href="<?php echo LOGIN_URL ?>" class="top-head-title">Login</a>
         				<?php } ?>
