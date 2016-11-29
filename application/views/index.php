@@ -88,7 +88,7 @@
         if(window.sessionStorage.getItem('latitude')) {
           sendLocation();
         } else {
-          showLocation();
+          showPosition();
         }
 
         
