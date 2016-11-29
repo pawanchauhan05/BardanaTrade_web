@@ -69,7 +69,7 @@
     <!-- NProgress -->
     <script src="<?php echo base_url() ?>bower_components/nprogress/nprogress.js"></script>
     <!-- Chart.js -->
-    <script src="<?php echo base_url() ?>bower_components/Chart.js/dist/Chart.min.js"></script>
+    <script src="<?php echo base_url() ?>bower_components/Chart/dist/Chart.min.js"></script>
     <!-- gauge.js -->
     <script src="<?php echo base_url() ?>bower_components/gauge.js/dist/gauge.min.js"></script>
     <!-- bootstrap-progressbar -->
