@@ -9,7 +9,7 @@
 			$data = $this->HomeModel->getContactDetails($row->email);
 		?>
 		<div class="col-sm-4 col-xs-12">
-			<img src="<?php echo IMAGE_PATH.$row->productPic ?>" class="img-responsive">
+			<img src="<?php echo IMAGE_PATH.$row->productPic ?>" class="img-responsive center-block">
 		</div>
 		<div class="col-sm-8 col-xs-12">
 			<div class="row">

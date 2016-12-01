@@ -215,7 +215,8 @@ class HomeController extends CI_Controller {
             $viewData = array(
             	'redirectUrl' => 'home/update-product',
             	'productId' => $productId,
-            	'error' => ''
+            	'error' => '',
+                'status'=> ''
             	);
             $this->load->view('index',$viewData);
         } else {
@@ -250,7 +251,8 @@ class HomeController extends CI_Controller {
         		$viewData = array(
 		            	'redirectUrl' => 'home/update-product',
             			'productId' => $productId,
-		            	'error' => $this->upload->display_errors()
+		            	'error' => $this->upload->display_errors(),
+                                'status' => ""
 	            	);
         		$this->load->view('index',$viewData);
         	}

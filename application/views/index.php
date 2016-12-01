@@ -236,16 +236,16 @@
           });
         <?php } ?>
       }
+      
+      <?php
+          $getloc = json_decode(file_get_contents("http://ipinfo.io/"));
+          $coordinates = explode(",", $getloc->loc); 
+      ?>
 
       function showPosition() {
-          <?php
-          $getloc = json_decode(file_get_contents("http://ipinfo.io/"));
-          print_r($getloc);
-          $coordinates = explode(",", $getloc->loc); 
-          ?>
           latitude = "<?php echo $coordinates[0]; ?>";
           longitude = "<?php echo $coordinates[1]; ?>";
-
+          console.log("called");
           if(window.sessionStorage.getItem('latitude')) {
             console.log("second time");
           } else {
